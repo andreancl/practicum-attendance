@@ -111,7 +111,7 @@ Partial Class frmLogIn
         '
         Me.PictureBox.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox.Image = CType(resources.GetObject("PictureBox.Image"), System.Drawing.Image)
-        Me.PictureBox.Location = New System.Drawing.Point(60, 27)
+        Me.PictureBox.Location = New System.Drawing.Point(64, 31)
         Me.PictureBox.Margin = New System.Windows.Forms.Padding(2)
         Me.PictureBox.Name = "PictureBox"
         Me.PictureBox.Size = New System.Drawing.Size(171, 150)

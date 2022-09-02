@@ -78,4 +78,18 @@ Public Class frmLogIn
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
         Application.Exit()
     End Sub
+
+    Private Sub txtUsername_Click(sender As Object, e As EventArgs) Handles txtUsername.Click
+        txtUsername.BackColor = Color.White
+        Panel3.BackColor = Color.White
+        Panel4.BackColor = SystemColors.Control
+        txtPassword.BackColor = SystemColors.Control
+    End Sub
+
+    Private Sub txtPassword_Click(sender As Object, e As EventArgs) Handles txtPassword.Click
+        txtPassword.BackColor = Color.White
+        Panel4.BackColor = Color.White
+        Panel3.BackColor = SystemColors.Control
+        txtUsername.BackColor = SystemColors.Control
+    End Sub
 End Class

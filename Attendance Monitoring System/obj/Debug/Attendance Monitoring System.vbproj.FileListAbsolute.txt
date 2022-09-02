@@ -10,3 +10,15 @@ C:\Users\asus\Documents\Visual Studio 2012\Projects\Attendance Monitoring System
 C:\Users\asus\Documents\Visual Studio 2012\Projects\Attendance Monitoring System\Attendance Monitoring System\obj\Debug\Attendance_Monitoring_System.frmLogIn.resources
 C:\Users\asus\Documents\Visual Studio 2012\Projects\Attendance Monitoring System\Attendance Monitoring System\bin\Debug\MySql.Data.EntityFramework.dll
 C:\Users\asus\Documents\Visual Studio 2012\Projects\Attendance Monitoring System\Attendance Monitoring System\bin\Debug\MySql.Data.EntityFramework.xml
+C:\Users\asus\Documents\GitHub\practicum-attendance\Attendance Monitoring System\bin\Debug\Attendance Monitoring System.exe.config
+C:\Users\asus\Documents\GitHub\practicum-attendance\Attendance Monitoring System\obj\Debug\Attendance Monitoring System.exe
+C:\Users\asus\Documents\GitHub\practicum-attendance\Attendance Monitoring System\obj\Debug\Attendance Monitoring System.xml
+C:\Users\asus\Documents\GitHub\practicum-attendance\Attendance Monitoring System\obj\Debug\Attendance Monitoring System.pdb
+C:\Users\asus\Documents\GitHub\practicum-attendance\Attendance Monitoring System\bin\Debug\Attendance Monitoring System.exe
+C:\Users\asus\Documents\GitHub\practicum-attendance\Attendance Monitoring System\bin\Debug\Attendance Monitoring System.pdb
+C:\Users\asus\Documents\GitHub\practicum-attendance\Attendance Monitoring System\bin\Debug\Attendance Monitoring System.xml
+C:\Users\asus\Documents\GitHub\practicum-attendance\Attendance Monitoring System\bin\Debug\MySql.Data.EntityFramework.dll
+C:\Users\asus\Documents\GitHub\practicum-attendance\Attendance Monitoring System\bin\Debug\MySql.Data.EntityFramework.xml
+C:\Users\asus\Documents\GitHub\practicum-attendance\Attendance Monitoring System\obj\Debug\Attendance_Monitoring_System.frmLogIn.resources
+C:\Users\asus\Documents\GitHub\practicum-attendance\Attendance Monitoring System\obj\Debug\Attendance_Monitoring_System.Resources.resources
+C:\Users\asus\Documents\GitHub\practicum-attendance\Attendance Monitoring System\obj\Debug\Attendance Monitoring System.vbproj.GenerateResource.Cache
