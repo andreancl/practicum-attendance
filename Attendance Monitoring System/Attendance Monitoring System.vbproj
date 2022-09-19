@@ -47,6 +47,9 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MessagingToolkit.QRCode">
+      <HintPath>..\..\..\..\Downloads\MessagingToolkit.QRCode.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data, Version=8.0.27.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="MySql.Data.EntityFramework, Version=8.0.27.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="MySql.Web, Version=8.0.27.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
@@ -74,10 +77,10 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frm.Designer.vb">
-      <DependentUpon>frm.vb</DependentUpon>
+    <Compile Include="frmPracticums.Designer.vb">
+      <DependentUpon>frmPracticums.vb</DependentUpon>
     </Compile>
-    <Compile Include="frm.vb">
+    <Compile Include="frmPracticums.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmDashboard.Designer.vb">
@@ -95,6 +98,7 @@
     </Compile>
     <Compile Include="Modules\Conn.vb" />
     <Compile Include="Modules\Crud.vb" />
+    <Compile Include="Modules\Functions.vb" />
     <Compile Include="Modules\User.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -113,8 +117,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="frm.resx">
-      <DependentUpon>frm.vb</DependentUpon>
+    <EmbeddedResource Include="frmPracticums.resx">
+      <DependentUpon>frmPracticums.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDashboard.resx">
       <DependentUpon>frmDashboard.vb</DependentUpon>

@@ -34,7 +34,6 @@ Partial Class frmDashboard
         Me.btnPracticums = New System.Windows.Forms.Button()
         Me.btnDashboard = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel3.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -188,21 +187,11 @@ Partial Class frmDashboard
         Me.Panel1.Size = New System.Drawing.Size(256, 749)
         Me.Panel1.TabIndex = 9
         '
-        'Panel2
-        '
-        Me.Panel2.BackgroundImage = CType(resources.GetObject("Panel2.BackgroundImage"), System.Drawing.Image)
-        Me.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Panel2.Location = New System.Drawing.Point(256, 117)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1114, 592)
-        Me.Panel2.TabIndex = 12
-        '
         'frmDashboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1370, 749)
-        Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel1)
         Me.IsMdiContainer = True
@@ -228,5 +217,4 @@ Partial Class frmDashboard
     Friend WithEvents btnPracticums As System.Windows.Forms.Button
     Friend WithEvents btnDashboard As System.Windows.Forms.Button
     Friend WithEvents btnLogOut As System.Windows.Forms.Button
-    Friend WithEvents Panel2 As System.Windows.Forms.Panel
 End Class
