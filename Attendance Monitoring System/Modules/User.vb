@@ -11,10 +11,11 @@ Module user
             If dr.HasRows() Then
                 dr.Read()
                 If dr("UserTypeId") = "1" Then
-                    frmDashboard.Show()
+                    frmMain.Show()
+                    showForm(frmDashboard)
                     frmLogIn.Hide()
                 Else
-                    frmDashboard.Show()
+                    frmMain.Show()
                     frmLogIn.Hide()
                 End If
             End If

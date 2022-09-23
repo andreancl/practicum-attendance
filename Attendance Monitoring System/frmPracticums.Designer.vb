@@ -26,193 +26,125 @@ Partial Class frmPracticums
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPracticums))
-        Me.gbMembers = New System.Windows.Forms.GroupBox()
-        Me.cmbBatch = New System.Windows.Forms.ComboBox()
-        Me.cmbAssignment = New System.Windows.Forms.ComboBox()
-        Me.btnBrowse = New System.Windows.Forms.Button()
+        Me.gbPracticums = New System.Windows.Forms.GroupBox()
+        Me.btnPrint = New System.Windows.Forms.Button()
+        Me.btnSaveQR = New System.Windows.Forms.Button()
         Me.pbQR = New System.Windows.Forms.PictureBox()
-        Me.pbProfile = New System.Windows.Forms.PictureBox()
-        Me.lblStart = New System.Windows.Forms.Label()
-        Me.cmbVenue = New System.Windows.Forms.ComboBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.txtFullName = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.btnClear = New System.Windows.Forms.Button()
         Me.btnUpdate = New System.Windows.Forms.Button()
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.btnSave = New System.Windows.Forms.Button()
+        Me.dtpEnd = New System.Windows.Forms.DateTimePicker()
+        Me.dtpStart = New System.Windows.Forms.DateTimePicker()
+        Me.cmbSY = New System.Windows.Forms.ComboBox()
+        Me.cmbBatch = New System.Windows.Forms.ComboBox()
+        Me.cmbAssignment = New System.Windows.Forms.ComboBox()
+        Me.cmbVenue = New System.Windows.Forms.ComboBox()
         Me.cmbCourse = New System.Windows.Forms.ComboBox()
+        Me.txtFirstName = New System.Windows.Forms.TextBox()
+        Me.txtLastName = New System.Windows.Forms.TextBox()
+        Me.lblEnd = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.lblStart = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.txtContactNo = New System.Windows.Forms.TextBox()
         Me.txtPracticumID = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.lblMemId = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.lblResRec = New System.Windows.Forms.Label()
-        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.dgvMembersRecord = New System.Windows.Forms.DataGridView()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.gbMembers.SuspendLayout()
+        Me.dgvPracticumRecord = New System.Windows.Forms.DataGridView()
+        Me.lblSearchBy = New System.Windows.Forms.Label()
+        Me.cmbFilter = New System.Windows.Forms.ComboBox()
+        Me.txtSearch = New System.Windows.Forms.TextBox()
+        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
+        Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
+        Me.gbPracticums.SuspendLayout()
         CType(Me.pbQR, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pbProfile, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
-        CType(Me.dgvMembersRecord, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvPracticumRecord, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'gbMembers
+        'gbPracticums
         '
-        Me.gbMembers.BackColor = System.Drawing.Color.FromArgb(CType(CType(175, Byte), Integer), CType(CType(221, Byte), Integer), CType(CType(148, Byte), Integer))
-        Me.gbMembers.Controls.Add(Me.cmbBatch)
-        Me.gbMembers.Controls.Add(Me.cmbAssignment)
-        Me.gbMembers.Controls.Add(Me.btnBrowse)
-        Me.gbMembers.Controls.Add(Me.pbQR)
-        Me.gbMembers.Controls.Add(Me.pbProfile)
-        Me.gbMembers.Controls.Add(Me.lblStart)
-        Me.gbMembers.Controls.Add(Me.cmbVenue)
-        Me.gbMembers.Controls.Add(Me.Label3)
-        Me.gbMembers.Controls.Add(Me.txtFullName)
-        Me.gbMembers.Controls.Add(Me.Label1)
-        Me.gbMembers.Controls.Add(Me.btnClear)
-        Me.gbMembers.Controls.Add(Me.btnUpdate)
-        Me.gbMembers.Controls.Add(Me.btnDelete)
-        Me.gbMembers.Controls.Add(Me.btnSave)
-        Me.gbMembers.Controls.Add(Me.cmbCourse)
-        Me.gbMembers.Controls.Add(Me.Label2)
-        Me.gbMembers.Controls.Add(Me.Label4)
-        Me.gbMembers.Controls.Add(Me.txtContactNo)
-        Me.gbMembers.Controls.Add(Me.txtPracticumID)
-        Me.gbMembers.Controls.Add(Me.Label10)
-        Me.gbMembers.Controls.Add(Me.Label11)
-        Me.gbMembers.Controls.Add(Me.lblMemId)
-        Me.gbMembers.Location = New System.Drawing.Point(19, 19)
-        Me.gbMembers.Name = "gbMembers"
-        Me.gbMembers.Size = New System.Drawing.Size(982, 321)
-        Me.gbMembers.TabIndex = 81
-        Me.gbMembers.TabStop = False
+        Me.gbPracticums.BackColor = System.Drawing.Color.FromArgb(CType(CType(175, Byte), Integer), CType(CType(221, Byte), Integer), CType(CType(148, Byte), Integer))
+        Me.gbPracticums.Controls.Add(Me.btnPrint)
+        Me.gbPracticums.Controls.Add(Me.btnSaveQR)
+        Me.gbPracticums.Controls.Add(Me.pbQR)
+        Me.gbPracticums.Controls.Add(Me.btnClear)
+        Me.gbPracticums.Controls.Add(Me.btnUpdate)
+        Me.gbPracticums.Controls.Add(Me.btnDelete)
+        Me.gbPracticums.Controls.Add(Me.btnSave)
+        Me.gbPracticums.Controls.Add(Me.dtpEnd)
+        Me.gbPracticums.Controls.Add(Me.dtpStart)
+        Me.gbPracticums.Controls.Add(Me.cmbSY)
+        Me.gbPracticums.Controls.Add(Me.cmbBatch)
+        Me.gbPracticums.Controls.Add(Me.cmbAssignment)
+        Me.gbPracticums.Controls.Add(Me.cmbVenue)
+        Me.gbPracticums.Controls.Add(Me.cmbCourse)
+        Me.gbPracticums.Controls.Add(Me.txtFirstName)
+        Me.gbPracticums.Controls.Add(Me.txtLastName)
+        Me.gbPracticums.Controls.Add(Me.lblEnd)
+        Me.gbPracticums.Controls.Add(Me.Label5)
+        Me.gbPracticums.Controls.Add(Me.Label6)
+        Me.gbPracticums.Controls.Add(Me.lblStart)
+        Me.gbPracticums.Controls.Add(Me.Label3)
+        Me.gbPracticums.Controls.Add(Me.Label1)
+        Me.gbPracticums.Controls.Add(Me.Label2)
+        Me.gbPracticums.Controls.Add(Me.Label4)
+        Me.gbPracticums.Controls.Add(Me.txtPracticumID)
+        Me.gbPracticums.Controls.Add(Me.Label10)
+        Me.gbPracticums.Controls.Add(Me.Label11)
+        Me.gbPracticums.Location = New System.Drawing.Point(19, 19)
+        Me.gbPracticums.Name = "gbPracticums"
+        Me.gbPracticums.Size = New System.Drawing.Size(1021, 249)
+        Me.gbPracticums.TabIndex = 81
+        Me.gbPracticums.TabStop = False
         '
-        'cmbBatch
+        'btnPrint
         '
-        Me.cmbBatch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbBatch.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbBatch.FormattingEnabled = True
-        Me.cmbBatch.Items.AddRange(New Object() {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"})
-        Me.cmbBatch.Location = New System.Drawing.Point(173, 235)
-        Me.cmbBatch.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
-        Me.cmbBatch.Name = "cmbBatch"
-        Me.cmbBatch.Size = New System.Drawing.Size(265, 29)
-        Me.cmbBatch.TabIndex = 190
+        Me.btnPrint.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.btnPrint.BackColor = System.Drawing.Color.Green
+        Me.btnPrint.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnPrint.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPrint.ForeColor = System.Drawing.Color.White
+        Me.btnPrint.Location = New System.Drawing.Point(935, 206)
+        Me.btnPrint.Name = "btnPrint"
+        Me.btnPrint.Size = New System.Drawing.Size(66, 29)
+        Me.btnPrint.TabIndex = 228
+        Me.btnPrint.Text = "Print"
+        Me.btnPrint.UseVisualStyleBackColor = False
         '
-        'cmbAssignment
+        'btnSaveQR
         '
-        Me.cmbAssignment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbAssignment.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbAssignment.FormattingEnabled = True
-        Me.cmbAssignment.Items.AddRange(New Object() {"Carding", "Filing Reg Card", "Filing Permit", "Filing Credentials", "Front Desk", "Verification of Grades", "Window 5", "Window 7", "Window 8", "Window 9 ", "Window 10", "Window 12", "Background Investigation", "Evaluation", "Assistant"})
-        Me.cmbAssignment.Location = New System.Drawing.Point(173, 199)
-        Me.cmbAssignment.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
-        Me.cmbAssignment.Name = "cmbAssignment"
-        Me.cmbAssignment.Size = New System.Drawing.Size(265, 29)
-        Me.cmbAssignment.TabIndex = 189
-        '
-        'btnBrowse
-        '
-        Me.btnBrowse.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.btnBrowse.BackColor = System.Drawing.Color.Green
-        Me.btnBrowse.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.btnBrowse.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnBrowse.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnBrowse.ForeColor = System.Drawing.Color.White
-        Me.btnBrowse.Location = New System.Drawing.Point(734, 193)
-        Me.btnBrowse.Name = "btnBrowse"
-        Me.btnBrowse.Size = New System.Drawing.Size(190, 29)
-        Me.btnBrowse.TabIndex = 188
-        Me.btnBrowse.Text = "Browse Image"
-        Me.btnBrowse.UseVisualStyleBackColor = False
+        Me.btnSaveQR.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.btnSaveQR.BackColor = System.Drawing.Color.Green
+        Me.btnSaveQR.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnSaveQR.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSaveQR.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSaveQR.ForeColor = System.Drawing.Color.White
+        Me.btnSaveQR.Location = New System.Drawing.Point(818, 206)
+        Me.btnSaveQR.Name = "btnSaveQR"
+        Me.btnSaveQR.Size = New System.Drawing.Size(92, 29)
+        Me.btnSaveQR.TabIndex = 227
+        Me.btnSaveQR.Text = "Save QR"
+        Me.btnSaveQR.UseVisualStyleBackColor = False
         '
         'pbQR
         '
         Me.pbQR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.pbQR.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pbQR.Location = New System.Drawing.Point(505, 20)
+        Me.pbQR.Location = New System.Drawing.Point(818, 19)
         Me.pbQR.Name = "pbQR"
-        Me.pbQR.Size = New System.Drawing.Size(190, 167)
-        Me.pbQR.TabIndex = 187
+        Me.pbQR.Size = New System.Drawing.Size(183, 169)
+        Me.pbQR.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.pbQR.TabIndex = 226
         Me.pbQR.TabStop = False
-        '
-        'pbProfile
-        '
-        Me.pbProfile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.pbProfile.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pbProfile.Location = New System.Drawing.Point(734, 20)
-        Me.pbProfile.Name = "pbProfile"
-        Me.pbProfile.Size = New System.Drawing.Size(190, 167)
-        Me.pbProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.pbProfile.TabIndex = 186
-        Me.pbProfile.TabStop = False
-        '
-        'lblStart
-        '
-        Me.lblStart.BackColor = System.Drawing.Color.Green
-        Me.lblStart.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblStart.ForeColor = System.Drawing.Color.White
-        Me.lblStart.Location = New System.Drawing.Point(47, 236)
-        Me.lblStart.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
-        Me.lblStart.Name = "lblStart"
-        Me.lblStart.Size = New System.Drawing.Size(121, 25)
-        Me.lblStart.TabIndex = 182
-        Me.lblStart.Text = "Batch"
-        Me.lblStart.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'cmbVenue
-        '
-        Me.cmbVenue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbVenue.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbVenue.FormattingEnabled = True
-        Me.cmbVenue.Items.AddRange(New Object() {"Admission Office", "Accounting Office", "Records Section"})
-        Me.cmbVenue.Location = New System.Drawing.Point(172, 162)
-        Me.cmbVenue.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
-        Me.cmbVenue.Name = "cmbVenue"
-        Me.cmbVenue.Size = New System.Drawing.Size(265, 29)
-        Me.cmbVenue.TabIndex = 176
-        '
-        'Label3
-        '
-        Me.Label3.BackColor = System.Drawing.Color.Green
-        Me.Label3.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(46, 163)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(121, 27)
-        Me.Label3.TabIndex = 175
-        Me.Label3.Text = "Venue"
-        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'txtFullName
-        '
-        Me.txtFullName.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtFullName.Location = New System.Drawing.Point(172, 55)
-        Me.txtFullName.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
-        Me.txtFullName.MaxLength = 11
-        Me.txtFullName.Name = "txtFullName"
-        Me.txtFullName.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.txtFullName.Size = New System.Drawing.Size(265, 27)
-        Me.txtFullName.TabIndex = 174
-        '
-        'Label1
-        '
-        Me.Label1.BackColor = System.Drawing.Color.Green
-        Me.Label1.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(46, 21)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(121, 25)
-        Me.Label1.TabIndex = 173
-        Me.Label1.Text = "Practicum ID"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'btnClear
         '
@@ -222,10 +154,10 @@ Partial Class frmPracticums
         Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnClear.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClear.ForeColor = System.Drawing.Color.White
-        Me.btnClear.Location = New System.Drawing.Point(756, 237)
+        Me.btnClear.Location = New System.Drawing.Point(598, 206)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(135, 29)
-        Me.btnClear.TabIndex = 172
+        Me.btnClear.TabIndex = 225
         Me.btnClear.Text = "Clear"
         Me.btnClear.UseVisualStyleBackColor = False
         '
@@ -237,10 +169,10 @@ Partial Class frmPracticums
         Me.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnUpdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnUpdate.ForeColor = System.Drawing.Color.White
-        Me.btnUpdate.Location = New System.Drawing.Point(756, 272)
+        Me.btnUpdate.Location = New System.Drawing.Point(433, 206)
         Me.btnUpdate.Name = "btnUpdate"
         Me.btnUpdate.Size = New System.Drawing.Size(135, 29)
-        Me.btnUpdate.TabIndex = 171
+        Me.btnUpdate.TabIndex = 224
         Me.btnUpdate.Text = "Update"
         Me.btnUpdate.UseVisualStyleBackColor = False
         '
@@ -252,10 +184,10 @@ Partial Class frmPracticums
         Me.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnDelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDelete.ForeColor = System.Drawing.Color.White
-        Me.btnDelete.Location = New System.Drawing.Point(534, 272)
+        Me.btnDelete.Location = New System.Drawing.Point(257, 206)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(135, 29)
-        Me.btnDelete.TabIndex = 170
+        Me.btnDelete.TabIndex = 223
         Me.btnDelete.Text = "Delete"
         Me.btnDelete.UseVisualStyleBackColor = False
         '
@@ -267,36 +199,208 @@ Partial Class frmPracticums
         Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSave.ForeColor = System.Drawing.Color.White
-        Me.btnSave.Location = New System.Drawing.Point(534, 237)
+        Me.btnSave.Location = New System.Drawing.Point(80, 206)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(135, 29)
-        Me.btnSave.TabIndex = 169
+        Me.btnSave.TabIndex = 222
         Me.btnSave.Text = "Save"
         Me.btnSave.UseVisualStyleBackColor = False
+        '
+        'dtpEnd
+        '
+        Me.dtpEnd.CustomFormat = "yyyy-MM-dd"
+        Me.dtpEnd.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpEnd.Location = New System.Drawing.Point(555, 160)
+        Me.dtpEnd.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
+        Me.dtpEnd.Name = "dtpEnd"
+        Me.dtpEnd.Size = New System.Drawing.Size(240, 27)
+        Me.dtpEnd.TabIndex = 221
+        Me.dtpEnd.Value = New Date(2022, 5, 19, 0, 0, 0, 0)
+        '
+        'dtpStart
+        '
+        Me.dtpStart.CustomFormat = "yyyy-MM-dd"
+        Me.dtpStart.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpStart.Location = New System.Drawing.Point(555, 125)
+        Me.dtpStart.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
+        Me.dtpStart.Name = "dtpStart"
+        Me.dtpStart.Size = New System.Drawing.Size(240, 27)
+        Me.dtpStart.TabIndex = 220
+        Me.dtpStart.Value = New Date(2022, 5, 19, 0, 0, 0, 0)
+        '
+        'cmbSY
+        '
+        Me.cmbSY.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbSY.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbSY.FormattingEnabled = True
+        Me.cmbSY.Items.AddRange(New Object() {"", "2021-2022", "2022-2023"})
+        Me.cmbSY.Location = New System.Drawing.Point(555, 89)
+        Me.cmbSY.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
+        Me.cmbSY.Name = "cmbSY"
+        Me.cmbSY.Size = New System.Drawing.Size(240, 29)
+        Me.cmbSY.TabIndex = 219
+        '
+        'cmbBatch
+        '
+        Me.cmbBatch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbBatch.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbBatch.FormattingEnabled = True
+        Me.cmbBatch.Items.AddRange(New Object() {"", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"})
+        Me.cmbBatch.Location = New System.Drawing.Point(555, 54)
+        Me.cmbBatch.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
+        Me.cmbBatch.Name = "cmbBatch"
+        Me.cmbBatch.Size = New System.Drawing.Size(240, 29)
+        Me.cmbBatch.TabIndex = 218
+        '
+        'cmbAssignment
+        '
+        Me.cmbAssignment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbAssignment.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbAssignment.FormattingEnabled = True
+        Me.cmbAssignment.Items.AddRange(New Object() {"", "Assistant", "Background Investigation", "Carding", "Encoding", "Evaluation", "Filing Reg Card", "Filing Permit", "Filing Credentials", "Front Desk", "Verification of Grades", "Window 5", "Window 7", "Window 8", "Window 9 ", "Window 10", "Window 12"})
+        Me.cmbAssignment.Location = New System.Drawing.Point(555, 19)
+        Me.cmbAssignment.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
+        Me.cmbAssignment.Name = "cmbAssignment"
+        Me.cmbAssignment.Size = New System.Drawing.Size(240, 29)
+        Me.cmbAssignment.TabIndex = 217
+        '
+        'cmbVenue
+        '
+        Me.cmbVenue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbVenue.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbVenue.FormattingEnabled = True
+        Me.cmbVenue.Items.AddRange(New Object() {"", "Admission Office", "Accounting Office", "Records Section"})
+        Me.cmbVenue.Location = New System.Drawing.Point(138, 161)
+        Me.cmbVenue.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
+        Me.cmbVenue.Name = "cmbVenue"
+        Me.cmbVenue.Size = New System.Drawing.Size(265, 29)
+        Me.cmbVenue.TabIndex = 215
         '
         'cmbCourse
         '
         Me.cmbCourse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbCourse.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbCourse.FormattingEnabled = True
-        Me.cmbCourse.Items.AddRange(New Object() {"Bachelor of Science in Business Administration - FA", "Bachelor of Science in Business Administration - FM", "Bachelor of Science in Business Administration - HRDM", "Bachelor of Science in Business Administration - MM", "Bachelor of Science in Computer Science", "Bachelor of Science in Foreign Service", "Bachelor of Arts in Political Science"})
-        Me.cmbCourse.Location = New System.Drawing.Point(173, 91)
+        Me.cmbCourse.Items.AddRange(New Object() {"", "BS Business Administration - FA", "BS Business Administration - FM", "BS Business Administration - HRDM", "BS Business Administration - MM", "BS Computer Science", "BS Foreign Service", "AB Political Science"})
+        Me.cmbCourse.Location = New System.Drawing.Point(138, 124)
         Me.cmbCourse.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.cmbCourse.Name = "cmbCourse"
         Me.cmbCourse.Size = New System.Drawing.Size(265, 29)
-        Me.cmbCourse.TabIndex = 168
+        Me.cmbCourse.TabIndex = 214
+        '
+        'txtFirstName
+        '
+        Me.txtFirstName.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtFirstName.Location = New System.Drawing.Point(138, 91)
+        Me.txtFirstName.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
+        Me.txtFirstName.MaxLength = 50
+        Me.txtFirstName.Name = "txtFirstName"
+        Me.txtFirstName.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.txtFirstName.Size = New System.Drawing.Size(265, 27)
+        Me.txtFirstName.TabIndex = 213
+        '
+        'txtLastName
+        '
+        Me.txtLastName.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtLastName.Location = New System.Drawing.Point(138, 55)
+        Me.txtLastName.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
+        Me.txtLastName.MaxLength = 50
+        Me.txtLastName.Name = "txtLastName"
+        Me.txtLastName.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.txtLastName.Size = New System.Drawing.Size(265, 27)
+        Me.txtLastName.TabIndex = 200
+        '
+        'lblEnd
+        '
+        Me.lblEnd.BackColor = System.Drawing.Color.Green
+        Me.lblEnd.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEnd.ForeColor = System.Drawing.Color.White
+        Me.lblEnd.Location = New System.Drawing.Point(429, 161)
+        Me.lblEnd.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
+        Me.lblEnd.Name = "lblEnd"
+        Me.lblEnd.Size = New System.Drawing.Size(121, 25)
+        Me.lblEnd.TabIndex = 195
+        Me.lblEnd.Text = "End Date"
+        Me.lblEnd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label5
+        '
+        Me.Label5.BackColor = System.Drawing.Color.Green
+        Me.Label5.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.Color.White
+        Me.Label5.Location = New System.Drawing.Point(429, 126)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(121, 25)
+        Me.Label5.TabIndex = 193
+        Me.Label5.Text = "Start Date"
+        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label6
+        '
+        Me.Label6.BackColor = System.Drawing.Color.Green
+        Me.Label6.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.Color.White
+        Me.Label6.Location = New System.Drawing.Point(429, 90)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(121, 25)
+        Me.Label6.TabIndex = 191
+        Me.Label6.Text = "School Year"
+        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'lblStart
+        '
+        Me.lblStart.BackColor = System.Drawing.Color.Green
+        Me.lblStart.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblStart.ForeColor = System.Drawing.Color.White
+        Me.lblStart.Location = New System.Drawing.Point(429, 55)
+        Me.lblStart.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
+        Me.lblStart.Name = "lblStart"
+        Me.lblStart.Size = New System.Drawing.Size(121, 25)
+        Me.lblStart.TabIndex = 182
+        Me.lblStart.Text = "Batch"
+        Me.lblStart.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label3
+        '
+        Me.Label3.BackColor = System.Drawing.Color.Green
+        Me.Label3.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.White
+        Me.Label3.Location = New System.Drawing.Point(17, 161)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(116, 27)
+        Me.Label3.TabIndex = 175
+        Me.Label3.Text = "Venue"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label1
+        '
+        Me.Label1.BackColor = System.Drawing.Color.Green
+        Me.Label1.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(17, 21)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(116, 25)
+        Me.Label1.TabIndex = 173
+        Me.Label1.Text = "Practicum ID"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Label2
         '
         Me.Label2.BackColor = System.Drawing.Color.Green
         Me.Label2.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(46, 92)
+        Me.Label2.Location = New System.Drawing.Point(17, 92)
         Me.Label2.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(121, 25)
+        Me.Label2.Size = New System.Drawing.Size(116, 25)
         Me.Label2.TabIndex = 167
-        Me.Label2.Text = "Course"
+        Me.Label2.Text = "First Name"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Label4
@@ -304,31 +408,20 @@ Partial Class frmPracticums
         Me.Label4.BackColor = System.Drawing.Color.Green
         Me.Label4.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.White
-        Me.Label4.Location = New System.Drawing.Point(46, 56)
+        Me.Label4.Location = New System.Drawing.Point(17, 56)
         Me.Label4.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(121, 25)
+        Me.Label4.Size = New System.Drawing.Size(116, 25)
         Me.Label4.TabIndex = 156
-        Me.Label4.Text = "Full Name"
+        Me.Label4.Text = "Last Name"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'txtContactNo
-        '
-        Me.txtContactNo.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtContactNo.Location = New System.Drawing.Point(172, 128)
-        Me.txtContactNo.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
-        Me.txtContactNo.MaxLength = 11
-        Me.txtContactNo.Name = "txtContactNo"
-        Me.txtContactNo.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.txtContactNo.Size = New System.Drawing.Size(265, 27)
-        Me.txtContactNo.TabIndex = 165
         '
         'txtPracticumID
         '
         Me.txtPracticumID.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPracticumID.Location = New System.Drawing.Point(173, 20)
+        Me.txtPracticumID.Location = New System.Drawing.Point(138, 20)
         Me.txtPracticumID.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
-        Me.txtPracticumID.MaxLength = 30
+        Me.txtPracticumID.MaxLength = 10
         Me.txtPracticumID.Name = "txtPracticumID"
         Me.txtPracticumID.Size = New System.Drawing.Size(265, 27)
         Me.txtPracticumID.TabIndex = 157
@@ -338,12 +431,12 @@ Partial Class frmPracticums
         Me.Label10.BackColor = System.Drawing.Color.Green
         Me.Label10.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.White
-        Me.Label10.Location = New System.Drawing.Point(46, 128)
+        Me.Label10.Location = New System.Drawing.Point(17, 126)
         Me.Label10.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(121, 25)
+        Me.Label10.Size = New System.Drawing.Size(116, 25)
         Me.Label10.TabIndex = 162
-        Me.Label10.Text = "Contact No."
+        Me.Label10.Text = "Course"
         Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Label11
@@ -351,7 +444,7 @@ Partial Class frmPracticums
         Me.Label11.BackColor = System.Drawing.Color.Green
         Me.Label11.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.Color.White
-        Me.Label11.Location = New System.Drawing.Point(47, 201)
+        Me.Label11.Location = New System.Drawing.Point(429, 20)
         Me.Label11.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(121, 25)
@@ -359,22 +452,13 @@ Partial Class frmPracticums
         Me.Label11.Text = "Assignment"
         Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'lblMemId
-        '
-        Me.lblMemId.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.lblMemId.Font = New System.Drawing.Font("Calibri", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMemId.Location = New System.Drawing.Point(628, 18)
-        Me.lblMemId.Name = "lblMemId"
-        Me.lblMemId.Size = New System.Drawing.Size(183, 26)
-        Me.lblMemId.TabIndex = 81
-        '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.Green
-        Me.Panel1.Controls.Add(Me.gbMembers)
-        Me.Panel1.Location = New System.Drawing.Point(30, 92)
+        Me.Panel1.Controls.Add(Me.gbPracticums)
+        Me.Panel1.Location = New System.Drawing.Point(33, 81)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1024, 358)
+        Me.Panel1.Size = New System.Drawing.Size(1062, 286)
         Me.Panel1.TabIndex = 80
         '
         'lblResRec
@@ -382,64 +466,106 @@ Partial Class frmPracticums
         Me.lblResRec.AutoSize = True
         Me.lblResRec.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.lblResRec.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblResRec.Location = New System.Drawing.Point(23, 22)
+        Me.lblResRec.Location = New System.Drawing.Point(28, 22)
         Me.lblResRec.Name = "lblResRec"
         Me.lblResRec.Size = New System.Drawing.Size(355, 38)
         Me.lblResRec.TabIndex = 81
         Me.lblResRec.Text = "ADD NEW PRACTICUM"
         '
-        'OpenFileDialog1
+        'dgvPracticumRecord
         '
-        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
-        '
-        'dgvMembersRecord
-        '
-        Me.dgvMembersRecord.AllowUserToAddRows = False
-        Me.dgvMembersRecord.AllowUserToDeleteRows = False
-        Me.dgvMembersRecord.AllowUserToResizeColumns = False
-        Me.dgvMembersRecord.AllowUserToResizeRows = False
-        Me.dgvMembersRecord.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.dgvPracticumRecord.AllowUserToAddRows = False
+        Me.dgvPracticumRecord.AllowUserToDeleteRows = False
+        Me.dgvPracticumRecord.AllowUserToResizeColumns = False
+        Me.dgvPracticumRecord.AllowUserToResizeRows = False
+        Me.dgvPracticumRecord.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.dgvMembersRecord.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
-        Me.dgvMembersRecord.BackgroundColor = System.Drawing.Color.PaleTurquoise
+        Me.dgvPracticumRecord.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.dgvPracticumRecord.BackgroundColor = System.Drawing.Color.Green
+        Me.dgvPracticumRecord.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(91, Byte), Integer), CType(CType(155, Byte), Integer), CType(CType(213, Byte), Integer))
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Calibri", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.Green
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Calibri", 12.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(219, Byte), Integer))
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(175, Byte), Integer), CType(CType(221, Byte), Integer), CType(CType(148, Byte), Integer))
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvMembersRecord.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
-        Me.dgvMembersRecord.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvPracticumRecord.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.dgvPracticumRecord.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Green
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvMembersRecord.DefaultCellStyle = DataGridViewCellStyle2
-        Me.dgvMembersRecord.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
-        Me.dgvMembersRecord.Location = New System.Drawing.Point(49, 467)
-        Me.dgvMembersRecord.Name = "dgvMembersRecord"
-        Me.dgvMembersRecord.RowHeadersVisible = False
+        Me.dgvPracticumRecord.DefaultCellStyle = DataGridViewCellStyle2
+        Me.dgvPracticumRecord.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
+        Me.dgvPracticumRecord.Location = New System.Drawing.Point(33, 422)
+        Me.dgvPracticumRecord.Name = "dgvPracticumRecord"
+        Me.dgvPracticumRecord.RowHeadersVisible = False
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(247, Byte), Integer))
-        Me.dgvMembersRecord.RowsDefaultCellStyle = DataGridViewCellStyle3
-        Me.dgvMembersRecord.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvMembersRecord.Size = New System.Drawing.Size(951, 102)
-        Me.dgvMembersRecord.StandardTab = True
-        Me.dgvMembersRecord.TabIndex = 82
+        Me.dgvPracticumRecord.RowsDefaultCellStyle = DataGridViewCellStyle3
+        Me.dgvPracticumRecord.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvPracticumRecord.Size = New System.Drawing.Size(1062, 133)
+        Me.dgvPracticumRecord.StandardTab = True
+        Me.dgvPracticumRecord.TabIndex = 82
         '
-        'Label5
+        'lblSearchBy
         '
-        Me.Label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Label5.Font = New System.Drawing.Font("Calibri", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(757, 44)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(183, 26)
-        Me.Label5.TabIndex = 83
+        Me.lblSearchBy.AutoSize = True
+        Me.lblSearchBy.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSearchBy.ForeColor = System.Drawing.Color.Black
+        Me.lblSearchBy.Location = New System.Drawing.Point(33, 393)
+        Me.lblSearchBy.Name = "lblSearchBy"
+        Me.lblSearchBy.Size = New System.Drawing.Size(96, 19)
+        Me.lblSearchBy.TabIndex = 172
+        Me.lblSearchBy.Text = "SEARCH BY:"
+        '
+        'cmbFilter
+        '
+        Me.cmbFilter.BackColor = System.Drawing.Color.FromArgb(CType(CType(229, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(233, Byte), Integer))
+        Me.cmbFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbFilter.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbFilter.ForeColor = System.Drawing.Color.Black
+        Me.cmbFilter.FormattingEnabled = True
+        Me.cmbFilter.Items.AddRange(New Object() {"", "NAME", "PRACTICUM ID", "COURSE", "VENUE", "ASSIGNMENT", "BATCH"})
+        Me.cmbFilter.Location = New System.Drawing.Point(132, 387)
+        Me.cmbFilter.Name = "cmbFilter"
+        Me.cmbFilter.Size = New System.Drawing.Size(162, 29)
+        Me.cmbFilter.TabIndex = 173
+        '
+        'txtSearch
+        '
+        Me.txtSearch.BackColor = System.Drawing.Color.FromArgb(CType(CType(229, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(233, Byte), Integer))
+        Me.txtSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSearch.ForeColor = System.Drawing.Color.Black
+        Me.txtSearch.Location = New System.Drawing.Point(300, 390)
+        Me.txtSearch.MaxLength = 35
+        Me.txtSearch.Name = "txtSearch"
+        Me.txtSearch.Size = New System.Drawing.Size(229, 26)
+        Me.txtSearch.TabIndex = 174
+        Me.txtSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'SaveFileDialog1
+        '
+        Me.SaveFileDialog1.DefaultExt = "jpg"
+        Me.SaveFileDialog1.Filter = "JPEG Image | *.jpg"
+        '
+        'PrintPreviewDialog1
+        '
+        Me.PrintPreviewDialog1.AutoScrollMargin = New System.Drawing.Size(0, 0)
+        Me.PrintPreviewDialog1.AutoScrollMinSize = New System.Drawing.Size(0, 0)
+        Me.PrintPreviewDialog1.ClientSize = New System.Drawing.Size(400, 300)
+        Me.PrintPreviewDialog1.Enabled = True
+        Me.PrintPreviewDialog1.Icon = CType(resources.GetObject("PrintPreviewDialog1.Icon"), System.Drawing.Icon)
+        Me.PrintPreviewDialog1.Name = "PrintPreviewDialog1"
+        Me.PrintPreviewDialog1.Visible = False
+        '
+        'PrintDocument1
+        '
         '
         'frmPracticums
         '
@@ -448,52 +574,62 @@ Partial Class frmPracticums
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(175, Byte), Integer), CType(CType(221, Byte), Integer), CType(CType(148, Byte), Integer))
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.ClientSize = New System.Drawing.Size(1105, 581)
+        Me.ClientSize = New System.Drawing.Size(1130, 585)
         Me.ControlBox = False
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.dgvMembersRecord)
+        Me.Controls.Add(Me.txtSearch)
+        Me.Controls.Add(Me.lblSearchBy)
+        Me.Controls.Add(Me.cmbFilter)
+        Me.Controls.Add(Me.dgvPracticumRecord)
         Me.Controls.Add(Me.lblResRec)
         Me.Controls.Add(Me.Panel1)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmPracticums"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.gbMembers.ResumeLayout(False)
-        Me.gbMembers.PerformLayout()
+        Me.gbPracticums.ResumeLayout(False)
+        Me.gbPracticums.PerformLayout()
         CType(Me.pbQR, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pbProfile, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
-        CType(Me.dgvMembersRecord, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvPracticumRecord, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents gbMembers As System.Windows.Forms.GroupBox
+    Friend WithEvents gbPracticums As System.Windows.Forms.GroupBox
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents txtPracticumID As System.Windows.Forms.TextBox
+    Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents Label11 As System.Windows.Forms.Label
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents lblResRec As System.Windows.Forms.Label
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents lblStart As System.Windows.Forms.Label
+    Friend WithEvents dgvPracticumRecord As System.Windows.Forms.DataGridView
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents lblEnd As System.Windows.Forms.Label
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents txtLastName As System.Windows.Forms.TextBox
+    Friend WithEvents cmbVenue As System.Windows.Forms.ComboBox
+    Friend WithEvents cmbCourse As System.Windows.Forms.ComboBox
+    Friend WithEvents txtFirstName As System.Windows.Forms.TextBox
+    Friend WithEvents dtpEnd As System.Windows.Forms.DateTimePicker
+    Friend WithEvents dtpStart As System.Windows.Forms.DateTimePicker
+    Friend WithEvents cmbSY As System.Windows.Forms.ComboBox
+    Friend WithEvents cmbBatch As System.Windows.Forms.ComboBox
+    Friend WithEvents cmbAssignment As System.Windows.Forms.ComboBox
     Friend WithEvents btnClear As System.Windows.Forms.Button
     Friend WithEvents btnUpdate As System.Windows.Forms.Button
     Friend WithEvents btnDelete As System.Windows.Forms.Button
     Friend WithEvents btnSave As System.Windows.Forms.Button
-    Friend WithEvents cmbCourse As System.Windows.Forms.ComboBox
-    Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents txtContactNo As System.Windows.Forms.TextBox
-    Friend WithEvents txtPracticumID As System.Windows.Forms.TextBox
-    Friend WithEvents Label10 As System.Windows.Forms.Label
-    Friend WithEvents Label11 As System.Windows.Forms.Label
-    Friend WithEvents lblMemId As System.Windows.Forms.Label
-    Friend WithEvents Panel1 As System.Windows.Forms.Panel
-    Friend WithEvents lblResRec As System.Windows.Forms.Label
-    Friend WithEvents cmbVenue As System.Windows.Forms.ComboBox
-    Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents txtFullName As System.Windows.Forms.TextBox
-    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents lblSearchBy As System.Windows.Forms.Label
+    Friend WithEvents cmbFilter As System.Windows.Forms.ComboBox
+    Friend WithEvents txtSearch As System.Windows.Forms.TextBox
     Friend WithEvents pbQR As System.Windows.Forms.PictureBox
-    Friend WithEvents pbProfile As System.Windows.Forms.PictureBox
-    Friend WithEvents lblStart As System.Windows.Forms.Label
-    Friend WithEvents btnBrowse As System.Windows.Forms.Button
-    Friend WithEvents cmbAssignment As System.Windows.Forms.ComboBox
-    Friend WithEvents cmbBatch As System.Windows.Forms.ComboBox
-    Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
-    Friend WithEvents dgvMembersRecord As System.Windows.Forms.DataGridView
-    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents btnPrint As System.Windows.Forms.Button
+    Friend WithEvents btnSaveQR As System.Windows.Forms.Button
+    Friend WithEvents SaveFileDialog1 As System.Windows.Forms.SaveFileDialog
+    Friend WithEvents PrintPreviewDialog1 As System.Windows.Forms.PrintPreviewDialog
+    Friend WithEvents PrintDocument1 As System.Drawing.Printing.PrintDocument
 End Class

@@ -30,6 +30,8 @@ Partial Class frmLogIn
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PictureBox = New System.Windows.Forms.PictureBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.btnClose = New System.Windows.Forms.Button()
+        Me.lblTitle = New System.Windows.Forms.Label()
         Me.Panel_LogIn = New System.Windows.Forms.Panel()
         Me.Panel_Username = New System.Windows.Forms.Panel()
         Me.txtUsername = New System.Windows.Forms.TextBox()
@@ -40,8 +42,6 @@ Partial Class frmLogIn
         Me.Panel_Password = New System.Windows.Forms.Panel()
         Me.txtPassword = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.btnClose = New System.Windows.Forms.Button()
-        Me.lblTitle = New System.Windows.Forms.Label()
         Me.Panel_ForgotPass = New System.Windows.Forms.Panel()
         Me.Panel_SecretA = New System.Windows.Forms.Panel()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -163,6 +163,33 @@ Partial Class frmLogIn
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(450, 530)
         Me.Panel2.TabIndex = 1
+        '
+        'btnClose
+        '
+        Me.btnClose.BackColor = System.Drawing.Color.Transparent
+        Me.btnClose.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnClose.FlatAppearance.BorderSize = 0
+        Me.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnClose.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClose.ForeColor = System.Drawing.Color.ForestGreen
+        Me.btnClose.Location = New System.Drawing.Point(407, 0)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(43, 46)
+        Me.btnClose.TabIndex = 35
+        Me.btnClose.Text = "X"
+        Me.btnClose.UseVisualStyleBackColor = False
+        '
+        'lblTitle
+        '
+        Me.lblTitle.AutoSize = True
+        Me.lblTitle.Font = New System.Drawing.Font("Century Gothic", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTitle.ForeColor = System.Drawing.Color.Green
+        Me.lblTitle.Location = New System.Drawing.Point(24, 151)
+        Me.lblTitle.Name = "lblTitle"
+        Me.lblTitle.Size = New System.Drawing.Size(275, 30)
+        Me.lblTitle.TabIndex = 12
+        Me.lblTitle.Text = "LogIn to your account"
+        Me.lblTitle.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'Panel_LogIn
         '
@@ -291,33 +318,6 @@ Partial Class frmLogIn
         Me.Label5.TabIndex = 4
         Me.Label5.Text = "Password:"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'btnClose
-        '
-        Me.btnClose.BackColor = System.Drawing.Color.Transparent
-        Me.btnClose.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnClose.FlatAppearance.BorderSize = 0
-        Me.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnClose.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClose.ForeColor = System.Drawing.Color.ForestGreen
-        Me.btnClose.Location = New System.Drawing.Point(407, 0)
-        Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(43, 46)
-        Me.btnClose.TabIndex = 35
-        Me.btnClose.Text = "X"
-        Me.btnClose.UseVisualStyleBackColor = False
-        '
-        'lblTitle
-        '
-        Me.lblTitle.AutoSize = True
-        Me.lblTitle.Font = New System.Drawing.Font("Century Gothic", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTitle.ForeColor = System.Drawing.Color.Green
-        Me.lblTitle.Location = New System.Drawing.Point(24, 151)
-        Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(275, 30)
-        Me.lblTitle.TabIndex = 12
-        Me.lblTitle.Text = "LogIn to your account"
-        Me.lblTitle.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'Panel_ForgotPass
         '
@@ -627,6 +627,7 @@ Partial Class frmLogIn
         Me.Controls.Add(Me.Panel1)
         Me.ForeColor = System.Drawing.Color.LimeGreen
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmLogIn"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Panel1.ResumeLayout(False)

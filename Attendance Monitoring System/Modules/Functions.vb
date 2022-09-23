@@ -1,12 +1,12 @@
 ﻿Module Functions
     Public Sub closeChildForm()
-        For Each frm As Form In frmDashboard.MdiChildren()
+        For Each frm As Form In frmMain.MdiChildren()
             frm.Close()
         Next
     End Sub
     Public Sub showForm(frm As Form)
         With frm
-            .MdiParent = frmDashboard
+            .MdiParent = frmMain
             .Show()
         End With
     End Sub
@@ -14,6 +14,8 @@
         Dim ChkBox As CheckBox = Nothing
         Dim RdoBtn As RadioButton = Nothing
         Dim CmbBox As ComboBox = Nothing
+        Dim pbox As PictureBox = Nothing
+
         For Each ctrl As Control In obj.Controls
             If ctrl.GetType Is GetType(TextBox) Then
                 ctrl.Text = Nothing
@@ -40,6 +42,12 @@
             If TypeOf xObject Is ComboBox Then
                 CmbBox = xObject
                 CmbBox.Text = ""
+            End If
+        Next
+        For Each XObject As Object In obj.Controls()
+            If TypeOf XObject Is PictureBox Then
+                pbox = XObject
+                pbox.Image = Nothing
             End If
         Next
     End Sub

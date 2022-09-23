@@ -23,22 +23,16 @@ DROP TABLE IF EXISTS `attendance`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `attendance` (
-  `Id` int NOT NULL,
+  `Id` int NOT NULL AUTO_INCREMENT,
   `PracticumID` bigint NOT NULL,
-  `PracticumName` varchar(45) DEFAULT NULL,
-  `Assignment` char(45) NOT NULL,
+  `LastName` varchar(45) NOT NULL,
+  `FirstName` varchar(45) NOT NULL,
   `Date` date NOT NULL,
   `TimeLogIn_AM` time NOT NULL,
   `TimeLogOut_AM` time NOT NULL,
   `TimeLogIn_PM` time NOT NULL,
   `TimeLogOut_PM` time NOT NULL,
-  PRIMARY KEY (`Id`),
-  KEY `PracticumID_idx` (`PracticumID`),
-  KEY `Assignment_idx` (`Assignment`),
-  KEY `PracticumName_idx` (`PracticumName`),
-  CONSTRAINT `Assignment` FOREIGN KEY (`Assignment`) REFERENCES `practicum` (`Assignment`),
-  CONSTRAINT `PracticumID` FOREIGN KEY (`PracticumID`) REFERENCES `practicum` (`PracticumID`),
-  CONSTRAINT `PracticumName` FOREIGN KEY (`PracticumName`) REFERENCES `practicum` (`PracticumName`)
+  PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -59,21 +53,25 @@ DROP TABLE IF EXISTS `practicum`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `practicum` (
-  `Id` int NOT NULL,
+  `Id` int NOT NULL AUTO_INCREMENT,
   `PracticumID` bigint NOT NULL,
-  `PracticumName` varchar(45) NOT NULL,
-  `Course` char(45) NOT NULL,
-  `ContactNumber` bigint NOT NULL,
+  `LastName` varchar(45) NOT NULL,
+  `FirstName` varchar(45) NOT NULL,
+  `Course` char(100) NOT NULL,
   `Venue` char(45) NOT NULL,
   `Assignment` char(45) NOT NULL,
   `TotalHours` bigint DEFAULT NULL,
   `Batch` char(45) NOT NULL,
+  `SchoolYear` varchar(45) DEFAULT NULL,
+  `StartDate` date DEFAULT NULL,
+  `EndDate` date DEFAULT NULL,
   `DateTimeCreated` datetime DEFAULT NULL,
   `DateTimeUpdated` datetime DEFAULT NULL,
-  PRIMARY KEY (`PracticumID`),
-  KEY `PracticumName` (`PracticumName`),
-  KEY `Assignment` (`Assignment`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  PRIMARY KEY (`Id`),
+  UNIQUE KEY `PracticumID_UNIQUE` (`PracticumID`),
+  KEY `LastName` (`LastName`) /*!80000 INVISIBLE */,
+  KEY `FirstName` (`FirstName`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -82,6 +80,7 @@ CREATE TABLE `practicum` (
 
 LOCK TABLES `practicum` WRITE;
 /*!40000 ALTER TABLE `practicum` DISABLE KEYS */;
+INSERT INTO `practicum` VALUES (1,1800885,'Rafael','Andrea Mae Nicole','BS Computer Science','Admission Office','Filing Permit',NULL,'August','2021-2022','2022-07-25','2022-09-01',NULL,NULL),(2,1801523,'Concepcion','Joshua','BS Computer Science','Accounting Office','Encoding',NULL,'August','2021-2022','2022-07-25','2022-09-03',NULL,NULL),(3,1800524,'Visperas','Anthony','BS Computer Science','Admission Office','Filing Credentials',NULL,'August','2021-2022','2022-07-25','2022-09-01',NULL,NULL),(4,1802989,'Mandolado','Ryan Mark','BS Computer Science','Records Section','Filing Credentials',NULL,'August','2021-2022','2022-07-25','2022-09-01',NULL,NULL),(5,1802053,'Cadion','Trina Paula','BS Computer Science','Admission Office','Verification of Grades',NULL,'August','2021-2022','2022-07-25','2022-09-01',NULL,NULL),(6,1802314,'Dotollo','Justine Kayle','BS Computer Science','Admission Office','Window 5',NULL,'July','2021-2022','2022-06-23','2022-07-25',NULL,NULL),(7,1802441,'Lopez','Angeluv Tatiana','BS Computer Science','Admission Office','Window 9',NULL,'July','2021-2022','2022-06-23','2022-07-25',NULL,NULL),(8,1802486,'Martinez','Gerico Nicolas','BS Computer Science','Accounting Office','Window 5',NULL,'July','2021-2022','2022-06-23','2022-07-25',NULL,NULL),(9,1803924,'Loreno','Mary Joy','BS Computer Science','Admission Office','Front Desk',NULL,'September','2021-2022','2022-09-05','2022-10-01',NULL,NULL),(10,1801958,'Ruaya','Nhecy','BS Computer Science','Admission Office','Carding',NULL,'July','2021-2022','2022-06-23','2022-07-25',NULL,NULL),(11,1802442,'Landicho','Harold','BS Computer Science','Accounting Office','Encoding',NULL,'July','2021-2022','2022-06-23','2022-07-25',NULL,NULL),(12,1801806,'Flores','Ana Lyn','BS Computer Science','Accounting Office','Encoding',NULL,'August','2021-2022','2022-07-25','2022-09-01',NULL,NULL),(13,1801090,'Morabe','Enrico Dominic','BS Computer Science','Admission Office','Background Investigation',NULL,'July','2021-2022','2022-06-23','2022-07-25',NULL,NULL);
 /*!40000 ALTER TABLE `practicum` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -125,4 +124,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-09-17  2:31:54
+-- Dump completed on 2022-09-24  2:26:47
