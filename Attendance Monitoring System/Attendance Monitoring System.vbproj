@@ -66,6 +66,9 @@
     </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MessagingToolkit.Barcode">
+      <HintPath>..\..\..\..\Downloads\ref\Barcode_Scanner_Generator_Tutorial\Barcode_Scanner_Generator_Tutorial\bin\Debug\MessagingToolkit.Barcode.dll</HintPath>
+    </Reference>
     <Reference Include="MessagingToolkit.QRCode">
       <HintPath>..\..\..\..\Downloads\MessagingToolkit.QRCode.dll</HintPath>
     </Reference>
@@ -81,6 +84,9 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="WebCam_Capture">
+      <HintPath>..\..\..\..\Downloads\ref\QR Code Scanner\bin\Debug\WebCam_Capture.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -118,6 +124,12 @@
       <DependentUpon>frmMain.vb</DependentUpon>
     </Compile>
     <Compile Include="frmMain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReports.Designer.vb">
+      <DependentUpon>frmReports.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmReports.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LogIn\frmLogIn.vb">
@@ -159,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReports.resx">
+      <DependentUpon>frmReports.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LogIn\frmLogIn.resx">
       <DependentUpon>frmLogIn.vb</DependentUpon>

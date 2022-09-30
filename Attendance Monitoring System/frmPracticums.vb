@@ -1,7 +1,7 @@
 ﻿Imports MySql.Data.MySqlClient
 
 Public Class frmPracticums
-    Dim QR_Generator As New MessagingToolkit.QRCode.Codec.QRCodeEncoder
+    Dim Generator As New MessagingToolkit.Barcode.BarcodeEncoder
     Public con As MySqlConnection = mysqldb()
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
@@ -94,7 +94,11 @@ Public Class frmPracticums
 
     Private Sub txtPracticumID_TextChanged(sender As Object, e As EventArgs) Handles txtPracticumID.TextChanged
         Try
-            pbQR.Image = QR_Generator.Encode(txtPracticumID.Text)
+            Generator.BackColor = Color.White
+            Generator.LabelFont = New Font("Arial", 7, FontStyle.Regular)
+            Generator.IncludeLabel = True
+
+            pbQR.Image = New Bitmap(Generator.Encode(MessagingToolkit.Barcode.BarcodeFormat.QRCode, txtPracticumID.Text))
 
             query = "SELECT * FROM `practicum` WHERE `PracticumID`='" & txtPracticumID.Text & "'"
             reloadtxt(query)

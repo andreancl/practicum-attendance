@@ -28,13 +28,12 @@ Partial Class frmMain
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lbAMS = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btnAttendance = New System.Windows.Forms.Button()
         Me.btnLogOut = New System.Windows.Forms.Button()
-        Me.btnBatch = New System.Windows.Forms.Button()
-        Me.btnAssignment = New System.Windows.Forms.Button()
+        Me.btnReports = New System.Windows.Forms.Button()
         Me.btnPracticums = New System.Windows.Forms.Button()
         Me.btnDashboard = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel3.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -90,10 +89,9 @@ Partial Class frmMain
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.Button1)
+        Me.GroupBox1.Controls.Add(Me.btnAttendance)
         Me.GroupBox1.Controls.Add(Me.btnLogOut)
-        Me.GroupBox1.Controls.Add(Me.btnBatch)
-        Me.GroupBox1.Controls.Add(Me.btnAssignment)
+        Me.GroupBox1.Controls.Add(Me.btnReports)
         Me.GroupBox1.Controls.Add(Me.btnPracticums)
         Me.GroupBox1.Controls.Add(Me.btnDashboard)
         Me.GroupBox1.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -103,6 +101,21 @@ Partial Class frmMain
         Me.GroupBox1.Size = New System.Drawing.Size(229, 597)
         Me.GroupBox1.TabIndex = 15
         Me.GroupBox1.TabStop = False
+        '
+        'btnAttendance
+        '
+        Me.btnAttendance.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnAttendance.FlatAppearance.BorderSize = 0
+        Me.btnAttendance.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAttendance.Font = New System.Drawing.Font("Century Gothic", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAttendance.Image = CType(resources.GetObject("btnAttendance.Image"), System.Drawing.Image)
+        Me.btnAttendance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnAttendance.Location = New System.Drawing.Point(3, 169)
+        Me.btnAttendance.Name = "btnAttendance"
+        Me.btnAttendance.Size = New System.Drawing.Size(223, 50)
+        Me.btnAttendance.TabIndex = 32
+        Me.btnAttendance.Text = "     Attendance"
+        Me.btnAttendance.UseVisualStyleBackColor = True
         '
         'btnLogOut
         '
@@ -119,35 +132,20 @@ Partial Class frmMain
         Me.btnLogOut.Text = "Log Out"
         Me.btnLogOut.UseVisualStyleBackColor = True
         '
-        'btnBatch
+        'btnReports
         '
-        Me.btnBatch.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnBatch.FlatAppearance.BorderSize = 0
-        Me.btnBatch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnBatch.Font = New System.Drawing.Font("Century Gothic", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnBatch.Image = CType(resources.GetObject("btnBatch.Image"), System.Drawing.Image)
-        Me.btnBatch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnBatch.Location = New System.Drawing.Point(3, 169)
-        Me.btnBatch.Name = "btnBatch"
-        Me.btnBatch.Size = New System.Drawing.Size(223, 50)
-        Me.btnBatch.TabIndex = 30
-        Me.btnBatch.Text = "Batch"
-        Me.btnBatch.UseVisualStyleBackColor = True
-        '
-        'btnAssignment
-        '
-        Me.btnAssignment.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnAssignment.FlatAppearance.BorderSize = 0
-        Me.btnAssignment.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAssignment.Font = New System.Drawing.Font("Century Gothic", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAssignment.Image = CType(resources.GetObject("btnAssignment.Image"), System.Drawing.Image)
-        Me.btnAssignment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnAssignment.Location = New System.Drawing.Point(3, 119)
-        Me.btnAssignment.Name = "btnAssignment"
-        Me.btnAssignment.Size = New System.Drawing.Size(223, 50)
-        Me.btnAssignment.TabIndex = 29
-        Me.btnAssignment.Text = "    Assignment"
-        Me.btnAssignment.UseVisualStyleBackColor = True
+        Me.btnReports.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnReports.FlatAppearance.BorderSize = 0
+        Me.btnReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnReports.Font = New System.Drawing.Font("Century Gothic", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnReports.Image = CType(resources.GetObject("btnReports.Image"), System.Drawing.Image)
+        Me.btnReports.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnReports.Location = New System.Drawing.Point(3, 119)
+        Me.btnReports.Name = "btnReports"
+        Me.btnReports.Size = New System.Drawing.Size(223, 50)
+        Me.btnReports.TabIndex = 30
+        Me.btnReports.Text = "Reports"
+        Me.btnReports.UseVisualStyleBackColor = True
         '
         'btnPracticums
         '
@@ -189,21 +187,6 @@ Partial Class frmMain
         Me.Panel1.Size = New System.Drawing.Size(228, 749)
         Me.Panel1.TabIndex = 9
         '
-        'Button1
-        '
-        Me.Button1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Century Gothic", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.Location = New System.Drawing.Point(3, 219)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(223, 50)
-        Me.Button1.TabIndex = 32
-        Me.Button1.Text = "     Attendance"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -230,10 +213,9 @@ Partial Class frmMain
     Public WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
-    Friend WithEvents btnBatch As System.Windows.Forms.Button
-    Friend WithEvents btnAssignment As System.Windows.Forms.Button
+    Friend WithEvents btnReports As System.Windows.Forms.Button
     Friend WithEvents btnPracticums As System.Windows.Forms.Button
     Friend WithEvents btnDashboard As System.Windows.Forms.Button
     Friend WithEvents btnLogOut As System.Windows.Forms.Button
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents btnAttendance As System.Windows.Forms.Button
 End Class

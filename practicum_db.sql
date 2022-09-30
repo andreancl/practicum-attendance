@@ -25,15 +25,21 @@ DROP TABLE IF EXISTS `attendance`;
 CREATE TABLE `attendance` (
   `Id` int NOT NULL AUTO_INCREMENT,
   `PracticumID` bigint NOT NULL,
-  `LastName` varchar(45) NOT NULL,
-  `FirstName` varchar(45) NOT NULL,
-  `Date` date NOT NULL,
-  `TimeLogIn_AM` time NOT NULL,
-  `TimeLogOut_AM` time NOT NULL,
-  `TimeLogIn_PM` time NOT NULL,
-  `TimeLogOut_PM` time NOT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `LastName` varchar(45) DEFAULT NULL,
+  `FirstName` varchar(45) DEFAULT NULL,
+  `Date` varchar(45) DEFAULT NULL,
+  `TimeLogIn_AM` varchar(45) DEFAULT NULL,
+  `TimeLogOut_AM` varchar(45) DEFAULT NULL,
+  `TimeLogIn_PM` varchar(45) DEFAULT NULL,
+  `TimeLogOut_PM` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`Id`),
+  KEY `PracticumID_idx` (`PracticumID`),
+  KEY `LastName_idx` (`LastName`),
+  KEY `FirstName_idx` (`FirstName`),
+  CONSTRAINT `FirstName` FOREIGN KEY (`FirstName`) REFERENCES `practicum` (`FirstName`),
+  CONSTRAINT `LastName` FOREIGN KEY (`LastName`) REFERENCES `practicum` (`LastName`),
+  CONSTRAINT `PracticumID` FOREIGN KEY (`PracticumID`) REFERENCES `practicum` (`PracticumID`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,6 +48,7 @@ CREATE TABLE `attendance` (
 
 LOCK TABLES `attendance` WRITE;
 /*!40000 ALTER TABLE `attendance` DISABLE KEYS */;
+INSERT INTO `attendance` VALUES (1,1800885,'Rafael','Andrea Mae Nicole','2022-10-01','3:57:11 AM',NULL,NULL,NULL),(2,1801523,'Concepcion','Joshua','2022-10-01','4:38:05 AM',NULL,NULL,NULL),(3,1800524,'Visperas','Anthony','2022-10-01','4:56:06 AM',NULL,NULL,NULL),(4,1800524,'Visperas','Anthony','2022-10-01','5:28:39 AM',NULL,NULL,NULL),(5,1803924,'Loreno','Mary Joy','2022-10-01','5:51:58 AM',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `attendance` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -68,8 +75,8 @@ CREATE TABLE `practicum` (
   `DateTimeCreated` datetime DEFAULT NULL,
   `DateTimeUpdated` datetime DEFAULT NULL,
   PRIMARY KEY (`Id`),
-  UNIQUE KEY `PracticumID_UNIQUE` (`PracticumID`),
-  KEY `LastName` (`LastName`) /*!80000 INVISIBLE */,
+  KEY `PracticumID` (`PracticumID`),
+  KEY `LastName` (`LastName`),
   KEY `FirstName` (`FirstName`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -124,4 +131,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-09-24  2:26:47
+-- Dump completed on 2022-10-01  5:59:30
