@@ -54,4 +54,5 @@
             reloadDgv(query, dgvRecords)
         End If
     End Sub
+
 End Class

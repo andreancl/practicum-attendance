@@ -27,7 +27,7 @@ Module crud
         con.Close()
         da.Dispose()
     End Sub
-    Public Sub create(ByVal query As String, ByVal msgsuccess As String)
+    Public Sub create(ByVal query As String)
         Try
             con.Open()
             With cmd
@@ -61,7 +61,7 @@ Module crud
         End Try
     End Sub
 
-    Public Sub updates(ByVal query As String, ByVal msgsuccess As String)
+    Public Sub updates(ByVal query As String)
         Try
             con.Open()
             cmd = New MySqlCommand

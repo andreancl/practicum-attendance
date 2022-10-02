@@ -22,9 +22,9 @@ Partial Class frmPracticums
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPracticums))
         Me.gbPracticums = New System.Windows.Forms.GroupBox()
         Me.btnPrint = New System.Windows.Forms.Button()
@@ -63,6 +63,9 @@ Partial Class frmPracticums
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
+        Me.PrintPreviewDialog2 = New System.Windows.Forms.PrintPreviewDialog()
+        Me.PrintDocument2 = New System.Drawing.Printing.PrintDocument()
+        Me.btnPrintdgv = New System.Windows.Forms.Button()
         Me.gbPracticums.SuspendLayout()
         CType(Me.pbQR, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -484,30 +487,30 @@ Partial Class frmPracticums
         Me.dgvPracticumRecord.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dgvPracticumRecord.BackgroundColor = System.Drawing.Color.Green
         Me.dgvPracticumRecord.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle13.BackColor = System.Drawing.Color.Green
-        DataGridViewCellStyle13.Font = New System.Drawing.Font("Calibri", 12.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(175, Byte), Integer), CType(CType(221, Byte), Integer), CType(CType(148, Byte), Integer))
-        DataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvPracticumRecord.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle13
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.Green
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Calibri", 12.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(175, Byte), Integer), CType(CType(221, Byte), Integer), CType(CType(148, Byte), Integer))
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvPracticumRecord.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.dgvPracticumRecord.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle14.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.Green
-        DataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvPracticumRecord.DefaultCellStyle = DataGridViewCellStyle14
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Green
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvPracticumRecord.DefaultCellStyle = DataGridViewCellStyle5
         Me.dgvPracticumRecord.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.dgvPracticumRecord.Location = New System.Drawing.Point(33, 422)
         Me.dgvPracticumRecord.Name = "dgvPracticumRecord"
         Me.dgvPracticumRecord.RowHeadersVisible = False
-        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(247, Byte), Integer))
-        Me.dgvPracticumRecord.RowsDefaultCellStyle = DataGridViewCellStyle15
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(247, Byte), Integer))
+        Me.dgvPracticumRecord.RowsDefaultCellStyle = DataGridViewCellStyle6
         Me.dgvPracticumRecord.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvPracticumRecord.Size = New System.Drawing.Size(1062, 133)
         Me.dgvPracticumRecord.StandardTab = True
@@ -567,6 +570,34 @@ Partial Class frmPracticums
         'PrintDocument1
         '
         '
+        'PrintPreviewDialog2
+        '
+        Me.PrintPreviewDialog2.AutoScrollMargin = New System.Drawing.Size(0, 0)
+        Me.PrintPreviewDialog2.AutoScrollMinSize = New System.Drawing.Size(0, 0)
+        Me.PrintPreviewDialog2.ClientSize = New System.Drawing.Size(400, 300)
+        Me.PrintPreviewDialog2.Enabled = True
+        Me.PrintPreviewDialog2.Icon = CType(resources.GetObject("PrintPreviewDialog2.Icon"), System.Drawing.Icon)
+        Me.PrintPreviewDialog2.Name = "PrintPreviewDialog1"
+        Me.PrintPreviewDialog2.Visible = False
+        '
+        'PrintDocument2
+        '
+        '
+        'btnPrintdgv
+        '
+        Me.btnPrintdgv.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.btnPrintdgv.BackColor = System.Drawing.Color.Green
+        Me.btnPrintdgv.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnPrintdgv.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnPrintdgv.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPrintdgv.ForeColor = System.Drawing.Color.White
+        Me.btnPrintdgv.Location = New System.Drawing.Point(1029, 389)
+        Me.btnPrintdgv.Name = "btnPrintdgv"
+        Me.btnPrintdgv.Size = New System.Drawing.Size(66, 29)
+        Me.btnPrintdgv.TabIndex = 229
+        Me.btnPrintdgv.Text = "Print"
+        Me.btnPrintdgv.UseVisualStyleBackColor = False
+        '
         'frmPracticums
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -576,6 +607,7 @@ Partial Class frmPracticums
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.ClientSize = New System.Drawing.Size(1130, 585)
         Me.ControlBox = False
+        Me.Controls.Add(Me.btnPrintdgv)
         Me.Controls.Add(Me.txtSearch)
         Me.Controls.Add(Me.lblSearchBy)
         Me.Controls.Add(Me.cmbFilter)
@@ -632,4 +664,7 @@ Partial Class frmPracticums
     Friend WithEvents SaveFileDialog1 As System.Windows.Forms.SaveFileDialog
     Friend WithEvents PrintPreviewDialog1 As System.Windows.Forms.PrintPreviewDialog
     Friend WithEvents PrintDocument1 As System.Drawing.Printing.PrintDocument
+    Friend WithEvents PrintPreviewDialog2 As System.Windows.Forms.PrintPreviewDialog
+    Friend WithEvents PrintDocument2 As System.Drawing.Printing.PrintDocument
+    Friend WithEvents btnPrintdgv As System.Windows.Forms.Button
 End Class

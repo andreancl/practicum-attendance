@@ -1,4 +1,5 @@
 ﻿Imports MySql.Data.MySqlClient
+Imports System.Drawing.Printing
 
 Public Class frmPracticums
     Dim Generator As New MessagingToolkit.Barcode.BarcodeEncoder
@@ -69,7 +70,7 @@ Public Class frmPracticums
                 & " VALUES ('" & txtPracticumID.Text & "', '" & txtLastName.Text & "', '" & txtFirstName.Text _
                 & "', '" & cmbCourse.Text & "', '" & cmbVenue.Text & "', '" & cmbAssignment.Text _
                 & "', '" & cmbBatch.Text & "', '" & cmbSY.Text & "', '" & dtpStart.Text & "', '" & dtpEnd.Text & "')"
-            create(query, txtPracticumID.Text)
+            create(query)
             load_PracticumInfo()
             clearcontrol(gbPracticums)
         Catch ex As Exception
@@ -159,7 +160,7 @@ Public Class frmPracticums
             & cmbAssignment.Text & "',`Batch` = '" & cmbBatch.Text & "', `SchoolYear` = '" _
             & cmbSY.Text & "', `StartDate` = '" & dtpStart.Text & "', `EndDate` = '" _
             & dtpEnd.Text & "' WHERE `PracticumId` = '" & txtPracticumID.Text & "' "
-        updates(query, txtPracticumID.Text)
+        updates(query)
         load_PracticumInfo()
         clearcontrol(gbPracticums)
     End Sub
@@ -218,5 +219,124 @@ Public Class frmPracticums
 
     Private Sub PrintDocument1_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
         e.Graphics.DrawImage(pbQR.Image, 0, 0)
+    End Sub
+
+
+    Private mRow As Integer = 0
+    Private newpage As Boolean = True
+
+    Private Sub PrintDocument2_PrintPage(sender As System.Object, e As PrintPageEventArgs) Handles PrintDocument2.PrintPage
+
+        ' sets it to show '...' for long text
+        Dim fmt As StringFormat = New StringFormat(StringFormatFlags.LineLimit)
+        fmt.LineAlignment = StringAlignment.Center
+        fmt.Trimming = StringTrimming.EllipsisCharacter
+        Dim y As Int32 = e.MarginBounds.Top
+        Dim rc As Rectangle
+        Dim x As Int32
+        Dim h As Int32 = 0
+        Dim row As DataGridViewRow
+
+
+        ' print the header text for a new page
+        ' use a grey bg just like the control
+        If newpage Then
+            row = dgvPracticumRecord.Rows(mRow)
+            x = e.MarginBounds.Left
+            For Each cell As DataGridViewCell In row.Cells
+                ' since we are printing the control's view,
+                ' skip invisible columns
+                If cell.Visible Then
+                    rc = New Rectangle(x, y, cell.Size.Width, cell.Size.Height)
+
+                    e.Graphics.FillRectangle(Brushes.LightGray, rc)
+                    e.Graphics.DrawRectangle(Pens.Black, rc)
+
+                    ' reuse in data print - should be a function
+                    Select Case dgvPracticumRecord.Columns(cell.ColumnIndex).DefaultCellStyle.Alignment
+                        Case DataGridViewContentAlignment.BottomRight,
+                             DataGridViewContentAlignment.MiddleRight
+                            fmt.Alignment = StringAlignment.Far
+                            rc.Offset(-1, 0)
+                        Case DataGridViewContentAlignment.BottomCenter,
+                            DataGridViewContentAlignment.MiddleCenter
+                            fmt.Alignment = StringAlignment.Center
+                        Case Else
+                            fmt.Alignment = StringAlignment.Near
+                            rc.Offset(2, 0)
+                    End Select
+
+                    e.Graphics.DrawString(dgvPracticumRecord.Columns(cell.ColumnIndex).HeaderText, dgvPracticumRecord.Font, Brushes.Black, rc, fmt)
+                    x += rc.Width
+                    h = Math.Max(h, rc.Height)
+                End If
+            Next
+            y += h
+
+        End If
+        newpage = False
+
+        ' now print the data for each row
+        Dim thisNDX As Int32
+        For thisNDX = mRow To dgvPracticumRecord.RowCount - 1
+            ' no need to try to print the new row
+            If dgvPracticumRecord.Rows(thisNDX).IsNewRow Then Exit For
+
+            row = dgvPracticumRecord.Rows(thisNDX)
+            x = e.MarginBounds.Left
+            h = 0
+
+            ' reset X for data
+            x = e.MarginBounds.Left
+
+            ' print the data
+            For Each cell As DataGridViewCell In row.Cells
+                If cell.Visible Then
+                    rc = New Rectangle(x, y, cell.Size.Width, cell.Size.Height)
+                    e.Graphics.DrawRectangle(Pens.Black, rc)
+
+                    Select Case dgvPracticumRecord.Columns(cell.ColumnIndex).DefaultCellStyle.Alignment
+                        Case DataGridViewContentAlignment.BottomRight,
+                             DataGridViewContentAlignment.MiddleRight
+                            fmt.Alignment = StringAlignment.Far
+                            rc.Offset(-1, 0)
+                        Case DataGridViewContentAlignment.BottomCenter,
+                            DataGridViewContentAlignment.MiddleCenter
+                            fmt.Alignment = StringAlignment.Center
+                        Case Else
+                            fmt.Alignment = StringAlignment.Near
+                            rc.Offset(2, 0)
+                    End Select
+
+                    e.Graphics.DrawString(cell.FormattedValue.ToString(),
+                                          dgvPracticumRecord.Font, Brushes.Black, rc, fmt)
+
+                    x += rc.Width
+                    h = Math.Max(h, rc.Height)
+                End If
+
+            Next
+            y += h
+            ' next row to print
+            mRow = thisNDX + 1
+
+            If y + h > e.MarginBounds.Bottom Then
+                e.HasMorePages = True
+                ' mRow -= 1   causes last row to rePrint on next page
+                newpage = True
+                Return
+            End If
+        Next
+    End Sub
+    Private Sub btnPrintdgv_Click(sender As System.Object, e As System.EventArgs) Handles btnPrintdgv.Click
+        mRow = 0
+        newpage = True
+        Dim xCustomSize As New PaperSize("Legal", 850, 1400)
+        PrintDocument2.DefaultPageSettings.PaperSize = xCustomSize
+        PrintDocument2.DefaultPageSettings.Landscape = True
+        PrintPreviewDialog2.PrintPreviewControl.StartPage = 0
+        PrintPreviewDialog2.PrintPreviewControl.Zoom = 1.0
+        PrintPreviewDialog2.Document = PrintDocument2
+        PrintPreviewDialog2.ShowDialog()
     End Sub
 End Class

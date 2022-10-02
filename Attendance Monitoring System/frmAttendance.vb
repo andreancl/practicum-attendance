@@ -77,13 +77,60 @@ Public Class frmAttendance
     End Sub
 
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
+
         Try
-                Dim query As String = "INSERT INTO attendance (PracticumID, Date, TimeLogIn_AM) " _
-    & " VALUES ('" & TextBox1.Text & "', '" & logdate & "', '" & timein_am & "')"
-                Dim query2 As String = "UPDATE attendance att, practicum prac SET att.LastName = prac.LastName, att.FirstName = prac.FirstName WHERE att.PracticumID = prac.PracticumID"
-                Dim QueryString As String = String.Concat(query, ";", query2)
-                create(QueryString, TextBox1.Text)
-            load_PracticumAttendance()
+            If TextBox1.Text = "" Then
+                MessageBox.Show("retry")
+            Else
+                reloadtxt("SELECT * FROM practicum WHERE PracticumID = '" & TextBox1.Text & "'")
+            If dt.Rows.Count > 0 Then
+                reloadtxt("SELECT * FROM attendance WHERE PracticumID = '" & TextBox1.Text & "' AND DATE = '" & logdate _
+                & "' AND Status = 'OUT'")
+                If dt.Rows.Count > 0 Then
+                    MessageBox.Show("STOP NA BE", "already", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+                Else
+                        reloadtxt("SELECT * FROM attendance WHERE PracticumID = '" & TextBox1.Text & "' AND Status = 'IN'")
+                    If dt.Rows.Count > 0 Then
+                        Dim quers As String = "UPDATE attendance SET TimeLogOut_AM = '" & timeout_am & "', Status = 'Out' WHERE PracticumID = '" & TextBox1.Text & "'"
+                        Dim query2 As String = "UPDATE attendance att, practicum prac SET att.LastName = prac.LastName, att.FirstName = prac.FirstName WHERE att.PracticumID = prac.PracticumID"
+                        Dim QueryString2 As String = String.Concat(quers, ";", query2)
+                            updates(QueryString2)
+                            load_PracticumAttendance()
+                        MessageBox.Show("timeout")
+                    Else
+                        Dim query As String = "INSERT INTO attendance (PracticumID, Date, TimeLogIn_AM, Status) " _
+                                          & " VALUES ('" & TextBox1.Text & "', '" & logdate & "', '" & timein_am & "', 'IN')"
+                        Dim query2 As String = "UPDATE attendance att, practicum prac SET att.LastName = prac.LastName, att.FirstName = prac.FirstName WHERE att.PracticumID = prac.PracticumID"
+                        Dim QueryString As String = String.Concat(query, ";", query2)
+                        create(QueryString)
+                        load_PracticumAttendance()
+                        MessageBox.Show("TimeIn")
+                    End If
+                    End If
+
+            Else
+                MessageBox.Show("amakana akla")
+            End If
+            End If
+
+            'Else
+            ' create("INSERT INTO attendance (PracticumID, Date, TimeLogIn_AM, AM_Status) " _
+            ' & " VALUES ('" & TextBox1.Text & "', '" & logdate & "', '" & timein_am & "', 'IN')")
+            ' updates("UPDATE attendance att, practicum prac SET att.LastName = prac.LastName, att.FirstName = prac.FirstName WHERE att.PracticumID = prac.PracticumID")
+            ' End If
+            'End If
+            '   Else
+            '        MessageBox.Show("wtf", "wth", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
+            '    End If
+            'Dim query As String = "INSERT INTO attendance (PracticumID, Date, TimeLogIn_AM,  ) " _
+            '& " VALUES ('" & TextBox1.Text & "', '" & logdate & "', '" & timein_am & "')"
+            ' Dim query2 As String = "UPDATE attendance att, practicum prac SET att.LastName = prac.LastName, att.FirstName = prac.FirstName WHERE att.PracticumID = prac.PracticumID"
+            'Dim QueryString As String = String.Concat(query, ";", query2)
+            'create(QueryString)
+            'load_PracticumAttendance()
+
+            'query = "SELECT * FROM attendance WHERE TimeLogIn_AM IS NULL"
         Catch ex As Exception
         End Try
     End Sub
