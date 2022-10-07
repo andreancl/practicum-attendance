@@ -15,10 +15,12 @@
         Dim RdoBtn As RadioButton = Nothing
         Dim CmbBox As ComboBox = Nothing
         Dim pbox As PictureBox = Nothing
+        Dim tbox As TextBox = Nothing
 
-        For Each ctrl As Control In obj.Controls
-            If ctrl.GetType Is GetType(TextBox) Then
-                ctrl.Text = Nothing
+        For Each XObject As Control In obj.Controls
+            If TypeOf XObject Is TextBox Then
+                tbox = XObject
+                tbox.Text = Nothing
             End If
         Next
         For Each ctrl As Control In obj.Controls

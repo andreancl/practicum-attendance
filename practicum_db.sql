@@ -30,9 +30,11 @@ CREATE TABLE `attendance` (
   `Date` varchar(45) DEFAULT NULL,
   `TimeLogIn_AM` varchar(45) DEFAULT NULL,
   `TimeLogOut_AM` varchar(45) DEFAULT NULL,
+  `AM_Status` varchar(45) DEFAULT NULL,
   `TimeLogIn_PM` varchar(45) DEFAULT NULL,
   `TimeLogOut_PM` varchar(45) DEFAULT NULL,
-  `Status` varchar(45) DEFAULT NULL,
+  `PM_Status` varchar(45) DEFAULT NULL,
+  `DateCreated` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`Id`),
   KEY `PracticumID_idx` (`PracticumID`),
   KEY `LastName_idx` (`LastName`),
@@ -40,7 +42,7 @@ CREATE TABLE `attendance` (
   CONSTRAINT `FirstName` FOREIGN KEY (`FirstName`) REFERENCES `practicum` (`FirstName`),
   CONSTRAINT `LastName` FOREIGN KEY (`LastName`) REFERENCES `practicum` (`LastName`),
   CONSTRAINT `PracticumID` FOREIGN KEY (`PracticumID`) REFERENCES `practicum` (`PracticumID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -49,7 +51,7 @@ CREATE TABLE `attendance` (
 
 LOCK TABLES `attendance` WRITE;
 /*!40000 ALTER TABLE `attendance` DISABLE KEYS */;
-INSERT INTO `attendance` VALUES (1,1800885,'Rafael','Andrea Mae Nicole','2022-10-03','6:19:28 AM','6:19:35 AM',NULL,NULL,'Out'),(2,1801523,'Concepcion','Joshua','2022-10-03','6:30:43 AM','6:32:33 AM',NULL,NULL,'Out');
+INSERT INTO `attendance` VALUES (26,1800885,'Rafael','Andrea Mae Nicole','2022-10-08','5:38:39 AM','5:38:41 AM','OUT',NULL,NULL,NULL,'2022-10-08 05:38:39'),(27,1801523,'Concepcion','Joshua','2022-10-08',NULL,NULL,NULL,'6:39:38 AM','6:39:40 AM','OUT','2022-10-08 06:39:38');
 /*!40000 ALTER TABLE `attendance` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -132,4 +134,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-10-03  6:36:10
+-- Dump completed on 2022-10-08  6:59:21

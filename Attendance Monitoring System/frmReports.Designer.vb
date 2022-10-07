@@ -35,14 +35,17 @@ Partial Class frmReports
         Me.btnMonthly = New System.Windows.Forms.Button()
         Me.btnWeekly = New System.Windows.Forms.Button()
         Me.btnDaily = New System.Windows.Forms.Button()
-        Me.dgvRecords = New System.Windows.Forms.DataGridView()
+        Me.dgvPracticumRecord = New System.Windows.Forms.DataGridView()
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.lblSearchBy = New System.Windows.Forms.Label()
         Me.cmbFilter = New System.Windows.Forms.ComboBox()
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
         Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
+        Me.btnPrintdgv = New System.Windows.Forms.Button()
+        Me.txtSearchAtt = New System.Windows.Forms.TextBox()
+        Me.cmbAtt = New System.Windows.Forms.ComboBox()
         Me.Panel1.SuspendLayout()
-        CType(Me.dgvRecords, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvPracticumRecord, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -168,18 +171,18 @@ Partial Class frmReports
         Me.btnDaily.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.btnDaily.UseVisualStyleBackColor = True
         '
-        'dgvRecords
+        'dgvPracticumRecord
         '
-        Me.dgvRecords.AllowUserToAddRows = False
-        Me.dgvRecords.AllowUserToDeleteRows = False
-        Me.dgvRecords.AllowUserToResizeColumns = False
-        Me.dgvRecords.AllowUserToResizeRows = False
-        Me.dgvRecords.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.dgvPracticumRecord.AllowUserToAddRows = False
+        Me.dgvPracticumRecord.AllowUserToDeleteRows = False
+        Me.dgvPracticumRecord.AllowUserToResizeColumns = False
+        Me.dgvPracticumRecord.AllowUserToResizeRows = False
+        Me.dgvPracticumRecord.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.dgvRecords.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
-        Me.dgvRecords.BackgroundColor = System.Drawing.Color.Green
-        Me.dgvRecords.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
+        Me.dgvPracticumRecord.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.dgvPracticumRecord.BackgroundColor = System.Drawing.Color.Green
+        Me.dgvPracticumRecord.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.Green
         DataGridViewCellStyle1.Font = New System.Drawing.Font("Calibri", 12.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -187,9 +190,9 @@ Partial Class frmReports
         DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(175, Byte), Integer), CType(CType(221, Byte), Integer), CType(CType(148, Byte), Integer))
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvRecords.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
-        Me.dgvRecords.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvRecords.Cursor = System.Windows.Forms.Cursors.Default
+        Me.dgvPracticumRecord.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.dgvPracticumRecord.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvPracticumRecord.Cursor = System.Windows.Forms.Cursors.Default
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -197,18 +200,18 @@ Partial Class frmReports
         DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Green
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvRecords.DefaultCellStyle = DataGridViewCellStyle2
-        Me.dgvRecords.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
-        Me.dgvRecords.Location = New System.Drawing.Point(150, 69)
-        Me.dgvRecords.Name = "dgvRecords"
-        Me.dgvRecords.RowHeadersVisible = False
+        Me.dgvPracticumRecord.DefaultCellStyle = DataGridViewCellStyle2
+        Me.dgvPracticumRecord.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
+        Me.dgvPracticumRecord.Location = New System.Drawing.Point(150, 69)
+        Me.dgvPracticumRecord.Name = "dgvPracticumRecord"
+        Me.dgvPracticumRecord.RowHeadersVisible = False
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(247, Byte), Integer))
-        Me.dgvRecords.RowsDefaultCellStyle = DataGridViewCellStyle3
-        Me.dgvRecords.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvRecords.Size = New System.Drawing.Size(957, 464)
-        Me.dgvRecords.StandardTab = True
-        Me.dgvRecords.TabIndex = 83
+        Me.dgvPracticumRecord.RowsDefaultCellStyle = DataGridViewCellStyle3
+        Me.dgvPracticumRecord.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvPracticumRecord.Size = New System.Drawing.Size(957, 464)
+        Me.dgvPracticumRecord.StandardTab = True
+        Me.dgvPracticumRecord.TabIndex = 83
         '
         'txtSearch
         '
@@ -246,6 +249,9 @@ Partial Class frmReports
         Me.cmbFilter.Size = New System.Drawing.Size(162, 29)
         Me.cmbFilter.TabIndex = 176
         '
+        'PrintDocument1
+        '
+        '
         'PrintPreviewDialog1
         '
         Me.PrintPreviewDialog1.AutoScrollMargin = New System.Drawing.Size(0, 0)
@@ -256,6 +262,46 @@ Partial Class frmReports
         Me.PrintPreviewDialog1.Name = "PrintPreviewDialog1"
         Me.PrintPreviewDialog1.Visible = False
         '
+        'btnPrintdgv
+        '
+        Me.btnPrintdgv.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.btnPrintdgv.BackColor = System.Drawing.Color.Green
+        Me.btnPrintdgv.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnPrintdgv.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnPrintdgv.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPrintdgv.ForeColor = System.Drawing.Color.White
+        Me.btnPrintdgv.Location = New System.Drawing.Point(1041, 34)
+        Me.btnPrintdgv.Name = "btnPrintdgv"
+        Me.btnPrintdgv.Size = New System.Drawing.Size(66, 29)
+        Me.btnPrintdgv.TabIndex = 230
+        Me.btnPrintdgv.Text = "Print"
+        Me.btnPrintdgv.UseVisualStyleBackColor = False
+        '
+        'txtSearchAtt
+        '
+        Me.txtSearchAtt.BackColor = System.Drawing.Color.FromArgb(CType(CType(229, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(233, Byte), Integer))
+        Me.txtSearchAtt.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSearchAtt.ForeColor = System.Drawing.Color.Black
+        Me.txtSearchAtt.Location = New System.Drawing.Point(423, 37)
+        Me.txtSearchAtt.MaxLength = 35
+        Me.txtSearchAtt.Name = "txtSearchAtt"
+        Me.txtSearchAtt.Size = New System.Drawing.Size(229, 26)
+        Me.txtSearchAtt.TabIndex = 231
+        Me.txtSearchAtt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'cmbAtt
+        '
+        Me.cmbAtt.BackColor = System.Drawing.Color.FromArgb(CType(CType(229, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(233, Byte), Integer))
+        Me.cmbAtt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbAtt.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbAtt.ForeColor = System.Drawing.Color.Black
+        Me.cmbAtt.FormattingEnabled = True
+        Me.cmbAtt.Items.AddRange(New Object() {"", "NAME", "PRACTICUM ID"})
+        Me.cmbAtt.Location = New System.Drawing.Point(255, 34)
+        Me.cmbAtt.Name = "cmbAtt"
+        Me.cmbAtt.Size = New System.Drawing.Size(162, 29)
+        Me.cmbAtt.TabIndex = 232
+        '
         'frmReports
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -264,10 +310,13 @@ Partial Class frmReports
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.ClientSize = New System.Drawing.Size(1130, 585)
         Me.ControlBox = False
+        Me.Controls.Add(Me.cmbAtt)
+        Me.Controls.Add(Me.txtSearchAtt)
+        Me.Controls.Add(Me.btnPrintdgv)
         Me.Controls.Add(Me.txtSearch)
         Me.Controls.Add(Me.lblSearchBy)
         Me.Controls.Add(Me.cmbFilter)
-        Me.Controls.Add(Me.dgvRecords)
+        Me.Controls.Add(Me.dgvPracticumRecord)
         Me.Controls.Add(Me.Panel1)
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.DoubleBuffered = True
@@ -276,7 +325,7 @@ Partial Class frmReports
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        CType(Me.dgvRecords, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvPracticumRecord, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -290,10 +339,13 @@ Partial Class frmReports
     Friend WithEvents btnWeekly As System.Windows.Forms.Button
     Friend WithEvents btnDaily As System.Windows.Forms.Button
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents dgvRecords As System.Windows.Forms.DataGridView
+    Friend WithEvents dgvPracticumRecord As System.Windows.Forms.DataGridView
     Friend WithEvents txtSearch As System.Windows.Forms.TextBox
     Friend WithEvents lblSearchBy As System.Windows.Forms.Label
     Friend WithEvents cmbFilter As System.Windows.Forms.ComboBox
     Friend WithEvents PrintDocument1 As System.Drawing.Printing.PrintDocument
     Friend WithEvents PrintPreviewDialog1 As System.Windows.Forms.PrintPreviewDialog
+    Friend WithEvents btnPrintdgv As System.Windows.Forms.Button
+    Friend WithEvents txtSearchAtt As System.Windows.Forms.TextBox
+    Friend WithEvents cmbAtt As System.Windows.Forms.ComboBox
 End Class
