@@ -37,7 +37,7 @@ Module crud
                 If result = 0 Then
                     MsgBox("This action cannot be performed.", MsgBoxStyle.Information)
                 Else
-                    MsgBox("Success")
+                    MsgBox("Information has been saved.")
                 End If
             End With
 
@@ -72,7 +72,7 @@ Module crud
                 If result = 0 Then
                     MsgBox("This action cannot be performed.", MsgBoxStyle.Information)
                 Else
-                    MsgBox("Updated!")
+                    MsgBox("Information has been updated.")
                 End If
             End With
             con.Close()
@@ -110,24 +110,7 @@ Module crud
             If result = 0 Then
                 MsgBox("This action cannot be performed.", MsgBoxStyle.Information)
             Else
-                MsgBox("Deleted!")
-            End If
-            con.Close()
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
-    End Sub
-    Public Sub notdeleted(ByVal query As String, ByVal msgsuccess As String)
-        Try
-            con.Open()
-            With cmd
-                .Connection = con
-                .CommandText = query
-            End With
-            result = cmd.ExecuteNonQuery
-            If result = 0 Then
-                MsgBox("This action cannot be performed.", MsgBoxStyle.Information)
-            Else
+                MsgBox("Record has been deleted.")
             End If
             con.Close()
         Catch ex As Exception

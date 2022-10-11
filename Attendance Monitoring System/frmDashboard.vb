@@ -20,9 +20,9 @@
     End Sub
     Public Sub load_Attendance()
         query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
-               & " AS 'Full Name', `Date`, `TimeLogIn_AM` AS 'AM Time In', `TimeLogOut_AM` AS 'AM Time Out', " _
-               & " `AM_Status` AS 'AM Status',`TimeLogIn_PM` AS 'PM Time In', `TimeLogOut_PM` AS 'PM Time Out'," _
-               & " `PM_Status` AS 'PM Status' FROM `attendance`"
+                & " AS 'Full Name', `Date`, `TimeLogIn_AM` AS 'AM Time In', `TimeLogOut_AM` AS 'AM Time Out', " _
+                   & " `AM_Status` AS 'AM Status',`TimeLogIn_PM` AS 'PM Time In', `TimeLogOut_PM` AS 'PM Time Out'," _
+                   & " `PM_Status` AS 'PM Status' FROM `attendance` WHERE `Date` = curdate()"
         reloadDgv(query, dgvAttendanceRecord)
     End Sub
 

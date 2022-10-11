@@ -4,6 +4,8 @@ Imports System.Drawing.Printing
 Public Class frmPracticums
     Dim Generator As New MessagingToolkit.Barcode.BarcodeEncoder
     Public con As MySqlConnection = mysqldb()
+    Private mRow As Integer = 0
+    Private newpage As Boolean = True
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         If txtPracticumID.Text = "" And txtLastName.Text = "" And txtFirstName.Text = "" And cmbCourse.Text = "" _
@@ -115,9 +117,18 @@ Public Class frmPracticums
                 cmbSY.Text = dt.Rows(0).Item("SchoolYear")
                 dtpStart.Text = dt.Rows(0).Item("StartDate")
                 dtpEnd.Text = dt.Rows(0).Item("EndDate")
+            Else
+                txtLastName.Text = Nothing
+                txtFirstName.Text = Nothing
+                cmbCourse.Text = Nothing
+                cmbVenue.Text = Nothing
+                cmbAssignment.Text = Nothing
+                cmbBatch.Text = Nothing
+                cmbSY.Text = Nothing
+                dtpStart.Text = Nothing
+                dtpEnd.Text = Nothing
             End If
         Catch ex As Exception
-            MsgBox(ex.Message)
         End Try
     End Sub
     Private Sub dgvMembersRecord_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvPracticumRecord.CellContentClick
@@ -220,14 +231,8 @@ Public Class frmPracticums
     Private Sub PrintDocument1_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
         e.Graphics.DrawImage(pbQR.Image, 0, 0)
     End Sub
-
-
-    Private mRow As Integer = 0
-    Private newpage As Boolean = True
-
     Private Sub PrintDocument2_PrintPage(sender As System.Object, e As PrintPageEventArgs) Handles PrintDocument2.PrintPage
 
-        ' sets it to show '...' for long text
         Dim fmt As StringFormat = New StringFormat(StringFormatFlags.LineLimit)
         fmt.LineAlignment = StringAlignment.Center
         fmt.Trimming = StringTrimming.EllipsisCharacter
@@ -237,22 +242,15 @@ Public Class frmPracticums
         Dim h As Int32 = 0
         Dim row As DataGridViewRow
 
-
-        ' print the header text for a new page
-        ' use a grey bg just like the control
         If newpage Then
             row = dgvPracticumRecord.Rows(mRow)
             x = e.MarginBounds.Left
             For Each cell As DataGridViewCell In row.Cells
-                ' since we are printing the control's view,
-                ' skip invisible columns
                 If cell.Visible Then
                     rc = New Rectangle(x, y, cell.Size.Width, cell.Size.Height)
-
                     e.Graphics.FillRectangle(Brushes.LightGray, rc)
                     e.Graphics.DrawRectangle(Pens.Black, rc)
 
-                    ' reuse in data print - should be a function
                     Select Case dgvPracticumRecord.Columns(cell.ColumnIndex).DefaultCellStyle.Alignment
                         Case DataGridViewContentAlignment.BottomRight,
                              DataGridViewContentAlignment.MiddleRight
@@ -272,24 +270,18 @@ Public Class frmPracticums
                 End If
             Next
             y += h
-
         End If
         newpage = False
 
-        ' now print the data for each row
         Dim thisNDX As Int32
         For thisNDX = mRow To dgvPracticumRecord.RowCount - 1
-            ' no need to try to print the new row
             If dgvPracticumRecord.Rows(thisNDX).IsNewRow Then Exit For
 
             row = dgvPracticumRecord.Rows(thisNDX)
             x = e.MarginBounds.Left
             h = 0
-
-            ' reset X for data
             x = e.MarginBounds.Left
 
-            ' print the data
             For Each cell As DataGridViewCell In row.Cells
                 If cell.Visible Then
                     rc = New Rectangle(x, y, cell.Size.Width, cell.Size.Height)
@@ -317,12 +309,10 @@ Public Class frmPracticums
 
             Next
             y += h
-            ' next row to print
             mRow = thisNDX + 1
 
             If y + h > e.MarginBounds.Bottom Then
                 e.HasMorePages = True
-                ' mRow -= 1   causes last row to rePrint on next page
                 newpage = True
                 Return
             End If
@@ -335,8 +325,38 @@ Public Class frmPracticums
         PrintDocument2.DefaultPageSettings.PaperSize = xCustomSize
         PrintDocument2.DefaultPageSettings.Landscape = True
         PrintPreviewDialog2.PrintPreviewControl.StartPage = 0
-        PrintPreviewDialog2.PrintPreviewControl.Zoom = 1.0
+        PrintPreviewDialog2.PrintPreviewControl.Zoom = 0.75
         PrintPreviewDialog2.Document = PrintDocument2
         PrintPreviewDialog2.ShowDialog()
     End Sub
+
+#Region "Validation"
+    Private Sub txtPracticumID_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtPracticumID.KeyPress
+        If Char.IsDigit(e.KeyChar) = False And Char.IsControl(e.KeyChar) = False Then
+            e.Handled = True
+        End If
+    End Sub
+    Private Sub txtLastName_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtLastName.KeyPress
+        If Asc(e.KeyChar) < 65 Or Asc(e.KeyChar) > 90 And Asc(e.KeyChar) < 97 Or Asc(e.KeyChar) > 122 Then
+            If Asc(e.KeyChar) = 8 Then
+                e.Handled = False
+            ElseIf Asc(e.KeyChar) = 32 Then
+                e.Handled = False
+            Else
+                e.Handled = True
+            End If
+        End If
+    End Sub
+    Private Sub txtFirstName_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtFirstName.KeyPress
+        If Asc(e.KeyChar) < 65 Or Asc(e.KeyChar) > 90 And Asc(e.KeyChar) < 97 Or Asc(e.KeyChar) > 122 Then
+            If Asc(e.KeyChar) = 8 Then
+                e.Handled = False
+            ElseIf Asc(e.KeyChar) = 32 Then
+                e.Handled = False
+            Else
+                e.Handled = True
+            End If
+        End If
+    End Sub
+#End Region
 End Class

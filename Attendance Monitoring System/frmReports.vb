@@ -67,6 +67,10 @@ Public Class frmReports
 
     Private Sub btnDaily_Click(sender As Object, e As EventArgs) Handles btnDaily.Click
         daily()
+        txtSearch.Hide()
+        cmbFilter.Hide()
+        txtSearchAtt.Show()
+        cmbAtt.Show()
     End Sub
     Public Sub daily()
         query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
@@ -74,6 +78,8 @@ Public Class frmReports
                    & " `AM_Status` AS 'AM Status',`TimeLogIn_PM` AS 'PM Time In', `TimeLogOut_PM` AS 'PM Time Out'," _
                    & " `PM_Status` AS 'PM Status' FROM `attendance` WHERE `Date` = curdate()"
         reloadDgv(query, dgvPracticumRecord)
+        txtSearch.Hide()
+        cmbFilter.Hide()
     End Sub
     Private Sub PrintDocument1_PrintPage(sender As System.Object, e As PrintPageEventArgs) Handles PrintDocument1.PrintPage
 
@@ -191,19 +197,71 @@ Public Class frmReports
     End Sub
 
     Private Sub txtSearchAtt_TextChanged(sender As Object, e As EventArgs) Handles txtSearchAtt.TextChanged
-        If cmbAtt.Text = "NAME" Then
+        If cmbAtt.Text = "NAME" And btnDaily.Visible = True Then
             query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
                 & " AS 'Full Name', `Date`, `TimeLogIn_AM` AS 'AM Time In', `TimeLogOut_AM` AS 'AM Time Out', " _
                 & " `AM_Status` AS 'AM Status',`TimeLogIn_PM` AS 'PM Time In', `TimeLogOut_PM` AS 'PM Time Out'," _
-                & " `PM_Status` AS 'PM Status' FROM `attendance` WHERE CONCAT(`LastName`,', ', `FirstName`) " _
+                & " `PM_Status` AS 'PM Status' FROM `attendance` WHERE `Date` = curdate() AND" _
+                & " CONCAT(`LastName`,', ', `FirstName`) LIKE '%" & txtSearchAtt.Text & "%'"
+            reloadDgv(query, dgvPracticumRecord)
+        ElseIf cmbAtt.Text = "NAME" And btnWeekly.Visible = True Then
+            query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
+                & " AS 'Full Name', `Date`, `TimeLogIn_AM` AS 'AM Time In', `TimeLogOut_AM` AS 'AM Time Out', " _
+                & " `AM_Status` AS 'AM Status',`TimeLogIn_PM` AS 'PM Time In', `TimeLogOut_PM` AS 'PM Time Out'," _
+                & " `PM_Status` AS 'PM Status' FROM `attendance` WHERE YEARWEEK(Date) = YEARWEEK(NOW() - INTERVAL 1 WEEK)" _
+                & " AND CONCAT(`LastName`,', ', `FirstName`) LIKE '%" & txtSearchAtt.Text & "%'"
+            reloadDgv(query, dgvPracticumRecord)
+        ElseIf cmbAtt.Text = "NAME" And btnMonthly.Visible = True Then
+            query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
+                & " AS 'Full Name', `Date`, `TimeLogIn_AM` AS 'AM Time In', `TimeLogOut_AM` AS 'AM Time Out', " _
+                & " `AM_Status` AS 'AM Status',`TimeLogIn_PM` AS 'PM Time In', `TimeLogOut_PM` AS 'PM Time Out'," _
+                & " `PM_Status` AS 'PM Status' FROM `attendance` WHERE EXTRACT(MONTH FROM `Date`)" _
+                & " = EXTRACT(MONTH FROM CURRENT_DATE) AND EXTRACT(YEAR FROM `Date`) = EXTRACT(YEAR FROM CURRENT_DATE)" _
+                & " AND CONCAT(`LastName`,', ', `FirstName`) LIKE '%" & txtSearchAtt.Text & "%'"
+            reloadDgv(query, dgvPracticumRecord)
+        ElseIf cmbAtt.Text = "NAME" And btnAllLogs.Visible = True Then
+            query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
+                & " AS 'Full Name', `Date`, `TimeLogIn_AM` AS 'AM Time In', `TimeLogOut_AM` AS 'AM Time Out', " _
+                & " `AM_Status` AS 'AM Status',`TimeLogIn_PM` AS 'PM Time In', `TimeLogOut_PM` AS 'PM Time Out'," _
+                & " `PM_Status` AS 'PM Status' FROM `attendance` WHERE CONCAT(`LastName`,', ', `FirstName`)" _
                 & " LIKE '%" & txtSearchAtt.Text & "%'"
             reloadDgv(query, dgvPracticumRecord)
-        ElseIf cmbAtt.Text = "PRACTICUM ID" Then
-            query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
-                 & " AS 'Full Name', `Date`, `TimeLogIn_AM` AS 'AM Time In', `TimeLogOut_AM` AS 'AM Time Out', " _
-                 & " `AM_Status` AS 'AM Status',`TimeLogIn_PM` AS 'PM Time In', `TimeLogOut_PM` AS 'PM Time Out'," _
-                 & " `PM_Status` AS 'PM Status' FROM `attendance` WHERE PracticumID LIKE '%" & txtSearchAtt.Text & "%'"
-            reloadDgv(query, dgvPracticumRecord)
         End If
+    End Sub
+
+    Private Sub btnWeekly_Click(sender As Object, e As EventArgs) Handles btnWeekly.Click
+        query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
+           & " AS 'Full Name', `Date`, `TimeLogIn_AM` AS 'AM Time In', `TimeLogOut_AM` AS 'AM Time Out', " _
+           & " `AM_Status` AS 'AM Status',`TimeLogIn_PM` AS 'PM Time In', `TimeLogOut_PM` AS 'PM Time Out'," _
+           & " `PM_Status` AS 'PM Status' FROM `attendance` WHERE YEARWEEK(Date) = YEARWEEK(NOW() - INTERVAL 1 WEEK)"
+        reloadDgv(query, dgvPracticumRecord)
+        txtSearch.Hide()
+        cmbFilter.Hide()
+        txtSearchAtt.Show()
+        cmbAtt.Show()
+    End Sub
+
+    Private Sub btnMonthly_Click(sender As Object, e As EventArgs) Handles btnMonthly.Click
+        query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
+         & " AS 'Full Name', `Date`, `TimeLogIn_AM` AS 'AM Time In', `TimeLogOut_AM` AS 'AM Time Out', " _
+         & " `AM_Status` AS 'AM Status',`TimeLogIn_PM` AS 'PM Time In', `TimeLogOut_PM` AS 'PM Time Out'," _
+         & " `PM_Status` AS 'PM Status' FROM `attendance` WHERE EXTRACT(MONTH FROM `Date`) = EXTRACT(MONTH FROM CURRENT_DATE) AND EXTRACT(YEAR FROM `Date`) = EXTRACT(YEAR FROM CURRENT_DATE)"
+        reloadDgv(query, dgvPracticumRecord)
+        txtSearch.Hide()
+        cmbFilter.Hide()
+        txtSearchAtt.Show()
+        cmbAtt.Show()
+    End Sub
+
+    Private Sub btnAllLogs_Click(sender As Object, e As EventArgs) Handles btnAllLogs.Click
+        query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
+         & " AS 'Full Name', `Date`, `TimeLogIn_AM` AS 'AM Time In', `TimeLogOut_AM` AS 'AM Time Out', " _
+         & " `AM_Status` AS 'AM Status',`TimeLogIn_PM` AS 'PM Time In', `TimeLogOut_PM` AS 'PM Time Out'," _
+         & " `PM_Status` AS 'PM Status' FROM `attendance`"
+        reloadDgv(query, dgvPracticumRecord)
+        txtSearch.Hide()
+        cmbFilter.Hide()
+        txtSearchAtt.Show()
+        cmbAtt.Show()
     End Sub
 End Class
