@@ -177,43 +177,11 @@ Public Class frmPracticums
     End Sub
 
     Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
-        If cmbFilter.Text = "NAME" Then
             query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
                 & " AS 'Full Name', `Course`, `Venue`, `Assignment`, `Batch`,  `SchoolYear` AS 'S.Y', " _
                 & " `StartDate` AS 'Start Date', `EndDate` AS 'End Date' FROM `practicum`" _
                 & " WHERE CONCAT(`LastName`,', ', `FirstName`) LIKE '%" & txtSearch.Text & "%'"
             reloadDgv(query, dgvPracticumRecord)
-        ElseIf cmbFilter.Text = "PRACTICUM ID" Then
-            query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
-                & " AS 'Full Name', `Course`, `Venue`, `Assignment`, `Batch`,  `SchoolYear` AS 'S.Y', " _
-                & " `StartDate` AS 'Start Date', `EndDate` AS 'End Date' FROM `practicum`" _
-                & " WHERE PracticumID LIKE '%" & txtSearch.Text & "%'"
-            reloadDgv(query, dgvPracticumRecord)
-        ElseIf cmbFilter.Text = "COURSE" Then
-            query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
-              & " AS 'Full Name', `Course`, `Venue`, `Assignment`, `Batch`,  `SchoolYear` AS 'S.Y', " _
-              & " `StartDate` AS 'Start Date', `EndDate` AS 'End Date' FROM `practicum`" _
-              & " WHERE Course LIKE '%" & txtSearch.Text & "%'"
-            reloadDgv(query, dgvPracticumRecord)
-        ElseIf cmbFilter.Text = "VENUE" Then
-            query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
-              & " AS 'Full Name', `Course`, `Venue`, `Assignment`, `Batch`,  `SchoolYear` AS 'S.Y', " _
-              & " `StartDate` AS 'Start Date', `EndDate` AS 'End Date' FROM `practicum`" _
-              & " WHERE Venue LIKE '%" & txtSearch.Text & "%'"
-            reloadDgv(query, dgvPracticumRecord)
-        ElseIf cmbFilter.Text = "ASSIGNMENT" Then
-            query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
-              & " AS 'Full Name', `Course`, `Venue`, `Assignment`, `Batch`,  `SchoolYear` AS 'S.Y', " _
-              & " `StartDate` AS 'Start Date', `EndDate` AS 'End Date' FROM `practicum`" _
-              & " WHERE Assignment LIKE '%" & txtSearch.Text & "%'"
-            reloadDgv(query, dgvPracticumRecord)
-        ElseIf cmbFilter.Text = "BATCH" Then
-            query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
-              & " AS 'Full Name', `Course`, `Venue`, `Assignment`, `Batch`,  `SchoolYear` AS 'S.Y', " _
-              & " `StartDate` AS 'Start Date', `EndDate` AS 'End Date' FROM `practicum`" _
-              & " WHERE Batch LIKE '%" & txtSearch.Text & "%'"
-            reloadDgv(query, dgvPracticumRecord)
-        End If
     End Sub
 
     Private Sub btnSaveQR_Click(sender As Object, e As EventArgs) Handles btnSaveQR.Click

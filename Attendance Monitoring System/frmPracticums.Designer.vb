@@ -58,7 +58,6 @@ Partial Class frmPracticums
         Me.lblResRec = New System.Windows.Forms.Label()
         Me.dgvPracticumRecord = New System.Windows.Forms.DataGridView()
         Me.lblSearchBy = New System.Windows.Forms.Label()
-        Me.cmbFilter = New System.Windows.Forms.ComboBox()
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
@@ -523,29 +522,16 @@ Partial Class frmPracticums
         Me.lblSearchBy.ForeColor = System.Drawing.Color.Black
         Me.lblSearchBy.Location = New System.Drawing.Point(33, 393)
         Me.lblSearchBy.Name = "lblSearchBy"
-        Me.lblSearchBy.Size = New System.Drawing.Size(96, 19)
+        Me.lblSearchBy.Size = New System.Drawing.Size(146, 19)
         Me.lblSearchBy.TabIndex = 172
-        Me.lblSearchBy.Text = "SEARCH BY:"
-        '
-        'cmbFilter
-        '
-        Me.cmbFilter.BackColor = System.Drawing.Color.FromArgb(CType(CType(229, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(233, Byte), Integer))
-        Me.cmbFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbFilter.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbFilter.ForeColor = System.Drawing.Color.Black
-        Me.cmbFilter.FormattingEnabled = True
-        Me.cmbFilter.Items.AddRange(New Object() {"", "NAME", "PRACTICUM ID", "COURSE", "VENUE", "ASSIGNMENT", "BATCH"})
-        Me.cmbFilter.Location = New System.Drawing.Point(132, 387)
-        Me.cmbFilter.Name = "cmbFilter"
-        Me.cmbFilter.Size = New System.Drawing.Size(162, 29)
-        Me.cmbFilter.TabIndex = 173
+        Me.lblSearchBy.Text = "SEARCH BY NAME:"
         '
         'txtSearch
         '
         Me.txtSearch.BackColor = System.Drawing.Color.FromArgb(CType(CType(229, Byte), Integer), CType(CType(231, Byte), Integer), CType(CType(233, Byte), Integer))
         Me.txtSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSearch.ForeColor = System.Drawing.Color.Black
-        Me.txtSearch.Location = New System.Drawing.Point(300, 390)
+        Me.txtSearch.Location = New System.Drawing.Point(185, 390)
         Me.txtSearch.MaxLength = 35
         Me.txtSearch.Name = "txtSearch"
         Me.txtSearch.Size = New System.Drawing.Size(229, 26)
@@ -610,7 +596,6 @@ Partial Class frmPracticums
         Me.Controls.Add(Me.btnPrintdgv)
         Me.Controls.Add(Me.txtSearch)
         Me.Controls.Add(Me.lblSearchBy)
-        Me.Controls.Add(Me.cmbFilter)
         Me.Controls.Add(Me.dgvPracticumRecord)
         Me.Controls.Add(Me.lblResRec)
         Me.Controls.Add(Me.Panel1)
@@ -656,7 +641,6 @@ Partial Class frmPracticums
     Friend WithEvents btnDelete As System.Windows.Forms.Button
     Friend WithEvents btnSave As System.Windows.Forms.Button
     Friend WithEvents lblSearchBy As System.Windows.Forms.Label
-    Friend WithEvents cmbFilter As System.Windows.Forms.ComboBox
     Friend WithEvents txtSearch As System.Windows.Forms.TextBox
     Friend WithEvents pbQR As System.Windows.Forms.PictureBox
     Friend WithEvents btnPrint As System.Windows.Forms.Button

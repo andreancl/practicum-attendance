@@ -28,12 +28,12 @@ Partial Class frmMain
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lbAMS = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btnReports = New System.Windows.Forms.Button()
         Me.btnAttendance = New System.Windows.Forms.Button()
         Me.btnLogOut = New System.Windows.Forms.Button()
         Me.btnPracticums = New System.Windows.Forms.Button()
         Me.btnDashboard = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.btnReports = New System.Windows.Forms.Button()
         Me.Panel3.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -101,6 +101,21 @@ Partial Class frmMain
         Me.GroupBox1.Size = New System.Drawing.Size(229, 597)
         Me.GroupBox1.TabIndex = 15
         Me.GroupBox1.TabStop = False
+        '
+        'btnReports
+        '
+        Me.btnReports.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnReports.FlatAppearance.BorderSize = 0
+        Me.btnReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnReports.Font = New System.Drawing.Font("Century Gothic", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnReports.Image = CType(resources.GetObject("btnReports.Image"), System.Drawing.Image)
+        Me.btnReports.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnReports.Location = New System.Drawing.Point(3, 169)
+        Me.btnReports.Name = "btnReports"
+        Me.btnReports.Size = New System.Drawing.Size(223, 50)
+        Me.btnReports.TabIndex = 33
+        Me.btnReports.Text = "Records"
+        Me.btnReports.UseVisualStyleBackColor = True
         '
         'btnAttendance
         '
@@ -171,21 +186,6 @@ Partial Class frmMain
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(228, 749)
         Me.Panel1.TabIndex = 9
-        '
-        'btnReports
-        '
-        Me.btnReports.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnReports.FlatAppearance.BorderSize = 0
-        Me.btnReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnReports.Font = New System.Drawing.Font("Century Gothic", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnReports.Image = CType(resources.GetObject("btnReports.Image"), System.Drawing.Image)
-        Me.btnReports.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnReports.Location = New System.Drawing.Point(3, 169)
-        Me.btnReports.Name = "btnReports"
-        Me.btnReports.Size = New System.Drawing.Size(223, 50)
-        Me.btnReports.TabIndex = 33
-        Me.btnReports.Text = "Reports"
-        Me.btnReports.UseVisualStyleBackColor = True
         '
         'frmMain
         '

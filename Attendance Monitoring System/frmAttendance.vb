@@ -64,7 +64,7 @@ Public Class frmAttendance
     Public Sub load_AMAttendance()
         query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
                 & " AS 'Full Name', `Date`, `TimeLogIn_AM` AS 'Time In - AM', `TimeLogOut_AM` AS 'Time Out - AM'" _
-                & " FROM `attendance`"
+                & " FROM `attendance` WHERE `Date` = curdate()"
         reloadDgv(query, dgvAMAttendance)
     End Sub
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
@@ -117,7 +117,8 @@ Public Class frmAttendance
     End Sub
     Public Sub load_PMAttendance()
         query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
-                & " AS 'Full Name', `Date`, `TimeLogIn_PM` AS 'Time In - PM', `TimeLogOut_PM` AS 'Time Out - PM' FROM `attendance`"
+                & " AS 'Full Name', `Date`, `TimeLogIn_PM` AS 'Time In - PM', `TimeLogOut_PM`" _
+                & " AS 'Time Out - PM' FROM `attendance` WHERE `Date` = curdate()"
         reloadDgv(query, dgvPMAttendance)
     End Sub
 

@@ -29,6 +29,6 @@
 
     Private Sub btnReports_Click(sender As Object, e As EventArgs) Handles btnReports.Click
         closeChildForm()
-        showForm(frmReports)
+        showForm(frmRecords)
     End Sub
 End Class
