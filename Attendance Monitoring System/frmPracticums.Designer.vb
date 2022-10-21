@@ -141,9 +141,9 @@ Partial Class frmPracticums
         '
         Me.pbQR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.pbQR.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pbQR.Location = New System.Drawing.Point(818, 19)
+        Me.pbQR.Location = New System.Drawing.Point(784, 17)
         Me.pbQR.Name = "pbQR"
-        Me.pbQR.Size = New System.Drawing.Size(183, 169)
+        Me.pbQR.Size = New System.Drawing.Size(231, 169)
         Me.pbQR.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
         Me.pbQR.TabIndex = 226
         Me.pbQR.TabStop = False
@@ -213,7 +213,7 @@ Partial Class frmPracticums
         Me.dtpEnd.CustomFormat = "yyyy-MM-dd"
         Me.dtpEnd.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpEnd.Location = New System.Drawing.Point(555, 160)
+        Me.dtpEnd.Location = New System.Drawing.Point(536, 160)
         Me.dtpEnd.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.dtpEnd.Name = "dtpEnd"
         Me.dtpEnd.Size = New System.Drawing.Size(240, 27)
@@ -225,7 +225,7 @@ Partial Class frmPracticums
         Me.dtpStart.CustomFormat = "yyyy-MM-dd"
         Me.dtpStart.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpStart.Location = New System.Drawing.Point(555, 125)
+        Me.dtpStart.Location = New System.Drawing.Point(536, 125)
         Me.dtpStart.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.dtpStart.Name = "dtpStart"
         Me.dtpStart.Size = New System.Drawing.Size(240, 27)
@@ -238,7 +238,7 @@ Partial Class frmPracticums
         Me.cmbSY.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbSY.FormattingEnabled = True
         Me.cmbSY.Items.AddRange(New Object() {"", "2021-2022", "2022-2023"})
-        Me.cmbSY.Location = New System.Drawing.Point(555, 89)
+        Me.cmbSY.Location = New System.Drawing.Point(536, 89)
         Me.cmbSY.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.cmbSY.Name = "cmbSY"
         Me.cmbSY.Size = New System.Drawing.Size(240, 29)
@@ -250,7 +250,7 @@ Partial Class frmPracticums
         Me.cmbBatch.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbBatch.FormattingEnabled = True
         Me.cmbBatch.Items.AddRange(New Object() {"", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"})
-        Me.cmbBatch.Location = New System.Drawing.Point(555, 54)
+        Me.cmbBatch.Location = New System.Drawing.Point(536, 54)
         Me.cmbBatch.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.cmbBatch.Name = "cmbBatch"
         Me.cmbBatch.Size = New System.Drawing.Size(240, 29)
@@ -262,7 +262,7 @@ Partial Class frmPracticums
         Me.cmbAssignment.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbAssignment.FormattingEnabled = True
         Me.cmbAssignment.Items.AddRange(New Object() {"", "Assistant", "Background Investigation", "Carding", "Encoding", "Evaluation", "Filing Reg Card", "Filing Permit", "Filing Credentials", "Front Desk", "Verification of Grades", "Window 5", "Window 7", "Window 8", "Window 9 ", "Window 10", "Window 12"})
-        Me.cmbAssignment.Location = New System.Drawing.Point(555, 19)
+        Me.cmbAssignment.Location = New System.Drawing.Point(536, 19)
         Me.cmbAssignment.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.cmbAssignment.Name = "cmbAssignment"
         Me.cmbAssignment.Size = New System.Drawing.Size(240, 29)
@@ -274,7 +274,7 @@ Partial Class frmPracticums
         Me.cmbVenue.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbVenue.FormattingEnabled = True
         Me.cmbVenue.Items.AddRange(New Object() {"", "Admission Office", "Accounting Office", "Records Section"})
-        Me.cmbVenue.Location = New System.Drawing.Point(138, 161)
+        Me.cmbVenue.Location = New System.Drawing.Point(132, 161)
         Me.cmbVenue.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.cmbVenue.Name = "cmbVenue"
         Me.cmbVenue.Size = New System.Drawing.Size(265, 29)
@@ -286,7 +286,7 @@ Partial Class frmPracticums
         Me.cmbCourse.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbCourse.FormattingEnabled = True
         Me.cmbCourse.Items.AddRange(New Object() {"", "BS Business Administration - FA", "BS Business Administration - FM", "BS Business Administration - HRDM", "BS Business Administration - MM", "BS Computer Science", "BS Foreign Service", "AB Political Science"})
-        Me.cmbCourse.Location = New System.Drawing.Point(138, 124)
+        Me.cmbCourse.Location = New System.Drawing.Point(132, 124)
         Me.cmbCourse.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.cmbCourse.Name = "cmbCourse"
         Me.cmbCourse.Size = New System.Drawing.Size(265, 29)
@@ -295,7 +295,7 @@ Partial Class frmPracticums
         'txtFirstName
         '
         Me.txtFirstName.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtFirstName.Location = New System.Drawing.Point(138, 91)
+        Me.txtFirstName.Location = New System.Drawing.Point(132, 91)
         Me.txtFirstName.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.txtFirstName.MaxLength = 50
         Me.txtFirstName.Name = "txtFirstName"
@@ -306,7 +306,7 @@ Partial Class frmPracticums
         'txtLastName
         '
         Me.txtLastName.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtLastName.Location = New System.Drawing.Point(138, 55)
+        Me.txtLastName.Location = New System.Drawing.Point(132, 55)
         Me.txtLastName.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.txtLastName.MaxLength = 50
         Me.txtLastName.Name = "txtLastName"
@@ -319,7 +319,7 @@ Partial Class frmPracticums
         Me.lblEnd.BackColor = System.Drawing.Color.Green
         Me.lblEnd.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblEnd.ForeColor = System.Drawing.Color.White
-        Me.lblEnd.Location = New System.Drawing.Point(429, 161)
+        Me.lblEnd.Location = New System.Drawing.Point(410, 161)
         Me.lblEnd.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.lblEnd.Name = "lblEnd"
         Me.lblEnd.Size = New System.Drawing.Size(121, 25)
@@ -332,7 +332,7 @@ Partial Class frmPracticums
         Me.Label5.BackColor = System.Drawing.Color.Green
         Me.Label5.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.White
-        Me.Label5.Location = New System.Drawing.Point(429, 126)
+        Me.Label5.Location = New System.Drawing.Point(410, 126)
         Me.Label5.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(121, 25)
@@ -345,7 +345,7 @@ Partial Class frmPracticums
         Me.Label6.BackColor = System.Drawing.Color.Green
         Me.Label6.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.White
-        Me.Label6.Location = New System.Drawing.Point(429, 90)
+        Me.Label6.Location = New System.Drawing.Point(410, 90)
         Me.Label6.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(121, 25)
@@ -358,7 +358,7 @@ Partial Class frmPracticums
         Me.lblStart.BackColor = System.Drawing.Color.Green
         Me.lblStart.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblStart.ForeColor = System.Drawing.Color.White
-        Me.lblStart.Location = New System.Drawing.Point(429, 55)
+        Me.lblStart.Location = New System.Drawing.Point(410, 55)
         Me.lblStart.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.lblStart.Name = "lblStart"
         Me.lblStart.Size = New System.Drawing.Size(121, 25)
@@ -371,7 +371,7 @@ Partial Class frmPracticums
         Me.Label3.BackColor = System.Drawing.Color.Green
         Me.Label3.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(17, 161)
+        Me.Label3.Location = New System.Drawing.Point(11, 161)
         Me.Label3.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(116, 27)
@@ -384,7 +384,7 @@ Partial Class frmPracticums
         Me.Label1.BackColor = System.Drawing.Color.Green
         Me.Label1.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(17, 21)
+        Me.Label1.Location = New System.Drawing.Point(11, 21)
         Me.Label1.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(116, 25)
@@ -397,7 +397,7 @@ Partial Class frmPracticums
         Me.Label2.BackColor = System.Drawing.Color.Green
         Me.Label2.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(17, 92)
+        Me.Label2.Location = New System.Drawing.Point(11, 92)
         Me.Label2.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(116, 25)
@@ -410,7 +410,7 @@ Partial Class frmPracticums
         Me.Label4.BackColor = System.Drawing.Color.Green
         Me.Label4.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.White
-        Me.Label4.Location = New System.Drawing.Point(17, 56)
+        Me.Label4.Location = New System.Drawing.Point(11, 56)
         Me.Label4.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(116, 25)
@@ -421,7 +421,7 @@ Partial Class frmPracticums
         'txtPracticumID
         '
         Me.txtPracticumID.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPracticumID.Location = New System.Drawing.Point(138, 20)
+        Me.txtPracticumID.Location = New System.Drawing.Point(132, 20)
         Me.txtPracticumID.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.txtPracticumID.MaxLength = 7
         Me.txtPracticumID.Name = "txtPracticumID"
@@ -433,7 +433,7 @@ Partial Class frmPracticums
         Me.Label10.BackColor = System.Drawing.Color.Green
         Me.Label10.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.White
-        Me.Label10.Location = New System.Drawing.Point(17, 126)
+        Me.Label10.Location = New System.Drawing.Point(11, 126)
         Me.Label10.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(116, 25)
@@ -446,7 +446,7 @@ Partial Class frmPracticums
         Me.Label11.BackColor = System.Drawing.Color.Green
         Me.Label11.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.Color.White
-        Me.Label11.Location = New System.Drawing.Point(429, 20)
+        Me.Label11.Location = New System.Drawing.Point(410, 20)
         Me.Label11.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(121, 25)

@@ -1,53 +1,9 @@
-﻿Imports WebCam_Capture
-Imports MessagingToolkit.QRCode.Codec
-Imports MySql.Data.MySqlClient
+﻿Imports MySql.Data.MySqlClient
 
 Public Class frmAttendance
     Public con As MySqlConnection = mysqldb()
-    WithEvents MyWebcam As WebCamCapture
-    Dim Reader As QRCodeDecoder
     Dim logdate As String = String.Format("{0:yyyy-MM-dd}", Date.Now)
     Dim query2 As String = "UPDATE attendance att, practicum prac SET att.LastName = prac.LastName, att.FirstName = prac.FirstName WHERE att.PracticumID = prac.PracticumID"
-    Private Sub MyWebcam_ImageCaptured(source As Object, e As WebcamEventArgs) Handles MyWebcam.ImageCaptured
-        PictureBox1.Image = e.WebCamImage
-    End Sub
-    Private Sub StartWebcam()
-        Try
-            StopWebcam()
-            MyWebcam = New WebCamCapture
-            MyWebcam.Start(0)
-            MyWebcam.Start(0)
-        Catch ex As Exception
-
-        End Try
-    End Sub
-    Private Sub StopWebcam()
-        Try
-            MyWebcam.Stop()
-            MyWebcam.Dispose()
-        Catch ex As Exception
-
-        End Try
-    End Sub
-    Private Sub Button1_Click(sender As Object, e As EventArgs)
-        StartWebcam()
-        txtAM.Clear()
-    End Sub
-
-    Private Sub Button2_Click(sender As Object, e As EventArgs)
-        StopWebcam()
-    End Sub
-
-    Private Sub Button3_Click(sender As Object, e As EventArgs)
-        Try
-            StopWebcam()
-            Reader = New QRCodeDecoder
-            txtAM.Text = Reader.decode(New Data.QRCodeBitmapImage(PictureBox1.Image))
-            MsgBox("QR code is detected!")
-        Catch ex As Exception
-            StartWebcam()
-        End Try
-    End Sub
     Private Sub frmAttendance_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         load_AMAttendance()
         dgvAMAttendance.RowTemplate.Height = 25
@@ -71,12 +27,6 @@ Public Class frmAttendance
         lblDate.Text = Date.Now.ToLongDateString
         lblTime.Text = TimeOfDay.ToLongTimeString
     End Sub
-    Private Sub txtAM_KeyPress(sender As Object, e As KeyPressEventArgs)
-        If e.KeyChar = ChrW(7) Then
-            MsgBox(txtAM.Text, MsgBoxStyle.Information)
-            txtAM.Text = ""
-        End If
-    End Sub
     Private Sub txtAM_TextChanged(sender As Object, e As EventArgs) Handles txtAM.TextChanged
         Try
             If txtAM.Text = "" Then
@@ -95,7 +45,7 @@ Public Class frmAttendance
                             Dim QueryString As String = String.Concat(amout, ";", query2)
                             updates(QueryString)
                             load_AMAttendance()
-                            MessageBox.Show("AM TimeOut")
+                            PracInfo_AM()
                             txtAM.Text = Nothing
                             TabPage1.Refresh()
                         Else
@@ -104,7 +54,7 @@ Public Class frmAttendance
                             Dim QueryString1 As String = String.Concat(amin, ";", query2)
                             create(QueryString1)
                             load_AMAttendance()
-                            MessageBox.Show("AM TimeIn")
+                            PracInfo_AM()
                             txtAM.Text = Nothing
                             TabPage1.Refresh()
                         End If
@@ -140,7 +90,7 @@ Public Class frmAttendance
                             Dim QueryString2 As String = String.Concat(pmout, ";", query2)
                             updates(QueryString2)
                             load_PMAttendance()
-                            MessageBox.Show("PM TimeOut")
+                            PracInfo_PM()
                             txtPM.Text = Nothing
                             TabPage2.Refresh()
                         Else
@@ -151,7 +101,7 @@ Public Class frmAttendance
                                 Dim QueryString4 As String = String.Concat(pmin, ";", query2)
                                 create(QueryString4)
                                 load_PMAttendance()
-                                MessageBox.Show("PM TimeIn")
+                                PracInfo_PM()
                                 txtPM.Text = Nothing
                                 TabPage2.Refresh()
                             Else
@@ -160,7 +110,7 @@ Public Class frmAttendance
                                 Dim QueryString5 As String = String.Concat(pmins, ";", query2)
                                 create(QueryString5)
                                 load_PMAttendance()
-                                MessageBox.Show("PM TimeIn")
+                                PracInfo_PM()
                                 txtPM.Text = Nothing
                                 TabPage2.Refresh()
                             End If
@@ -171,5 +121,71 @@ Public Class frmAttendance
                 End If
         Catch ex As Exception
         End Try
+    End Sub
+    Public Sub PracInfo_AM()
+        Try
+            query = "SELECT * FROM `practicum` WHERE `PracticumID`='" & txtAM.Text & "'"
+            reloadtxt(query)
+
+            If dt.Rows.Count > 0 Then
+                lblPracticumID.Text = dt.Rows(0).Item("PracticumID")
+                lblLastName.Text = dt.Rows(0).Item("LastName")
+                lblFirstName.Text = dt.Rows(0).Item("FirstName")
+                lblVenue.Text = dt.Rows(0).Item("Venue")
+                lblAssignment.Text = dt.Rows(0).Item("Assignment")
+            Else
+                lblPracticumID.Text = Nothing
+                lblLastName.Text = Nothing
+                lblFirstName.Text = Nothing
+                lblVenue.Text = Nothing
+                lblAssignment.Text = Nothing
+            End If
+        Catch ex As Exception
+        End Try
+    End Sub
+    Public Sub PracInfo_PM()
+        Try
+            query = "SELECT * FROM `practicum` WHERE `PracticumID`='" & txtPM.Text & "'"
+            reloadtxt(query)
+
+            If dt.Rows.Count > 0 Then
+                lblPracticumID.Text = dt.Rows(0).Item("PracticumID")
+                lblLastName.Text = dt.Rows(0).Item("LastName")
+                lblFirstName.Text = dt.Rows(0).Item("FirstName")
+                lblVenue.Text = dt.Rows(0).Item("Venue")
+                lblAssignment.Text = dt.Rows(0).Item("Assignment")
+            Else
+                lblPracticumID.Text = Nothing
+                lblLastName.Text = Nothing
+                lblFirstName.Text = Nothing
+                lblVenue.Text = Nothing
+                lblAssignment.Text = Nothing
+            End If
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    Private Sub txtAM_KeyPress_1(sender As Object, e As KeyPressEventArgs) Handles txtAM.KeyPress
+        If Char.IsDigit(e.KeyChar) = False And Char.IsControl(e.KeyChar) = False Then
+            e.Handled = True
+        End If
+    End Sub
+    Private Sub txtPM_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtPM.KeyPress
+        If Char.IsDigit(e.KeyChar) = False And Char.IsControl(e.KeyChar) = False Then
+            e.Handled = True
+        End If
+    End Sub
+    
+    Private Sub dgvAMAttendance_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvAMAttendance.CellContentClick
+        lblAM.Text = dgvAMAttendance.CurrentRow.Cells(0).Value
+    End Sub
+    Private Sub lblAM_TextChanged(sender As Object, e As EventArgs) Handles lblAM.TextChanged
+        PracInfo_AM()
+    End Sub
+    Private Sub dgvPMAttendance_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvPMAttendance.CellContentClick
+        lblPM.Text = dgvPMAttendance.CurrentRow.Cells(0).Value
+    End Sub
+    Private Sub lblPM_TextChanged(sender As Object, e As EventArgs) Handles lblPM.TextChanged
+        PracInfo_PM()
     End Sub
 End Class

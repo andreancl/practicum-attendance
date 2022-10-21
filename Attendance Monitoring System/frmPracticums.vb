@@ -96,12 +96,12 @@ Public Class frmPracticums
     End Sub
 
     Private Sub txtPracticumID_TextChanged(sender As Object, e As EventArgs) Handles txtPracticumID.TextChanged
+        Generator.BackColor = Color.White
+        Generator.LabelFont = New Font("Arial", 7, FontStyle.Regular)
+        Generator.IncludeLabel = True
+        Generator.CustomLabel = txtPracticumID.Text
         Try
-            Generator.BackColor = Color.White
-            Generator.LabelFont = New Font("Arial", 7, FontStyle.Regular)
-            Generator.IncludeLabel = True
-
-            pbQR.Image = New Bitmap(Generator.Encode(MessagingToolkit.Barcode.BarcodeFormat.QRCode, txtPracticumID.Text))
+            pbQR.Image = New Bitmap(Generator.Encode(MessagingToolkit.Barcode.BarcodeFormat.Code93, txtPracticumID.Text))
 
             query = "SELECT * FROM `practicum` WHERE `PracticumID`='" & txtPracticumID.Text & "'"
             reloadtxt(query)

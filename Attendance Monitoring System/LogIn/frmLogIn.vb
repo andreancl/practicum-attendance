@@ -31,6 +31,7 @@ Public Class frmLogIn
         Else
             If Not UserExists() Then
                 MsgBox("Wrong Username/Password!", MsgBoxStyle.Critical, "ATTENTION")
+                txtPassword.Focus()
             End If
             LogIn(txtUsername.Text, txtPassword.Text)
         End If

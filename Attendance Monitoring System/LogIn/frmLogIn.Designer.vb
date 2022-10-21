@@ -186,9 +186,9 @@ Partial Class frmLogIn
         Me.lblTitle.ForeColor = System.Drawing.Color.Green
         Me.lblTitle.Location = New System.Drawing.Point(24, 151)
         Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(275, 30)
+        Me.lblTitle.Size = New System.Drawing.Size(282, 30)
         Me.lblTitle.TabIndex = 12
-        Me.lblTitle.Text = "LogIn to your account"
+        Me.lblTitle.Text = "Log in to your account"
         Me.lblTitle.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'Panel_LogIn

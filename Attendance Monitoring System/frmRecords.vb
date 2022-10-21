@@ -10,6 +10,7 @@ Public Class frmRecords
         txtSearch.Hide()
         cmbFilter.Hide()
         lblSearchBy.Hide()
+        txtProfileSearch.Hide()
         daily()
         dgvPracticumRecord.RowTemplate.Height = 25
         dgvPracticumRecord.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells
@@ -29,10 +30,11 @@ Public Class frmRecords
         cmbFilter.Hide()
         txtSearch.Hide()
         pnlPracticums.Hide()
+        txtProfileSearch.Hide()
         lblSB.Show()
         txtSearchAtt.Show()
         dgvPracticumRecord.Show()
-        lblRec.Text = "DAILY"
+        lblTitle.Text = "DAILY"
     End Sub
     Private Sub btnWeekly_Click(sender As Object, e As EventArgs) Handles btnWeekly.Click
         query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
@@ -44,10 +46,11 @@ Public Class frmRecords
         cmbFilter.Hide()
         txtSearch.Hide()
         pnlPracticums.Hide()
+        txtProfileSearch.Hide()
         lblSB.Show()
         txtSearchAtt.Show()
         dgvPracticumRecord.Show()
-        lblRec.Text = "WEEKLY"
+        lblTitle.Text = "WEEKLY"
     End Sub
     Private Sub btnMonthly_Click(sender As Object, e As EventArgs) Handles btnMonthly.Click
         query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
@@ -60,40 +63,45 @@ Public Class frmRecords
         cmbFilter.Hide()
         txtSearch.Hide()
         pnlPracticums.Hide()
+        txtProfileSearch.Hide()
         lblSB.Show()
         txtSearchAtt.Show()
         dgvPracticumRecord.Show()
-        lblRec.Text = "MONTHLY"
+        lblTitle.Text = "MONTHLY"
     End Sub
     Private Sub btnAllLogs_Click(sender As Object, e As EventArgs) Handles btnAllLogs.Click
-        query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
-         & " AS 'Full Name', `Date`, `TimeLogIn_AM` AS 'AM Time In', `TimeLogOut_AM` AS 'AM Time Out', " _
-         & " `TimeLogIn_PM` AS 'PM Time In', `TimeLogOut_PM` AS 'PM Time Out' FROM `attendance`"
-        reloadDgv(query, dgvPracticumRecord)
-        lblSearchBy.Hide()
-        cmbFilter.Hide()
-        txtSearch.Hide()
-        pnlPracticums.Hide()
-        lblSB.Show()
-        txtSearchAtt.Show()
-        dgvPracticumRecord.Show()
-        lblRec.Text = "ALL LOGS"
+        Try
+            query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
+             & " AS 'Full Name', `Date`, `TimeLogIn_AM` AS 'AM Time In', `TimeLogOut_AM` AS 'AM Time Out', " _
+             & " `TimeLogIn_PM` AS 'PM Time In', `TimeLogOut_PM` AS 'PM Time Out' FROM `attendance`"
+            reloadDgv(query, dgvPracticumRecord)
+            lblSearchBy.Hide()
+            cmbFilter.Hide()
+            txtSearch.Hide()
+            pnlPracticums.Hide()
+            txtProfileSearch.Hide()
+            lblSB.Show()
+            txtSearchAtt.Show()
+            dgvPracticumRecord.Show()
+            lblTitle.Text = "ALL LOGS"
+        Catch ex As Exception
+        End Try
     End Sub
     Private Sub txtSearchAtt_TextChanged(sender As Object, e As EventArgs) Handles txtSearchAtt.TextChanged
-        If lbl.Text = "daily" Then
+        If lblTitle.Text = "DAILY" OrElse lblTitle.Text = "RECORDS" Then
             query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
                 & " AS 'Full Name', `Date`, `TimeLogIn_AM` AS 'AM Time In', `TimeLogOut_AM` AS 'AM Time Out', " _
-                & " `TimeLogIn_PM` AS 'PM Time In', `TimeLogOut_PM` AS 'PM Time Out'," _
+                & " `TimeLogIn_PM` AS 'PM Time In', `TimeLogOut_PM` AS 'PM Time Out'" _
                 & "  FROM `attendance` WHERE `Date` = curdate() AND `PracticumID` LIKE '%" & txtSearchAtt.Text & "%'"
             reloadDgv(query, dgvPracticumRecord)
-        ElseIf lbl.Text = "weekly" Then
+        ElseIf lblTitle.Text = "WEEKLY" Then
             query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
                 & " AS 'Full Name', `Date`, `TimeLogIn_AM` AS 'AM Time In', `TimeLogOut_AM` AS 'AM Time Out', " _
                 & " `TimeLogIn_PM` AS 'PM Time In', `TimeLogOut_PM` AS 'PM Time Out'" _
                 & " FROM `attendance` WHERE YEARWEEK(Date) = YEARWEEK(NOW() - INTERVAL 1 WEEK)" _
                 & " AND `PracticumID` LIKE '%" & txtSearchAtt.Text & "%'"
             reloadDgv(query, dgvPracticumRecord)
-        ElseIf lbl.Text = "monthly" Then
+        ElseIf lblTitle.Text = "MONTHLY" Then
             query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
                 & " AS 'Full Name', `Date`, `TimeLogIn_AM` AS 'AM Time In', `TimeLogOut_AM` AS 'AM Time Out', " _
                 & " `TimeLogIn_PM` AS 'PM Time In', `TimeLogOut_PM` AS 'PM Time Out' FROM `attendance`" _
@@ -101,7 +109,7 @@ Public Class frmRecords
                 & " AND EXTRACT(YEAR FROM `Date`) = EXTRACT(YEAR FROM CURRENT_DATE)" _
                 & " AND `PracticumID` LIKE '%" & txtSearchAtt.Text & "%'"
             reloadDgv(query, dgvPracticumRecord)
-        ElseIf lbl.Text = "allLogs" Then
+        ElseIf lblTitle.Text = "ALL LOGS" Then
             query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
                 & " AS 'Full Name', `Date`, `TimeLogIn_AM` AS 'AM Time In', `TimeLogOut_AM` AS 'AM Time Out', " _
                 & " `TimeLogIn_PM` AS 'PM Time In', `TimeLogOut_PM` AS 'PM Time Out' FROM `attendance`" _
@@ -115,17 +123,18 @@ Public Class frmRecords
         dgvPersonalRecord.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         dgvPersonalRecord.AlternatingRowsDefaultCellStyle.BackColor = Color.White
         pnlPracticums.Show()
+        txtProfileSearch.Show()
         lblSearchBy.Hide()
         cmbFilter.Hide()
         txtSearch.Hide()
         lblSB.Show()
         txtSearchAtt.Hide()
         dgvPracticumRecord.Hide()
-        lblRec.Text = "PROFILE"
+        lblTitle.Text = "PROFILE"
     End Sub
-    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
+    Private Sub txtProfileSearch_TextChanged(sender As Object, e As EventArgs) Handles txtProfileSearch.TextChanged
         Try
-            query = "SELECT * FROM `practicum` WHERE `PracticumID`='" & TextBox1.Text & "'"
+            query = "SELECT * FROM `practicum` WHERE `PracticumID`='" & txtProfileSearch.Text & "'"
             reloadtxt(query)
 
             If dt.Rows.Count > 0 Then
@@ -153,7 +162,7 @@ Public Class frmRecords
             End If
             query = "SELECT `Date`, `TimeLogIn_AM` AS 'AM Time In', `TimeLogOut_AM` AS 'AM Time Out', " _
          & " `TimeLogIn_PM` AS 'PM Time In', `TimeLogOut_PM` AS 'PM Time Out' FROM `attendance`" _
-         & " WHERE `PracticumID`='" & TextBox1.Text & "'"
+         & " WHERE `PracticumID`='" & txtProfileSearch.Text & "'"
             reloadDgv(query, dgvPersonalRecord)
         Catch ex As Exception
         End Try
@@ -166,8 +175,9 @@ Public Class frmRecords
             pnlPracticums.Hide()
             lblSB.Hide()
             txtSearchAtt.Hide()
+            txtProfileSearch.Hide()
             dgvPracticumRecord.Show()
-            lblRec.Text = "PRACTICUM LIST"
+            lblTitle.Text = "PRACTICUM LIST"
             query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
                    & " AS 'Full Name', `Course`, `Venue`, `Assignment`, `TotalHours` AS 'Total Hours'," _
                    & " `Batch`, `SchoolYear` AS 'S.Y', `StartDate` AS 'Start Date', `EndDate` AS 'End Date'" _
@@ -314,5 +324,17 @@ Public Class frmRecords
         PrintPreviewDialog1.PrintPreviewControl.Zoom = 1.0
         PrintPreviewDialog1.Document = PrintDocument1
         PrintPreviewDialog1.ShowDialog()
+    End Sub
+
+    Private Sub txtProfileSearch_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtProfileSearch.KeyPress
+        If Char.IsDigit(e.KeyChar) = False And Char.IsControl(e.KeyChar) = False Then
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub txtSearchAtt_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtSearchAtt.KeyPress
+        If Char.IsDigit(e.KeyChar) = False And Char.IsControl(e.KeyChar) = False Then
+            e.Handled = True
+        End If
     End Sub
 End Class

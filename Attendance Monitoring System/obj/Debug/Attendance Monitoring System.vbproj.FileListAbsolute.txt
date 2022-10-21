@@ -15,9 +15,6 @@ C:\Users\asus\Documents\GitHub\practicum-attendance\Attendance Monitoring System
 C:\Users\asus\Documents\GitHub\practicum-attendance\Attendance Monitoring System\bin\Debug\Attendance Monitoring System.pdb
 C:\Users\asus\Documents\GitHub\practicum-attendance\Attendance Monitoring System\bin\Debug\Attendance Monitoring System.xml
 C:\Users\asus\Documents\GitHub\practicum-attendance\Attendance Monitoring System\bin\Debug\MessagingToolkit.Barcode.dll
-C:\Users\asus\Documents\GitHub\practicum-attendance\Attendance Monitoring System\bin\Debug\MySql.Data.EntityFramework.dll
-C:\Users\asus\Documents\GitHub\practicum-attendance\Attendance Monitoring System\bin\Debug\WebCam_Capture.dll
-C:\Users\asus\Documents\GitHub\practicum-attendance\Attendance Monitoring System\bin\Debug\MySql.Data.EntityFramework.xml
 C:\Users\asus\Documents\GitHub\practicum-attendance\Attendance Monitoring System\obj\Debug\Attendance_Monitoring_System.frmAttendance.resources
 C:\Users\asus\Documents\GitHub\practicum-attendance\Attendance Monitoring System\obj\Debug\Attendance_Monitoring_System.frmDashboard.resources
 C:\Users\asus\Documents\GitHub\practicum-attendance\Attendance Monitoring System\obj\Debug\Attendance_Monitoring_System.frmPracticums.resources
