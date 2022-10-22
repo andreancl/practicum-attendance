@@ -37,11 +37,11 @@ Partial Class frmAttendance
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.lblAM = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
-        Me.lblAssignment = New System.Windows.Forms.Label()
-        Me.lblVenue = New System.Windows.Forms.Label()
-        Me.lblFirstName = New System.Windows.Forms.Label()
-        Me.lblLastName = New System.Windows.Forms.Label()
-        Me.lblPracticumID = New System.Windows.Forms.Label()
+        Me.lblAssignment_AM = New System.Windows.Forms.Label()
+        Me.lblVenue_AM = New System.Windows.Forms.Label()
+        Me.lblFirstName_AM = New System.Windows.Forms.Label()
+        Me.lblLastName_AM = New System.Windows.Forms.Label()
+        Me.lblPracticumID_AM = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -105,11 +105,11 @@ Partial Class frmAttendance
         '
         Me.TabPage1.Controls.Add(Me.lblAM)
         Me.TabPage1.Controls.Add(Me.Label19)
-        Me.TabPage1.Controls.Add(Me.lblAssignment)
-        Me.TabPage1.Controls.Add(Me.lblVenue)
-        Me.TabPage1.Controls.Add(Me.lblFirstName)
-        Me.TabPage1.Controls.Add(Me.lblLastName)
-        Me.TabPage1.Controls.Add(Me.lblPracticumID)
+        Me.TabPage1.Controls.Add(Me.lblAssignment_AM)
+        Me.TabPage1.Controls.Add(Me.lblVenue_AM)
+        Me.TabPage1.Controls.Add(Me.lblFirstName_AM)
+        Me.TabPage1.Controls.Add(Me.lblLastName_AM)
+        Me.TabPage1.Controls.Add(Me.lblPracticumID_AM)
         Me.TabPage1.Controls.Add(Me.Label7)
         Me.TabPage1.Controls.Add(Me.Label8)
         Me.TabPage1.Controls.Add(Me.Label9)
@@ -153,50 +153,50 @@ Partial Class frmAttendance
         Me.Label19.Text = "Practicum Information"
         Me.Label19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'lblAssignment
+        'lblAssignment_AM
         '
-        Me.lblAssignment.AutoSize = True
-        Me.lblAssignment.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAssignment.Location = New System.Drawing.Point(157, 204)
-        Me.lblAssignment.Name = "lblAssignment"
-        Me.lblAssignment.Size = New System.Drawing.Size(0, 21)
-        Me.lblAssignment.TabIndex = 262
+        Me.lblAssignment_AM.AutoSize = True
+        Me.lblAssignment_AM.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAssignment_AM.Location = New System.Drawing.Point(157, 204)
+        Me.lblAssignment_AM.Name = "lblAssignment_AM"
+        Me.lblAssignment_AM.Size = New System.Drawing.Size(0, 21)
+        Me.lblAssignment_AM.TabIndex = 262
         '
-        'lblVenue
+        'lblVenue_AM
         '
-        Me.lblVenue.AutoSize = True
-        Me.lblVenue.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblVenue.Location = New System.Drawing.Point(157, 178)
-        Me.lblVenue.Name = "lblVenue"
-        Me.lblVenue.Size = New System.Drawing.Size(0, 21)
-        Me.lblVenue.TabIndex = 261
+        Me.lblVenue_AM.AutoSize = True
+        Me.lblVenue_AM.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblVenue_AM.Location = New System.Drawing.Point(157, 178)
+        Me.lblVenue_AM.Name = "lblVenue_AM"
+        Me.lblVenue_AM.Size = New System.Drawing.Size(0, 21)
+        Me.lblVenue_AM.TabIndex = 261
         '
-        'lblFirstName
+        'lblFirstName_AM
         '
-        Me.lblFirstName.AutoSize = True
-        Me.lblFirstName.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFirstName.Location = New System.Drawing.Point(157, 153)
-        Me.lblFirstName.Name = "lblFirstName"
-        Me.lblFirstName.Size = New System.Drawing.Size(0, 21)
-        Me.lblFirstName.TabIndex = 260
+        Me.lblFirstName_AM.AutoSize = True
+        Me.lblFirstName_AM.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFirstName_AM.Location = New System.Drawing.Point(157, 153)
+        Me.lblFirstName_AM.Name = "lblFirstName_AM"
+        Me.lblFirstName_AM.Size = New System.Drawing.Size(0, 21)
+        Me.lblFirstName_AM.TabIndex = 260
         '
-        'lblLastName
+        'lblLastName_AM
         '
-        Me.lblLastName.AutoSize = True
-        Me.lblLastName.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblLastName.Location = New System.Drawing.Point(157, 126)
-        Me.lblLastName.Name = "lblLastName"
-        Me.lblLastName.Size = New System.Drawing.Size(0, 21)
-        Me.lblLastName.TabIndex = 259
+        Me.lblLastName_AM.AutoSize = True
+        Me.lblLastName_AM.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblLastName_AM.Location = New System.Drawing.Point(157, 126)
+        Me.lblLastName_AM.Name = "lblLastName_AM"
+        Me.lblLastName_AM.Size = New System.Drawing.Size(0, 21)
+        Me.lblLastName_AM.TabIndex = 259
         '
-        'lblPracticumID
+        'lblPracticumID_AM
         '
-        Me.lblPracticumID.AutoSize = True
-        Me.lblPracticumID.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPracticumID.Location = New System.Drawing.Point(157, 100)
-        Me.lblPracticumID.Name = "lblPracticumID"
-        Me.lblPracticumID.Size = New System.Drawing.Size(0, 21)
-        Me.lblPracticumID.TabIndex = 258
+        Me.lblPracticumID_AM.AutoSize = True
+        Me.lblPracticumID_AM.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPracticumID_AM.Location = New System.Drawing.Point(157, 100)
+        Me.lblPracticumID_AM.Name = "lblPracticumID_AM"
+        Me.lblPracticumID_AM.Size = New System.Drawing.Size(0, 21)
+        Me.lblPracticumID_AM.TabIndex = 258
         '
         'Label7
         '
@@ -626,11 +626,11 @@ Partial Class frmAttendance
     Friend WithEvents txtAM As System.Windows.Forms.TextBox
     Friend WithEvents dgvAMAttendance As System.Windows.Forms.DataGridView
     Friend WithEvents dgvPMAttendance As System.Windows.Forms.DataGridView
-    Friend WithEvents lblAssignment As System.Windows.Forms.Label
-    Friend WithEvents lblVenue As System.Windows.Forms.Label
-    Friend WithEvents lblFirstName As System.Windows.Forms.Label
-    Friend WithEvents lblLastName As System.Windows.Forms.Label
-    Friend WithEvents lblPracticumID As System.Windows.Forms.Label
+    Friend WithEvents lblAssignment_AM As System.Windows.Forms.Label
+    Friend WithEvents lblVenue_AM As System.Windows.Forms.Label
+    Friend WithEvents lblFirstName_AM As System.Windows.Forms.Label
+    Friend WithEvents lblLastName_AM As System.Windows.Forms.Label
+    Friend WithEvents lblPracticumID_AM As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Label9 As System.Windows.Forms.Label

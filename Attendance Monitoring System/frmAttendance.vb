@@ -129,17 +129,17 @@ Public Class frmAttendance
             reloadtxt(query)
 
             If dt.Rows.Count > 0 Then
-                lblPracticumID.Text = dt.Rows(0).Item("PracticumID")
-                lblLastName.Text = dt.Rows(0).Item("LastName")
-                lblFirstName.Text = dt.Rows(0).Item("FirstName")
-                lblVenue.Text = dt.Rows(0).Item("Venue")
-                lblAssignment.Text = dt.Rows(0).Item("Assignment")
+                lblPracticumID_AM.Text = dt.Rows(0).Item("PracticumID")
+                lblLastName_AM.Text = dt.Rows(0).Item("LastName")
+                lblFirstName_AM.Text = dt.Rows(0).Item("FirstName")
+                lblVenue_AM.Text = dt.Rows(0).Item("Venue")
+                lblAssignment_AM.Text = dt.Rows(0).Item("Assignment")
             Else
-                lblPracticumID.Text = Nothing
-                lblLastName.Text = Nothing
-                lblFirstName.Text = Nothing
-                lblVenue.Text = Nothing
-                lblAssignment.Text = Nothing
+                lblPracticumID_AM.Text = Nothing
+                lblLastName_AM.Text = Nothing
+                lblFirstName_AM.Text = Nothing
+                lblVenue_AM.Text = Nothing
+                lblAssignment_AM.Text = Nothing
             End If
         Catch ex As Exception
         End Try
@@ -187,17 +187,17 @@ Public Class frmAttendance
             reloadtxt(query)
 
             If dt.Rows.Count > 0 Then
-                lblPracticumID.Text = dt.Rows(0).Item("PracticumID")
-                lblLastName.Text = dt.Rows(0).Item("LastName")
-                lblFirstName.Text = dt.Rows(0).Item("FirstName")
-                lblVenue.Text = dt.Rows(0).Item("Venue")
-                lblAssignment.Text = dt.Rows(0).Item("Assignment")
+                lblPracticumID_AM.Text = dt.Rows(0).Item("PracticumID")
+                lblLastName_AM.Text = dt.Rows(0).Item("LastName")
+                lblFirstName_AM.Text = dt.Rows(0).Item("FirstName")
+                lblVenue_AM.Text = dt.Rows(0).Item("Venue")
+                lblAssignment_AM.Text = dt.Rows(0).Item("Assignment")
             Else
-                lblPracticumID.Text = Nothing
-                lblLastName.Text = Nothing
-                lblFirstName.Text = Nothing
-                lblVenue.Text = Nothing
-                lblAssignment.Text = Nothing
+                lblPracticumID_AM.Text = Nothing
+                lblLastName_AM.Text = Nothing
+                lblFirstName_AM.Text = Nothing
+                lblVenue_AM.Text = Nothing
+                lblAssignment_AM.Text = Nothing
             End If
         Catch ex As Exception
         End Try
