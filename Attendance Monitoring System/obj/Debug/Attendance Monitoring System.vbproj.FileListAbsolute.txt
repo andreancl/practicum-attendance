@@ -19,7 +19,6 @@ C:\Users\asus\Documents\GitHub\practicum-attendance\Attendance Monitoring System
 C:\Users\asus\Documents\GitHub\practicum-attendance\Attendance Monitoring System\obj\Debug\Attendance_Monitoring_System.frmDashboard.resources
 C:\Users\asus\Documents\GitHub\practicum-attendance\Attendance Monitoring System\obj\Debug\Attendance_Monitoring_System.frmPracticums.resources
 C:\Users\asus\Documents\GitHub\practicum-attendance\Attendance Monitoring System\obj\Debug\Attendance_Monitoring_System.frmMain.resources
-C:\Users\asus\Documents\GitHub\practicum-attendance\Attendance Monitoring System\obj\Debug\Attendance_Monitoring_System.frmProfile.resources
 C:\Users\asus\Documents\GitHub\practicum-attendance\Attendance Monitoring System\obj\Debug\Attendance_Monitoring_System.frmRecords.resources
 C:\Users\asus\Documents\GitHub\practicum-attendance\Attendance Monitoring System\obj\Debug\Attendance_Monitoring_System.frmLogIn.resources
 C:\Users\asus\Documents\GitHub\practicum-attendance\Attendance Monitoring System\obj\Debug\Attendance_Monitoring_System.Resources.resources

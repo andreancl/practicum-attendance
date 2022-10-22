@@ -75,17 +75,17 @@ Public Class frmRecords
              & " AS 'Full Name', `Date`, `TimeLogIn_AM` AS 'AM Time In', `TimeLogOut_AM` AS 'AM Time Out', " _
              & " `TimeLogIn_PM` AS 'PM Time In', `TimeLogOut_PM` AS 'PM Time Out' FROM `attendance`"
             reloadDgv(query, dgvPracticumRecord)
-            lblSearchBy.Hide()
-            cmbFilter.Hide()
-            txtSearch.Hide()
-            pnlPracticums.Hide()
-            txtProfileSearch.Hide()
-            lblSB.Show()
-            txtSearchAtt.Show()
-            dgvPracticumRecord.Show()
-            lblTitle.Text = "ALL LOGS"
         Catch ex As Exception
         End Try
+        lblSearchBy.Hide()
+        cmbFilter.Hide()
+        txtSearch.Hide()
+        pnlPracticums.Hide()
+        txtProfileSearch.Hide()
+        lblSB.Show()
+        txtSearchAtt.Show()
+        dgvPracticumRecord.Show()
+        lblTitle.Text = "ALL LOGS"
     End Sub
     Private Sub txtSearchAtt_TextChanged(sender As Object, e As EventArgs) Handles txtSearchAtt.TextChanged
         If lblTitle.Text = "DAILY" OrElse lblTitle.Text = "RECORDS" Then

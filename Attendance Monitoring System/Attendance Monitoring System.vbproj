@@ -116,12 +116,6 @@
     <Compile Include="frmMain.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmProfile.Designer.vb">
-      <DependentUpon>frmProfile.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmProfile.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="frmRecords.Designer.vb">
       <DependentUpon>frmRecords.vb</DependentUpon>
     </Compile>
@@ -167,9 +161,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmProfile.resx">
-      <DependentUpon>frmProfile.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRecords.resx">
       <DependentUpon>frmRecords.vb</DependentUpon>

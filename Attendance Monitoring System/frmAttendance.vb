@@ -41,7 +41,7 @@ Public Class frmAttendance
                     Else
                         reloadtxt("SELECT * FROM attendance WHERE PracticumID = '" & txtAM.Text & "' AND AM_Status = 'IN'")
                         If dt.Rows.Count > 0 Then
-                            Dim amout As String = "UPDATE attendance SET TimeLogOut_AM = '" & TimeOfDay & "', AM_Status = 'OUT' WHERE PracticumID = '" & txtAM.Text & "'"
+                            Dim amout As String = "UPDATE attendance SET TimeLogOut_AM = '" & TimeOfDay & "', AM_Status = 'OUT' WHERE PracticumID = '" & txtAM.Text & "' AND `Date` = '" & logdate & "'"
                             Dim QueryString As String = String.Concat(amout, ";", query2)
                             updates(QueryString)
                             load_AMAttendance()
@@ -64,6 +64,7 @@ Public Class frmAttendance
             End If
         Catch ex As Exception
         End Try
+        PracInfo_AM()
     End Sub
     Public Sub load_PMAttendance()
         query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
@@ -86,7 +87,7 @@ Public Class frmAttendance
                     Else
                         reloadtxt("SELECT * FROM attendance WHERE PracticumID = '" & txtPM.Text & "' AND PM_Status = 'IN'")
                         If dt.Rows.Count > 0 Then
-                            Dim pmout As String = "UPDATE attendance SET TimeLogOut_PM = '" & TimeOfDay & "', PM_Status = 'OUT' WHERE PracticumID = '" & txtPM.Text & "'"
+                            Dim pmout As String = "UPDATE attendance SET TimeLogOut_PM = '" & TimeOfDay & "', PM_Status = 'OUT' WHERE PracticumID = '" & txtPM.Text & "' AND `Date` = '" & logdate & "'"
                             Dim QueryString2 As String = String.Concat(pmout, ";", query2)
                             updates(QueryString2)
                             load_PMAttendance()
@@ -97,7 +98,7 @@ Public Class frmAttendance
                             reloadtxt("SELECT * FROM attendance WHERE PracticumID = '" & txtPM.Text & "' AND DATE = '" & logdate _
                     & "' AND AM_Status = 'OUT'")
                             If dt.Rows.Count > 0 Then
-                                Dim pmin As String = "UPDATE attendance SET TimeLogIn_PM = '" & TimeOfDay & "', PM_Status = 'IN' WHERE PracticumID = '" & txtPM.Text & "'"
+                                Dim pmin As String = "UPDATE attendance SET TimeLogIn_PM = '" & TimeOfDay & "', PM_Status = 'IN' WHERE PracticumID = '" & txtPM.Text & "' AND `Date` = '" & logdate & "'"
                                 Dim QueryString4 As String = String.Concat(pmin, ";", query2)
                                 create(QueryString4)
                                 load_PMAttendance()
@@ -149,6 +150,43 @@ Public Class frmAttendance
             reloadtxt(query)
 
             If dt.Rows.Count > 0 Then
+                lblPracticumID_PM.Text = dt.Rows(0).Item("PracticumID")
+                lblLastName_PM.Text = dt.Rows(0).Item("LastName")
+                lblFirstName_PM.Text = dt.Rows(0).Item("FirstName")
+                lblVenue_PM.Text = dt.Rows(0).Item("Venue")
+                lblAssignment_PM.Text = dt.Rows(0).Item("Assignment")
+            Else
+                lblPracticumID_PM.Text = Nothing
+                lblLastName_PM.Text = Nothing
+                lblFirstName_PM.Text = Nothing
+                lblVenue_PM.Text = Nothing
+                lblAssignment_PM.Text = Nothing
+            End If
+        Catch ex As Exception
+        End Try
+    End Sub
+    Private Sub txtAM_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtAM.KeyPress
+        If Char.IsDigit(e.KeyChar) = False And Char.IsControl(e.KeyChar) = False Then
+            e.Handled = True
+        End If
+    End Sub
+    Private Sub txtPM_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtPM.KeyPress
+        If Char.IsDigit(e.KeyChar) = False And Char.IsControl(e.KeyChar) = False Then
+            e.Handled = True
+        End If
+    End Sub
+    Private Sub dgvAMAttendance_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvAMAttendance.CellContentClick
+        lblAM.Text = dgvAMAttendance.CurrentRow.Cells(0).Value
+    End Sub
+    Private Sub dgvPMAttendance_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvPMAttendance.CellContentClick
+        lblPM.Text = dgvPMAttendance.CurrentRow.Cells(0).Value
+    End Sub
+    Private Sub lblAM_TextChanged(sender As Object, e As EventArgs) Handles lblAM.TextChanged
+        Try
+            query = "SELECT * FROM `practicum` WHERE `PracticumID`='" & lblAM.Text & "'"
+            reloadtxt(query)
+
+            If dt.Rows.Count > 0 Then
                 lblPracticumID.Text = dt.Rows(0).Item("PracticumID")
                 lblLastName.Text = dt.Rows(0).Item("LastName")
                 lblFirstName.Text = dt.Rows(0).Item("FirstName")
@@ -164,28 +202,25 @@ Public Class frmAttendance
         Catch ex As Exception
         End Try
     End Sub
-
-    Private Sub txtAM_KeyPress_1(sender As Object, e As KeyPressEventArgs) Handles txtAM.KeyPress
-        If Char.IsDigit(e.KeyChar) = False And Char.IsControl(e.KeyChar) = False Then
-            e.Handled = True
-        End If
-    End Sub
-    Private Sub txtPM_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtPM.KeyPress
-        If Char.IsDigit(e.KeyChar) = False And Char.IsControl(e.KeyChar) = False Then
-            e.Handled = True
-        End If
-    End Sub
-    
-    Private Sub dgvAMAttendance_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvAMAttendance.CellContentClick
-        lblAM.Text = dgvAMAttendance.CurrentRow.Cells(0).Value
-    End Sub
-    Private Sub lblAM_TextChanged(sender As Object, e As EventArgs) Handles lblAM.TextChanged
-        PracInfo_AM()
-    End Sub
-    Private Sub dgvPMAttendance_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvPMAttendance.CellContentClick
-        lblPM.Text = dgvPMAttendance.CurrentRow.Cells(0).Value
-    End Sub
     Private Sub lblPM_TextChanged(sender As Object, e As EventArgs) Handles lblPM.TextChanged
-        PracInfo_PM()
+        Try
+            query = "SELECT * FROM `practicum` WHERE `PracticumID`='" & lblPM.Text & "'"
+            reloadtxt(query)
+
+            If dt.Rows.Count > 0 Then
+                lblPracticumID_PM.Text = dt.Rows(0).Item("PracticumID")
+                lblLastName_PM.Text = dt.Rows(0).Item("LastName")
+                lblFirstName_PM.Text = dt.Rows(0).Item("FirstName")
+                lblVenue_PM.Text = dt.Rows(0).Item("Venue")
+                lblAssignment_PM.Text = dt.Rows(0).Item("Assignment")
+            Else
+                lblPracticumID_PM.Text = Nothing
+                lblLastName_PM.Text = Nothing
+                lblFirstName_PM.Text = Nothing
+                lblVenue_PM.Text = Nothing
+                lblAssignment_PM.Text = Nothing
+            End If
+        Catch ex As Exception
+        End Try
     End Sub
 End Class
