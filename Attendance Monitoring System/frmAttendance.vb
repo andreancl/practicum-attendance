@@ -43,7 +43,7 @@ Public Class frmAttendance
                         If dt.Rows.Count > 0 Then
                             Dim amout As String = "UPDATE attendance SET TimeLogOut_AM = '" & TimeOfDay & "', AM_Status = 'OUT' WHERE PracticumID = '" & txtAM.Text & "' AND `Date` = '" & logdate & "'"
                             Dim QueryString As String = String.Concat(amout, ";", query2)
-                            updates(QueryString)
+                            updateNoMsg(QueryString)
                             load_AMAttendance()
                             PracInfo_AM()
                             txtAM.Text = Nothing
@@ -52,7 +52,7 @@ Public Class frmAttendance
                             Dim amin As String = "INSERT INTO attendance (PracticumID, Date, TimeLogIn_AM, AM_Status) " _
                             & " VALUES ('" & txtAM.Text & "', '" & logdate & "', '" & TimeOfDay & "', 'IN')"
                             Dim QueryString1 As String = String.Concat(amin, ";", query2)
-                            create(QueryString1)
+                            createNoMsg(QueryString1)
                             load_AMAttendance()
                             PracInfo_AM()
                             txtAM.Text = Nothing
@@ -64,7 +64,6 @@ Public Class frmAttendance
             End If
         Catch ex As Exception
         End Try
-        PracInfo_AM()
     End Sub
     Public Sub load_PMAttendance()
         query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
@@ -89,7 +88,7 @@ Public Class frmAttendance
                         If dt.Rows.Count > 0 Then
                             Dim pmout As String = "UPDATE attendance SET TimeLogOut_PM = '" & TimeOfDay & "', PM_Status = 'OUT' WHERE PracticumID = '" & txtPM.Text & "' AND `Date` = '" & logdate & "'"
                             Dim QueryString2 As String = String.Concat(pmout, ";", query2)
-                            updates(QueryString2)
+                            updateNoMsg(QueryString2)
                             load_PMAttendance()
                             PracInfo_PM()
                             txtPM.Text = Nothing
@@ -100,7 +99,7 @@ Public Class frmAttendance
                             If dt.Rows.Count > 0 Then
                                 Dim pmin As String = "UPDATE attendance SET TimeLogIn_PM = '" & TimeOfDay & "', PM_Status = 'IN' WHERE PracticumID = '" & txtPM.Text & "' AND `Date` = '" & logdate & "'"
                                 Dim QueryString4 As String = String.Concat(pmin, ";", query2)
-                                create(QueryString4)
+                                updateNoMsg(QueryString4)
                                 load_PMAttendance()
                                 PracInfo_PM()
                                 txtPM.Text = Nothing
@@ -109,7 +108,7 @@ Public Class frmAttendance
                                 Dim pmins As String = "INSERT INTO attendance (PracticumID, Date, TimeLogIn_PM, PM_Status) " _
                           & " VALUES ('" & txtPM.Text & "', '" & logdate & "', '" & TimeOfDay & "', 'IN')"
                                 Dim QueryString5 As String = String.Concat(pmins, ";", query2)
-                                create(QueryString5)
+                                createNoMsg(QueryString5)
                                 load_PMAttendance()
                                 PracInfo_PM()
                                 txtPM.Text = Nothing

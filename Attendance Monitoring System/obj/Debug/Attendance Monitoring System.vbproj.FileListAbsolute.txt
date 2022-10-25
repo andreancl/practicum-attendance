@@ -26,3 +26,5 @@ C:\Users\asus\Documents\GitHub\practicum-attendance\Attendance Monitoring System
 C:\Users\asus\Documents\GitHub\practicum-attendance\Attendance Monitoring System\obj\Debug\Attendance Monitoring System.exe
 C:\Users\asus\Documents\GitHub\practicum-attendance\Attendance Monitoring System\obj\Debug\Attendance Monitoring System.xml
 C:\Users\asus\Documents\GitHub\practicum-attendance\Attendance Monitoring System\obj\Debug\Attendance Monitoring System.pdb
+C:\Users\asus\Documents\GitHub\practicum-attendance\Attendance Monitoring System\obj\Debug\Attendance Monitoring System.vbprojResolveAssemblyReference.cache
+C:\Users\asus\Documents\GitHub\practicum-attendance\Attendance Monitoring System\obj\Debug\Attendance_Monitoring_System.frmSettings.resources

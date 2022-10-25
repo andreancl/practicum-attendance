@@ -28,7 +28,8 @@ Partial Class frmMain
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lbAMS = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.btnReports = New System.Windows.Forms.Button()
+        Me.btnSettings = New System.Windows.Forms.Button()
+        Me.btnRecords = New System.Windows.Forms.Button()
         Me.btnAttendance = New System.Windows.Forms.Button()
         Me.btnLogOut = New System.Windows.Forms.Button()
         Me.btnPracticums = New System.Windows.Forms.Button()
@@ -89,7 +90,8 @@ Partial Class frmMain
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.btnReports)
+        Me.GroupBox1.Controls.Add(Me.btnSettings)
+        Me.GroupBox1.Controls.Add(Me.btnRecords)
         Me.GroupBox1.Controls.Add(Me.btnAttendance)
         Me.GroupBox1.Controls.Add(Me.btnLogOut)
         Me.GroupBox1.Controls.Add(Me.btnPracticums)
@@ -102,20 +104,35 @@ Partial Class frmMain
         Me.GroupBox1.TabIndex = 15
         Me.GroupBox1.TabStop = False
         '
-        'btnReports
+        'btnSettings
         '
-        Me.btnReports.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnReports.FlatAppearance.BorderSize = 0
-        Me.btnReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnReports.Font = New System.Drawing.Font("Century Gothic", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnReports.Image = CType(resources.GetObject("btnReports.Image"), System.Drawing.Image)
-        Me.btnReports.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnReports.Location = New System.Drawing.Point(3, 169)
-        Me.btnReports.Name = "btnReports"
-        Me.btnReports.Size = New System.Drawing.Size(223, 50)
-        Me.btnReports.TabIndex = 33
-        Me.btnReports.Text = "Records"
-        Me.btnReports.UseVisualStyleBackColor = True
+        Me.btnSettings.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnSettings.FlatAppearance.BorderSize = 0
+        Me.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSettings.Font = New System.Drawing.Font("Century Gothic", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSettings.Image = CType(resources.GetObject("btnSettings.Image"), System.Drawing.Image)
+        Me.btnSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnSettings.Location = New System.Drawing.Point(3, 219)
+        Me.btnSettings.Name = "btnSettings"
+        Me.btnSettings.Size = New System.Drawing.Size(223, 50)
+        Me.btnSettings.TabIndex = 34
+        Me.btnSettings.Text = "Settings"
+        Me.btnSettings.UseVisualStyleBackColor = True
+        '
+        'btnRecords
+        '
+        Me.btnRecords.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnRecords.FlatAppearance.BorderSize = 0
+        Me.btnRecords.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnRecords.Font = New System.Drawing.Font("Century Gothic", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRecords.Image = CType(resources.GetObject("btnRecords.Image"), System.Drawing.Image)
+        Me.btnRecords.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnRecords.Location = New System.Drawing.Point(3, 169)
+        Me.btnRecords.Name = "btnRecords"
+        Me.btnRecords.Size = New System.Drawing.Size(223, 50)
+        Me.btnRecords.TabIndex = 33
+        Me.btnRecords.Text = "Records"
+        Me.btnRecords.UseVisualStyleBackColor = True
         '
         'btnAttendance
         '
@@ -217,5 +234,6 @@ Partial Class frmMain
     Friend WithEvents btnDashboard As System.Windows.Forms.Button
     Friend WithEvents btnLogOut As System.Windows.Forms.Button
     Friend WithEvents btnAttendance As System.Windows.Forms.Button
-    Friend WithEvents btnReports As System.Windows.Forms.Button
+    Friend WithEvents btnRecords As System.Windows.Forms.Button
+    Friend WithEvents btnSettings As System.Windows.Forms.Button
 End Class

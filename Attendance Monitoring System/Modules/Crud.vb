@@ -60,7 +60,20 @@ Module crud
             MsgBox(ex.Message & "createNoMsg")
         End Try
     End Sub
-
+    Public Sub updateNoMsg(ByVal query As String)
+        Try
+            con.Open()
+            cmd = New MySqlCommand
+            With cmd
+                .Connection = con
+                .CommandText = query
+                result = cmd.ExecuteNonQuery
+            End With
+            con.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message & "updateNoMsg")
+        End Try
+    End Sub
     Public Sub updates(ByVal query As String)
         Try
             con.Open()

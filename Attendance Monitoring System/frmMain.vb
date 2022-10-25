@@ -27,8 +27,13 @@
         showForm(frmAttendance)
     End Sub
 
-    Private Sub btnReports_Click(sender As Object, e As EventArgs) Handles btnReports.Click
+    Private Sub btnRecords_Click(sender As Object, e As EventArgs) Handles btnRecords.Click
         closeChildForm()
         showForm(frmRecords)
+    End Sub
+
+    Private Sub btnSettings_Click(sender As Object, e As EventArgs) Handles btnSettings.Click
+        closeChildForm()
+        showForm(frmSettings)
     End Sub
 End Class
