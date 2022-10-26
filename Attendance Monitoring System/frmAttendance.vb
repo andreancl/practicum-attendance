@@ -133,6 +133,9 @@ Public Class frmAttendance
                 lblFirstName_AM.Text = dt.Rows(0).Item("FirstName")
                 lblVenue_AM.Text = dt.Rows(0).Item("Venue")
                 lblAssignment_AM.Text = dt.Rows(0).Item("Assignment")
+                Dim lb() As Byte = dt.Rows(0).Item("img")
+                Dim lstr As New System.IO.MemoryStream(lb)
+                PictureBox1.Image = Image.FromStream(lstr)
             Else
                 lblPracticumID_AM.Text = Nothing
                 lblLastName_AM.Text = Nothing

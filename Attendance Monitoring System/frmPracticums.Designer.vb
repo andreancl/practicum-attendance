@@ -65,10 +65,14 @@ Partial Class frmPracticums
         Me.PrintPreviewDialog2 = New System.Windows.Forms.PrintPreviewDialog()
         Me.PrintDocument2 = New System.Drawing.Printing.PrintDocument()
         Me.btnPrintdgv = New System.Windows.Forms.Button()
+        Me.pbProfile = New System.Windows.Forms.PictureBox()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.gbPracticums.SuspendLayout()
         CType(Me.pbQR, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.dgvPracticumRecord, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbProfile, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'gbPracticums
@@ -511,7 +515,7 @@ Partial Class frmPracticums
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(247, Byte), Integer))
         Me.dgvPracticumRecord.RowsDefaultCellStyle = DataGridViewCellStyle3
         Me.dgvPracticumRecord.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvPracticumRecord.Size = New System.Drawing.Size(1062, 133)
+        Me.dgvPracticumRecord.Size = New System.Drawing.Size(665, 133)
         Me.dgvPracticumRecord.StandardTab = True
         Me.dgvPracticumRecord.TabIndex = 82
         '
@@ -584,6 +588,36 @@ Partial Class frmPracticums
         Me.btnPrintdgv.Text = "Print"
         Me.btnPrintdgv.UseVisualStyleBackColor = False
         '
+        'pbProfile
+        '
+        Me.pbProfile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.pbProfile.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pbProfile.Location = New System.Drawing.Point(753, 404)
+        Me.pbProfile.Name = "pbProfile"
+        Me.pbProfile.Size = New System.Drawing.Size(209, 151)
+        Me.pbProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pbProfile.TabIndex = 230
+        Me.pbProfile.TabStop = False
+        '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        '
+        'Button1
+        '
+        Me.Button1.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.Button1.BackColor = System.Drawing.Color.Green
+        Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.Color.White
+        Me.Button1.Location = New System.Drawing.Point(987, 513)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(66, 29)
+        Me.Button1.TabIndex = 231
+        Me.Button1.Text = "browse"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
         'frmPracticums
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -593,6 +627,8 @@ Partial Class frmPracticums
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.ClientSize = New System.Drawing.Size(1130, 585)
         Me.ControlBox = False
+        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.pbProfile)
         Me.Controls.Add(Me.btnPrintdgv)
         Me.Controls.Add(Me.txtSearch)
         Me.Controls.Add(Me.lblSearchBy)
@@ -608,6 +644,7 @@ Partial Class frmPracticums
         CType(Me.pbQR, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         CType(Me.dgvPracticumRecord, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbProfile, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -651,4 +688,7 @@ Partial Class frmPracticums
     Friend WithEvents PrintPreviewDialog2 As System.Windows.Forms.PrintPreviewDialog
     Friend WithEvents PrintDocument2 As System.Drawing.Printing.PrintDocument
     Friend WithEvents btnPrintdgv As System.Windows.Forms.Button
+    Friend WithEvents pbProfile As System.Windows.Forms.PictureBox
+    Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
+    Friend WithEvents Button1 As System.Windows.Forms.Button
 End Class

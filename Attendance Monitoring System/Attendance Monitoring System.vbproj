@@ -66,6 +66,9 @@
     </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BCrypt.Net-Next">
+      <HintPath>..\..\..\..\Downloads\College\MAGNO-HARDWARE-SALES-AND-INVENTORY-SYSTEM-master\MAGNO HARDWARE SALES AND INVENTORY SYSTEM\bin\Debug\BCrypt.Net-Next.dll</HintPath>
+    </Reference>
     <Reference Include="MessagingToolkit.Barcode">
       <HintPath>..\..\..\..\Downloads\ref\Barcode_Scanner_Generator_Tutorial\Barcode_Scanner_Generator_Tutorial\bin\Debug\MessagingToolkit.Barcode.dll</HintPath>
     </Reference>
