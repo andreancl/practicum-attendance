@@ -1,8 +1,10 @@
 ﻿Imports MySql.Data.MySqlClient
 
 Public Class frmAttendance
+
     Public con As MySqlConnection = mysqldb()
     Dim logdate As String = String.Format("{0:yyyy-MM-dd}", Date.Now)
+    Dim TimeofD As String = String.Format("{0:yyyy-MM-dd HH:mm:ss}", DateAndTime.Now)
     Dim query2 As String = "UPDATE attendance att, practicum prac SET att.LastName = prac.LastName, att.FirstName = prac.FirstName WHERE att.PracticumID = prac.PracticumID"
     Private Sub frmAttendance_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         load_AMAttendance()
@@ -19,7 +21,8 @@ Public Class frmAttendance
     End Sub
     Public Sub load_AMAttendance()
         query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
-                & " AS 'Full Name', `Date`, `TimeLogIn_AM` AS 'Time In - AM', `TimeLogOut_AM` AS 'Time Out - AM'" _
+                & " AS 'Full Name', `Date`, TIME_FORMAT(`TimeLogIn_AM`, '%H:%i:%s %p') AS 'Time In - AM'" _
+                & ", TIME_FORMAT(`TimeLogOut_AM`, '%H:%i:%s %p') AS 'Time Out - AM'" _
                 & " FROM `attendance` WHERE `Date` = curdate()"
         reloadDgv(query, dgvAMAttendance)
     End Sub
@@ -41,7 +44,7 @@ Public Class frmAttendance
                     Else
                         reloadtxt("SELECT * FROM attendance WHERE PracticumID = '" & txtAM.Text & "' AND AM_Status = 'IN'")
                         If dt.Rows.Count > 0 Then
-                            Dim amout As String = "UPDATE attendance SET TimeLogOut_AM = '" & TimeOfDay & "', AM_Status = 'OUT' WHERE PracticumID = '" & txtAM.Text & "' AND `Date` = '" & logdate & "'"
+                            Dim amout As String = "UPDATE attendance SET TimeLogOut_AM = '" & TimeofD & "', AM_Status = 'OUT' WHERE PracticumID = '" & txtAM.Text & "' AND `Date` = '" & logdate & "'"
                             Dim QueryString As String = String.Concat(amout, ";", query2)
                             updateNoMsg(QueryString)
                             load_AMAttendance()
@@ -50,7 +53,7 @@ Public Class frmAttendance
                             TabPage1.Refresh()
                         Else
                             Dim amin As String = "INSERT INTO attendance (PracticumID, Date, TimeLogIn_AM, AM_Status) " _
-                            & " VALUES ('" & txtAM.Text & "', '" & logdate & "', '" & TimeOfDay & "', 'IN')"
+                            & " VALUES ('" & txtAM.Text & "', '" & logdate & "', '" & TimeofD & "', 'IN')"
                             Dim QueryString1 As String = String.Concat(amin, ";", query2)
                             createNoMsg(QueryString1)
                             load_AMAttendance()
@@ -67,8 +70,9 @@ Public Class frmAttendance
     End Sub
     Public Sub load_PMAttendance()
         query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
-                & " AS 'Full Name', `Date`, `TimeLogIn_PM` AS 'Time In - PM', `TimeLogOut_PM`" _
-                & " AS 'Time Out - PM' FROM `attendance` WHERE `Date` = curdate()"
+                & " AS 'Full Name', `Date`, TIME_FORMAT(`TimeLogIn_PM`, '%H:%i:%s %p') AS 'Time In - PM'" _
+                & ", TIME_FORMAT(`TimeLogOut_PM`, '%H:%i:%s %p') AS 'Time Out - PM'" _
+                & " FROM `attendance` WHERE `Date` = curdate()"
         reloadDgv(query, dgvPMAttendance)
     End Sub
 
@@ -86,7 +90,7 @@ Public Class frmAttendance
                     Else
                         reloadtxt("SELECT * FROM attendance WHERE PracticumID = '" & txtPM.Text & "' AND PM_Status = 'IN'")
                         If dt.Rows.Count > 0 Then
-                            Dim pmout As String = "UPDATE attendance SET TimeLogOut_PM = '" & TimeOfDay & "', PM_Status = 'OUT' WHERE PracticumID = '" & txtPM.Text & "' AND `Date` = '" & logdate & "'"
+                            Dim pmout As String = "UPDATE attendance SET TimeLogOut_PM = '" & TimeofD & "', PM_Status = 'OUT' WHERE PracticumID = '" & txtPM.Text & "' AND `Date` = '" & logdate & "'"
                             Dim QueryString2 As String = String.Concat(pmout, ";", query2)
                             updateNoMsg(QueryString2)
                             load_PMAttendance()
@@ -97,7 +101,7 @@ Public Class frmAttendance
                             reloadtxt("SELECT * FROM attendance WHERE PracticumID = '" & txtPM.Text & "' AND DATE = '" & logdate _
                     & "' AND AM_Status = 'OUT'")
                             If dt.Rows.Count > 0 Then
-                                Dim pmin As String = "UPDATE attendance SET TimeLogIn_PM = '" & TimeOfDay & "', PM_Status = 'IN' WHERE PracticumID = '" & txtPM.Text & "' AND `Date` = '" & logdate & "'"
+                                Dim pmin As String = "UPDATE attendance SET TimeLogIn_PM = '" & TimeofD & "', PM_Status = 'IN' WHERE PracticumID = '" & txtPM.Text & "' AND `Date` = '" & logdate & "'"
                                 Dim QueryString4 As String = String.Concat(pmin, ";", query2)
                                 updateNoMsg(QueryString4)
                                 load_PMAttendance()
@@ -118,7 +122,7 @@ Public Class frmAttendance
                     End If
                 Else
                 End If
-                End If
+            End If
         Catch ex As Exception
         End Try
     End Sub
@@ -135,13 +139,14 @@ Public Class frmAttendance
                 lblAssignment_AM.Text = dt.Rows(0).Item("Assignment")
                 Dim lb() As Byte = dt.Rows(0).Item("img")
                 Dim lstr As New System.IO.MemoryStream(lb)
-                PictureBox1.Image = Image.FromStream(lstr)
+                pbAM.Image = Image.FromStream(lstr)
             Else
                 lblPracticumID_AM.Text = Nothing
                 lblLastName_AM.Text = Nothing
                 lblFirstName_AM.Text = Nothing
                 lblVenue_AM.Text = Nothing
                 lblAssignment_AM.Text = Nothing
+                pbAM.Image = Nothing
             End If
         Catch ex As Exception
         End Try
@@ -157,12 +162,16 @@ Public Class frmAttendance
                 lblFirstName_PM.Text = dt.Rows(0).Item("FirstName")
                 lblVenue_PM.Text = dt.Rows(0).Item("Venue")
                 lblAssignment_PM.Text = dt.Rows(0).Item("Assignment")
+                Dim lb() As Byte = dt.Rows(0).Item("img")
+                Dim lstr As New System.IO.MemoryStream(lb)
+                pbPM.Image = Image.FromStream(lstr)
             Else
                 lblPracticumID_PM.Text = Nothing
                 lblLastName_PM.Text = Nothing
                 lblFirstName_PM.Text = Nothing
                 lblVenue_PM.Text = Nothing
                 lblAssignment_PM.Text = Nothing
+                pbPM.Image = Nothing
             End If
         Catch ex As Exception
         End Try
@@ -194,12 +203,16 @@ Public Class frmAttendance
                 lblFirstName_AM.Text = dt.Rows(0).Item("FirstName")
                 lblVenue_AM.Text = dt.Rows(0).Item("Venue")
                 lblAssignment_AM.Text = dt.Rows(0).Item("Assignment")
+                Dim lb() As Byte = dt.Rows(0).Item("img")
+                Dim lstr As New System.IO.MemoryStream(lb)
+                pbAM.Image = Image.FromStream(lstr)
             Else
                 lblPracticumID_AM.Text = Nothing
                 lblLastName_AM.Text = Nothing
                 lblFirstName_AM.Text = Nothing
                 lblVenue_AM.Text = Nothing
                 lblAssignment_AM.Text = Nothing
+                pbAM.Image = Nothing
             End If
         Catch ex As Exception
         End Try
@@ -215,12 +228,16 @@ Public Class frmAttendance
                 lblFirstName_PM.Text = dt.Rows(0).Item("FirstName")
                 lblVenue_PM.Text = dt.Rows(0).Item("Venue")
                 lblAssignment_PM.Text = dt.Rows(0).Item("Assignment")
+                Dim lb() As Byte = dt.Rows(0).Item("img")
+                Dim lstr As New System.IO.MemoryStream(lb)
+                pbPM.Image = Image.FromStream(lstr)
             Else
                 lblPracticumID_PM.Text = Nothing
                 lblLastName_PM.Text = Nothing
                 lblFirstName_PM.Text = Nothing
                 lblVenue_PM.Text = Nothing
                 lblAssignment_PM.Text = Nothing
+                pbPM.Image = Nothing
             End If
         Catch ex As Exception
         End Try

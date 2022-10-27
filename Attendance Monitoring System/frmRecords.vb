@@ -148,6 +148,9 @@ Public Class frmRecords
                 lblSY.Text = dt.Rows(0).Item("SchoolYear")
                 lblStartDate.Text = dt.Rows(0).Item("StartDate")
                 lblEndDate.Text = dt.Rows(0).Item("EndDate")
+                Dim lb() As Byte = dt.Rows(0).Item("img")
+                Dim lstr As New System.IO.MemoryStream(lb)
+                pbProfile.Image = Image.FromStream(lstr)
             Else
                 lblPracticumID.Text = Nothing
                 lblLastName.Text = Nothing
@@ -159,6 +162,7 @@ Public Class frmRecords
                 lblSY.Text = Nothing
                 lblStartDate.Text = Nothing
                 lblEndDate.Text = Nothing
+                pbProfile.Image = Nothing
             End If
             query = "SELECT `Date`, `TimeLogIn_AM` AS 'AM Time In', `TimeLogOut_AM` AS 'AM Time Out', " _
          & " `TimeLogIn_PM` AS 'PM Time In', `TimeLogOut_PM` AS 'PM Time Out' FROM `attendance`" _

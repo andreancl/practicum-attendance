@@ -35,7 +35,7 @@ Partial Class frmAttendance
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.pbAM = New System.Windows.Forms.PictureBox()
         Me.lblAM = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.lblAssignment_AM = New System.Windows.Forms.Label()
@@ -52,6 +52,7 @@ Partial Class frmAttendance
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtAM = New System.Windows.Forms.TextBox()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.pbPM = New System.Windows.Forms.PictureBox()
         Me.lblPM = New System.Windows.Forms.Label()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.lblAssignment_PM = New System.Windows.Forms.Label()
@@ -71,9 +72,10 @@ Partial Class frmAttendance
         Me.lblDate = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbAM, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvAMAttendance, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
+        CType(Me.pbPM, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvPMAttendance, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -105,7 +107,7 @@ Partial Class frmAttendance
         '
         'TabPage1
         '
-        Me.TabPage1.Controls.Add(Me.PictureBox1)
+        Me.TabPage1.Controls.Add(Me.pbAM)
         Me.TabPage1.Controls.Add(Me.lblAM)
         Me.TabPage1.Controls.Add(Me.Label19)
         Me.TabPage1.Controls.Add(Me.lblAssignment_AM)
@@ -130,14 +132,15 @@ Partial Class frmAttendance
         Me.TabPage1.Text = "MORNING SHIFT"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
-        'PictureBox1
+        'pbAM
         '
-        Me.PictureBox1.Location = New System.Drawing.Point(59, 59)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(214, 151)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 276
-        Me.PictureBox1.TabStop = False
+        Me.pbAM.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pbAM.Location = New System.Drawing.Point(59, 59)
+        Me.pbAM.Name = "pbAM"
+        Me.pbAM.Size = New System.Drawing.Size(214, 151)
+        Me.pbAM.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pbAM.TabIndex = 276
+        Me.pbAM.TabStop = False
         '
         'lblAM
         '
@@ -157,7 +160,7 @@ Partial Class frmAttendance
         Me.Label19.BackColor = System.Drawing.Color.Transparent
         Me.Label19.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label19.ForeColor = System.Drawing.Color.Black
-        Me.Label19.Location = New System.Drawing.Point(64, 24)
+        Me.Label19.Location = New System.Drawing.Point(55, 24)
         Me.Label19.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(224, 25)
@@ -346,6 +349,7 @@ Partial Class frmAttendance
         '
         'TabPage2
         '
+        Me.TabPage2.Controls.Add(Me.pbPM)
         Me.TabPage2.Controls.Add(Me.lblPM)
         Me.TabPage2.Controls.Add(Me.Label18)
         Me.TabPage2.Controls.Add(Me.lblAssignment_PM)
@@ -370,12 +374,22 @@ Partial Class frmAttendance
         Me.TabPage2.Text = "AFTERNOON SHIFT"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
+        'pbPM
+        '
+        Me.pbPM.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pbPM.Location = New System.Drawing.Point(59, 59)
+        Me.pbPM.Name = "pbPM"
+        Me.pbPM.Size = New System.Drawing.Size(214, 151)
+        Me.pbPM.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pbPM.TabIndex = 277
+        Me.pbPM.TabStop = False
+        '
         'lblPM
         '
         Me.lblPM.BackColor = System.Drawing.Color.Transparent
         Me.lblPM.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPM.ForeColor = System.Drawing.Color.Black
-        Me.lblPM.Location = New System.Drawing.Point(130, 24)
+        Me.lblPM.Location = New System.Drawing.Point(8, 3)
         Me.lblPM.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.lblPM.Name = "lblPM"
         Me.lblPM.Size = New System.Drawing.Size(116, 25)
@@ -388,7 +402,7 @@ Partial Class frmAttendance
         Me.Label18.BackColor = System.Drawing.Color.Transparent
         Me.Label18.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label18.ForeColor = System.Drawing.Color.Black
-        Me.Label18.Location = New System.Drawing.Point(77, 59)
+        Me.Label18.Location = New System.Drawing.Point(55, 24)
         Me.Label18.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(224, 25)
@@ -400,7 +414,7 @@ Partial Class frmAttendance
         '
         Me.lblAssignment_PM.AutoSize = True
         Me.lblAssignment_PM.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAssignment_PM.Location = New System.Drawing.Point(157, 204)
+        Me.lblAssignment_PM.Location = New System.Drawing.Point(145, 329)
         Me.lblAssignment_PM.Name = "lblAssignment_PM"
         Me.lblAssignment_PM.Size = New System.Drawing.Size(0, 21)
         Me.lblAssignment_PM.TabIndex = 272
@@ -409,7 +423,7 @@ Partial Class frmAttendance
         '
         Me.lblVenue_PM.AutoSize = True
         Me.lblVenue_PM.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblVenue_PM.Location = New System.Drawing.Point(157, 178)
+        Me.lblVenue_PM.Location = New System.Drawing.Point(145, 303)
         Me.lblVenue_PM.Name = "lblVenue_PM"
         Me.lblVenue_PM.Size = New System.Drawing.Size(0, 21)
         Me.lblVenue_PM.TabIndex = 271
@@ -418,7 +432,7 @@ Partial Class frmAttendance
         '
         Me.lblFirstName_PM.AutoSize = True
         Me.lblFirstName_PM.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFirstName_PM.Location = New System.Drawing.Point(157, 153)
+        Me.lblFirstName_PM.Location = New System.Drawing.Point(145, 278)
         Me.lblFirstName_PM.Name = "lblFirstName_PM"
         Me.lblFirstName_PM.Size = New System.Drawing.Size(0, 21)
         Me.lblFirstName_PM.TabIndex = 270
@@ -427,7 +441,7 @@ Partial Class frmAttendance
         '
         Me.lblLastName_PM.AutoSize = True
         Me.lblLastName_PM.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblLastName_PM.Location = New System.Drawing.Point(157, 126)
+        Me.lblLastName_PM.Location = New System.Drawing.Point(145, 251)
         Me.lblLastName_PM.Name = "lblLastName_PM"
         Me.lblLastName_PM.Size = New System.Drawing.Size(0, 21)
         Me.lblLastName_PM.TabIndex = 269
@@ -436,7 +450,7 @@ Partial Class frmAttendance
         '
         Me.lblPracticumID_PM.AutoSize = True
         Me.lblPracticumID_PM.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPracticumID_PM.Location = New System.Drawing.Point(157, 100)
+        Me.lblPracticumID_PM.Location = New System.Drawing.Point(145, 225)
         Me.lblPracticumID_PM.Name = "lblPracticumID_PM"
         Me.lblPracticumID_PM.Size = New System.Drawing.Size(0, 21)
         Me.lblPracticumID_PM.TabIndex = 268
@@ -446,7 +460,7 @@ Partial Class frmAttendance
         Me.Label13.BackColor = System.Drawing.Color.Transparent
         Me.Label13.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.ForeColor = System.Drawing.Color.Black
-        Me.Label13.Location = New System.Drawing.Point(33, 177)
+        Me.Label13.Location = New System.Drawing.Point(21, 302)
         Me.Label13.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(116, 27)
@@ -459,7 +473,7 @@ Partial Class frmAttendance
         Me.Label14.BackColor = System.Drawing.Color.Transparent
         Me.Label14.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label14.ForeColor = System.Drawing.Color.Black
-        Me.Label14.Location = New System.Drawing.Point(33, 99)
+        Me.Label14.Location = New System.Drawing.Point(21, 224)
         Me.Label14.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(116, 25)
@@ -472,7 +486,7 @@ Partial Class frmAttendance
         Me.Label15.BackColor = System.Drawing.Color.Transparent
         Me.Label15.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label15.ForeColor = System.Drawing.Color.Black
-        Me.Label15.Location = New System.Drawing.Point(33, 151)
+        Me.Label15.Location = New System.Drawing.Point(21, 276)
         Me.Label15.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(116, 25)
@@ -485,7 +499,7 @@ Partial Class frmAttendance
         Me.Label16.BackColor = System.Drawing.Color.Transparent
         Me.Label16.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label16.ForeColor = System.Drawing.Color.Black
-        Me.Label16.Location = New System.Drawing.Point(33, 125)
+        Me.Label16.Location = New System.Drawing.Point(21, 250)
         Me.Label16.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(116, 25)
@@ -498,7 +512,7 @@ Partial Class frmAttendance
         Me.Label17.BackColor = System.Drawing.Color.Transparent
         Me.Label17.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label17.ForeColor = System.Drawing.Color.Black
-        Me.Label17.Location = New System.Drawing.Point(33, 203)
+        Me.Label17.Location = New System.Drawing.Point(21, 328)
         Me.Label17.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(116, 25)
@@ -617,10 +631,11 @@ Partial Class frmAttendance
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbAM, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvAMAttendance, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
+        CType(Me.pbPM, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvPMAttendance, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -663,5 +678,6 @@ Partial Class frmAttendance
     Friend WithEvents Label18 As System.Windows.Forms.Label
     Friend WithEvents lblAM As System.Windows.Forms.Label
     Friend WithEvents lblPM As System.Windows.Forms.Label
-    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents pbAM As System.Windows.Forms.PictureBox
+    Friend WithEvents pbPM As System.Windows.Forms.PictureBox
 End Class

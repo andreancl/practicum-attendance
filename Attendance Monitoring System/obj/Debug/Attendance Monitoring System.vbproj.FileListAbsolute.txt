@@ -17,7 +17,6 @@ C:\Users\asus\Documents\GitHub\practicum-attendance\Attendance Monitoring System
 C:\Users\asus\Documents\GitHub\practicum-attendance\Attendance Monitoring System\bin\Debug\BCrypt.Net-Next.dll
 C:\Users\asus\Documents\GitHub\practicum-attendance\Attendance Monitoring System\bin\Debug\MessagingToolkit.Barcode.dll
 C:\Users\asus\Documents\GitHub\practicum-attendance\Attendance Monitoring System\bin\Debug\BCrypt.Net-Next.xml
-C:\Users\asus\Documents\GitHub\practicum-attendance\Attendance Monitoring System\obj\Debug\Attendance Monitoring System.vbprojResolveAssemblyReference.cache
 C:\Users\asus\Documents\GitHub\practicum-attendance\Attendance Monitoring System\obj\Debug\Attendance_Monitoring_System.frmAttendance.resources
 C:\Users\asus\Documents\GitHub\practicum-attendance\Attendance Monitoring System\obj\Debug\Attendance_Monitoring_System.frmDashboard.resources
 C:\Users\asus\Documents\GitHub\practicum-attendance\Attendance Monitoring System\obj\Debug\Attendance_Monitoring_System.frmPracticums.resources

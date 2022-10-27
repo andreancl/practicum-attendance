@@ -23,12 +23,12 @@ Partial Class frmRecords
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmRecords))
-        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.cmbFilter = New System.Windows.Forms.ComboBox()
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
@@ -53,6 +53,8 @@ Partial Class frmRecords
         Me.PrintDocument2 = New System.Drawing.Printing.PrintDocument()
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.pnlPracticums = New System.Windows.Forms.Panel()
+        Me.pbProfile = New System.Windows.Forms.PictureBox()
+        Me.Label19 = New System.Windows.Forms.Label()
         Me.dgvPersonalRecord = New System.Windows.Forms.DataGridView()
         Me.lblEndDate = New System.Windows.Forms.Label()
         Me.lblStartDate = New System.Windows.Forms.Label()
@@ -74,10 +76,10 @@ Partial Class frmRecords
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label19 = New System.Windows.Forms.Label()
         Me.LogPanel.SuspendLayout()
         CType(Me.dgvPracticumRecord, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlPracticums.SuspendLayout()
+        CType(Me.pbProfile, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvPersonalRecord, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -308,31 +310,31 @@ Partial Class frmRecords
         Me.dgvPracticumRecord.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dgvPracticumRecord.BackgroundColor = System.Drawing.Color.Green
         Me.dgvPracticumRecord.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle13.BackColor = System.Drawing.Color.Green
-        DataGridViewCellStyle13.Font = New System.Drawing.Font("Calibri", 12.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(175, Byte), Integer), CType(CType(221, Byte), Integer), CType(CType(148, Byte), Integer))
-        DataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvPracticumRecord.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle13
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.Green
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Calibri", 12.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(175, Byte), Integer), CType(CType(221, Byte), Integer), CType(CType(148, Byte), Integer))
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvPracticumRecord.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvPracticumRecord.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvPracticumRecord.Cursor = System.Windows.Forms.Cursors.Default
-        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle14.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.Green
-        DataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvPracticumRecord.DefaultCellStyle = DataGridViewCellStyle14
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Green
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvPracticumRecord.DefaultCellStyle = DataGridViewCellStyle2
         Me.dgvPracticumRecord.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.dgvPracticumRecord.Location = New System.Drawing.Point(150, 111)
         Me.dgvPracticumRecord.Name = "dgvPracticumRecord"
         Me.dgvPracticumRecord.RowHeadersVisible = False
-        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(247, Byte), Integer))
-        Me.dgvPracticumRecord.RowsDefaultCellStyle = DataGridViewCellStyle15
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(247, Byte), Integer))
+        Me.dgvPracticumRecord.RowsDefaultCellStyle = DataGridViewCellStyle3
         Me.dgvPracticumRecord.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvPracticumRecord.Size = New System.Drawing.Size(957, 464)
         Me.dgvPracticumRecord.StandardTab = True
@@ -385,6 +387,7 @@ Partial Class frmRecords
         'pnlPracticums
         '
         Me.pnlPracticums.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnlPracticums.Controls.Add(Me.pbProfile)
         Me.pnlPracticums.Controls.Add(Me.Label19)
         Me.pnlPracticums.Controls.Add(Me.dgvPersonalRecord)
         Me.pnlPracticums.Controls.Add(Me.lblEndDate)
@@ -412,6 +415,29 @@ Partial Class frmRecords
         Me.pnlPracticums.Size = New System.Drawing.Size(957, 463)
         Me.pnlPracticums.TabIndex = 239
         '
+        'pbProfile
+        '
+        Me.pbProfile.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pbProfile.Location = New System.Drawing.Point(114, 44)
+        Me.pbProfile.Name = "pbProfile"
+        Me.pbProfile.Size = New System.Drawing.Size(214, 151)
+        Me.pbProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pbProfile.TabIndex = 278
+        Me.pbProfile.TabStop = False
+        '
+        'Label19
+        '
+        Me.Label19.BackColor = System.Drawing.Color.Transparent
+        Me.Label19.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label19.ForeColor = System.Drawing.Color.Black
+        Me.Label19.Location = New System.Drawing.Point(314, 8)
+        Me.Label19.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(224, 25)
+        Me.Label19.TabIndex = 275
+        Me.Label19.Text = "Practicum Information"
+        Me.Label19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
         'dgvPersonalRecord
         '
         Me.dgvPersonalRecord.AllowUserToAddRows = False
@@ -424,33 +450,33 @@ Partial Class frmRecords
         Me.dgvPersonalRecord.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dgvPersonalRecord.BackgroundColor = System.Drawing.Color.Green
         Me.dgvPersonalRecord.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle16.BackColor = System.Drawing.Color.Green
-        DataGridViewCellStyle16.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(175, Byte), Integer), CType(CType(221, Byte), Integer), CType(CType(148, Byte), Integer))
-        DataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvPersonalRecord.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle16
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.Green
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(175, Byte), Integer), CType(CType(221, Byte), Integer), CType(CType(148, Byte), Integer))
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvPersonalRecord.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.dgvPersonalRecord.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvPersonalRecord.Cursor = System.Windows.Forms.Cursors.Default
-        DataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle17.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.Green
-        DataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvPersonalRecord.DefaultCellStyle = DataGridViewCellStyle17
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Green
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvPersonalRecord.DefaultCellStyle = DataGridViewCellStyle5
         Me.dgvPersonalRecord.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
-        Me.dgvPersonalRecord.Location = New System.Drawing.Point(325, 50)
+        Me.dgvPersonalRecord.Location = New System.Drawing.Point(407, 44)
         Me.dgvPersonalRecord.Name = "dgvPersonalRecord"
         Me.dgvPersonalRecord.RowHeadersVisible = False
-        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(247, Byte), Integer))
-        Me.dgvPersonalRecord.RowsDefaultCellStyle = DataGridViewCellStyle18
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(247, Byte), Integer))
+        Me.dgvPersonalRecord.RowsDefaultCellStyle = DataGridViewCellStyle6
         Me.dgvPersonalRecord.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvPersonalRecord.Size = New System.Drawing.Size(598, 348)
+        Me.dgvPersonalRecord.Size = New System.Drawing.Size(522, 412)
         Me.dgvPersonalRecord.StandardTab = True
         Me.dgvPersonalRecord.TabIndex = 257
         '
@@ -458,7 +484,7 @@ Partial Class frmRecords
         '
         Me.lblEndDate.AutoSize = True
         Me.lblEndDate.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEndDate.Location = New System.Drawing.Point(145, 318)
+        Me.lblEndDate.Location = New System.Drawing.Point(140, 437)
         Me.lblEndDate.Name = "lblEndDate"
         Me.lblEndDate.Size = New System.Drawing.Size(0, 21)
         Me.lblEndDate.TabIndex = 256
@@ -467,7 +493,7 @@ Partial Class frmRecords
         '
         Me.lblStartDate.AutoSize = True
         Me.lblStartDate.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblStartDate.Location = New System.Drawing.Point(145, 292)
+        Me.lblStartDate.Location = New System.Drawing.Point(140, 411)
         Me.lblStartDate.Name = "lblStartDate"
         Me.lblStartDate.Size = New System.Drawing.Size(0, 21)
         Me.lblStartDate.TabIndex = 255
@@ -476,7 +502,7 @@ Partial Class frmRecords
         '
         Me.lblSY.AutoSize = True
         Me.lblSY.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSY.Location = New System.Drawing.Point(145, 267)
+        Me.lblSY.Location = New System.Drawing.Point(140, 386)
         Me.lblSY.Name = "lblSY"
         Me.lblSY.Size = New System.Drawing.Size(0, 21)
         Me.lblSY.TabIndex = 254
@@ -485,7 +511,7 @@ Partial Class frmRecords
         '
         Me.lblBatch.AutoSize = True
         Me.lblBatch.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblBatch.Location = New System.Drawing.Point(145, 240)
+        Me.lblBatch.Location = New System.Drawing.Point(140, 359)
         Me.lblBatch.Name = "lblBatch"
         Me.lblBatch.Size = New System.Drawing.Size(0, 21)
         Me.lblBatch.TabIndex = 253
@@ -494,7 +520,7 @@ Partial Class frmRecords
         '
         Me.lblAssignment.AutoSize = True
         Me.lblAssignment.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAssignment.Location = New System.Drawing.Point(145, 214)
+        Me.lblAssignment.Location = New System.Drawing.Point(140, 333)
         Me.lblAssignment.Name = "lblAssignment"
         Me.lblAssignment.Size = New System.Drawing.Size(0, 21)
         Me.lblAssignment.TabIndex = 252
@@ -503,7 +529,7 @@ Partial Class frmRecords
         '
         Me.lblVenue.AutoSize = True
         Me.lblVenue.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblVenue.Location = New System.Drawing.Point(145, 188)
+        Me.lblVenue.Location = New System.Drawing.Point(140, 303)
         Me.lblVenue.Name = "lblVenue"
         Me.lblVenue.Size = New System.Drawing.Size(0, 21)
         Me.lblVenue.TabIndex = 251
@@ -512,7 +538,7 @@ Partial Class frmRecords
         '
         Me.lblCourse.AutoSize = True
         Me.lblCourse.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCourse.Location = New System.Drawing.Point(145, 162)
+        Me.lblCourse.Location = New System.Drawing.Point(140, 277)
         Me.lblCourse.Name = "lblCourse"
         Me.lblCourse.Size = New System.Drawing.Size(0, 21)
         Me.lblCourse.TabIndex = 250
@@ -521,7 +547,7 @@ Partial Class frmRecords
         '
         Me.lblFirstName.AutoSize = True
         Me.lblFirstName.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFirstName.Location = New System.Drawing.Point(145, 137)
+        Me.lblFirstName.Location = New System.Drawing.Point(140, 252)
         Me.lblFirstName.Name = "lblFirstName"
         Me.lblFirstName.Size = New System.Drawing.Size(0, 21)
         Me.lblFirstName.TabIndex = 249
@@ -530,7 +556,7 @@ Partial Class frmRecords
         '
         Me.lblLastName.AutoSize = True
         Me.lblLastName.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblLastName.Location = New System.Drawing.Point(145, 110)
+        Me.lblLastName.Location = New System.Drawing.Point(140, 225)
         Me.lblLastName.Name = "lblLastName"
         Me.lblLastName.Size = New System.Drawing.Size(0, 21)
         Me.lblLastName.TabIndex = 248
@@ -539,7 +565,7 @@ Partial Class frmRecords
         '
         Me.lblPracticumID.AutoSize = True
         Me.lblPracticumID.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPracticumID.Location = New System.Drawing.Point(145, 84)
+        Me.lblPracticumID.Location = New System.Drawing.Point(140, 199)
         Me.lblPracticumID.Name = "lblPracticumID"
         Me.lblPracticumID.Size = New System.Drawing.Size(0, 21)
         Me.lblPracticumID.TabIndex = 247
@@ -549,7 +575,7 @@ Partial Class frmRecords
         Me.Label14.BackColor = System.Drawing.Color.Transparent
         Me.Label14.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label14.ForeColor = System.Drawing.Color.Black
-        Me.Label14.Location = New System.Drawing.Point(21, 317)
+        Me.Label14.Location = New System.Drawing.Point(16, 433)
         Me.Label14.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(116, 25)
@@ -562,7 +588,7 @@ Partial Class frmRecords
         Me.Label5.BackColor = System.Drawing.Color.Transparent
         Me.Label5.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.Black
-        Me.Label5.Location = New System.Drawing.Point(21, 291)
+        Me.Label5.Location = New System.Drawing.Point(16, 407)
         Me.Label5.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(116, 25)
@@ -575,7 +601,7 @@ Partial Class frmRecords
         Me.Label6.BackColor = System.Drawing.Color.Transparent
         Me.Label6.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.Black
-        Me.Label6.Location = New System.Drawing.Point(21, 265)
+        Me.Label6.Location = New System.Drawing.Point(16, 381)
         Me.Label6.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(116, 25)
@@ -588,7 +614,7 @@ Partial Class frmRecords
         Me.Label13.BackColor = System.Drawing.Color.Transparent
         Me.Label13.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.ForeColor = System.Drawing.Color.Black
-        Me.Label13.Location = New System.Drawing.Point(21, 239)
+        Me.Label13.Location = New System.Drawing.Point(16, 355)
         Me.Label13.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(116, 25)
@@ -601,7 +627,7 @@ Partial Class frmRecords
         Me.Label7.BackColor = System.Drawing.Color.Transparent
         Me.Label7.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.Black
-        Me.Label7.Location = New System.Drawing.Point(21, 187)
+        Me.Label7.Location = New System.Drawing.Point(16, 302)
         Me.Label7.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(116, 27)
@@ -614,7 +640,7 @@ Partial Class frmRecords
         Me.Label8.BackColor = System.Drawing.Color.Transparent
         Me.Label8.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.Black
-        Me.Label8.Location = New System.Drawing.Point(21, 83)
+        Me.Label8.Location = New System.Drawing.Point(16, 198)
         Me.Label8.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(116, 25)
@@ -627,7 +653,7 @@ Partial Class frmRecords
         Me.Label9.BackColor = System.Drawing.Color.Transparent
         Me.Label9.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.Black
-        Me.Label9.Location = New System.Drawing.Point(21, 135)
+        Me.Label9.Location = New System.Drawing.Point(16, 250)
         Me.Label9.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(116, 25)
@@ -640,7 +666,7 @@ Partial Class frmRecords
         Me.Label10.BackColor = System.Drawing.Color.Transparent
         Me.Label10.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.Black
-        Me.Label10.Location = New System.Drawing.Point(21, 109)
+        Me.Label10.Location = New System.Drawing.Point(16, 224)
         Me.Label10.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(116, 25)
@@ -653,7 +679,7 @@ Partial Class frmRecords
         Me.Label11.BackColor = System.Drawing.Color.Transparent
         Me.Label11.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.Color.Black
-        Me.Label11.Location = New System.Drawing.Point(21, 161)
+        Me.Label11.Location = New System.Drawing.Point(16, 276)
         Me.Label11.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(116, 25)
@@ -666,26 +692,13 @@ Partial Class frmRecords
         Me.Label12.BackColor = System.Drawing.Color.Transparent
         Me.Label12.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label12.ForeColor = System.Drawing.Color.Black
-        Me.Label12.Location = New System.Drawing.Point(21, 213)
+        Me.Label12.Location = New System.Drawing.Point(16, 329)
         Me.Label12.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(116, 25)
         Me.Label12.TabIndex = 239
         Me.Label12.Text = "Assignment:"
         Me.Label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Label19
-        '
-        Me.Label19.BackColor = System.Drawing.Color.Transparent
-        Me.Label19.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.ForeColor = System.Drawing.Color.Black
-        Me.Label19.Location = New System.Drawing.Point(56, 34)
-        Me.Label19.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(224, 25)
-        Me.Label19.TabIndex = 275
-        Me.Label19.Text = "Practicum Information"
-        Me.Label19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'frmRecords
         '
@@ -717,6 +730,7 @@ Partial Class frmRecords
         CType(Me.dgvPracticumRecord, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlPracticums.ResumeLayout(False)
         Me.pnlPracticums.PerformLayout()
+        CType(Me.pbProfile, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvPersonalRecord, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -768,4 +782,5 @@ Partial Class frmRecords
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents Label19 As System.Windows.Forms.Label
+    Friend WithEvents pbProfile As System.Windows.Forms.PictureBox
 End Class

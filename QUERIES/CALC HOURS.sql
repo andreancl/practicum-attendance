@@ -1,0 +1,1 @@
+UPDATE attendance SET Hours = TIMESTAMPDIFF(hour, TimeLogIn_AM, TimeLogOut_AM)

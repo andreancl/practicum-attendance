@@ -220,6 +220,9 @@ Public Class frmPracticums
         ElseIf cmbSY.Text = "" Then
             MsgBox("Please Select School Year", MsgBoxStyle.Critical, "Error")
             cmbSY.Focus()
+        ElseIf pbProfile.Image Is Nothing Then
+            MsgBox("Please Insert Image ", MsgBoxStyle.Critical, "Error")
+            pbProfile.Focus()
         Else
             UpdatePRac()
         End If
@@ -228,7 +231,6 @@ Public Class frmPracticums
         pbProfile.Image.Save(mstream, System.Drawing.Imaging.ImageFormat.Jpeg)
         Dim arrImage() As Byte = mstream.GetBuffer()
         FileSize = mstream.Length
-        mstream.Close()
         Try
             query = "SELECT * FROM `practicum` WHERE `PracticumID` = '" & txtPracticumID.Text & "'"
             reloadtxt(query)
@@ -258,6 +260,7 @@ Public Class frmPracticums
             Else
                 MsgBox("This action cannot be performed.", MsgBoxStyle.Information)
             End If
+            mstream.Close()
             con.Close()
             load_PracticumInfo()
             clearcontrol(gbPracticums)
