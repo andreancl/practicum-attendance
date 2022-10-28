@@ -122,7 +122,7 @@ Public Class frmPracticums
 
     Private Sub txtPracticumID_TextChanged(sender As Object, e As EventArgs) Handles txtPracticumID.TextChanged
         Generator.BackColor = Color.White
-        Generator.LabelFont = New Font("Arial", 7, FontStyle.Regular)
+        Generator.LabelFont = New Font("Arial", 8, FontStyle.Bold)
         Generator.IncludeLabel = True
         Generator.CustomLabel = txtPracticumID.Text
 
@@ -271,7 +271,7 @@ Public Class frmPracticums
         query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
             & " AS 'Full Name', `Course`, `Venue`, `Assignment`, `Batch`,  `SchoolYear` AS 'S.Y', " _
             & " `StartDate` AS 'Start Date', `EndDate` AS 'End Date' FROM `practicum`" _
-            & " WHERE CONCAT(`LastName`,', ', `FirstName`) LIKE '%" & txtSearch.Text & "%'"
+            & " WHERE PracticumID LIKE '%" & txtSearch.Text & "%'"
         reloadDgv(query, dgvPracticumRecord)
     End Sub
 

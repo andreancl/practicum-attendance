@@ -4,7 +4,6 @@ Public Class frmAttendance
 
     Public con As MySqlConnection = mysqldb()
     Dim logdate As String = String.Format("{0:yyyy-MM-dd}", Date.Now)
-    Dim TimeofD As String = String.Format("{0:yyyy-MM-dd HH:mm:ss}", DateAndTime.Now)
     Dim query2 As String = "UPDATE attendance att, practicum prac SET att.LastName = prac.LastName, att.FirstName = prac.FirstName WHERE att.PracticumID = prac.PracticumID"
     Private Sub frmAttendance_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         load_AMAttendance()
@@ -21,14 +20,15 @@ Public Class frmAttendance
     End Sub
     Public Sub load_AMAttendance()
         query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
-                & " AS 'Full Name', `Date`, TIME_FORMAT(`TimeLogIn_AM`, '%H:%i:%s %p') AS 'Time In - AM'" _
-                & ", TIME_FORMAT(`TimeLogOut_AM`, '%H:%i:%s %p') AS 'Time Out - AM'" _
+                & " AS 'Full Name', `Date`, TIME_FORMAT(`TimeLogIn_AM`, '%r') AS 'Time In - AM'" _
+                & ", TIME_FORMAT(`TimeLogOut_AM`, '%r') AS 'Time Out - AM'" _
                 & " FROM `attendance` WHERE `Date` = curdate()"
         reloadDgv(query, dgvAMAttendance)
     End Sub
-    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+    Public Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         lblDate.Text = Date.Now.ToLongDateString
         lblTime.Text = TimeOfDay.ToLongTimeString
+        lbltimer.Text = String.Format("{0:yyyy-MM-dd HH:mm:ss}", DateTime.Now)
     End Sub
     Private Sub txtAM_TextChanged(sender As Object, e As EventArgs) Handles txtAM.TextChanged
         Try
@@ -44,7 +44,11 @@ Public Class frmAttendance
                     Else
                         reloadtxt("SELECT * FROM attendance WHERE PracticumID = '" & txtAM.Text & "' AND AM_Status = 'IN'")
                         If dt.Rows.Count > 0 Then
-                            Dim amout As String = "UPDATE attendance SET TimeLogOut_AM = '" & TimeofD & "', AM_Status = 'OUT' WHERE PracticumID = '" & txtAM.Text & "' AND `Date` = '" & logdate & "'"
+                            Dim amout As String = "UPDATE attendance SET TimeLogOut_AM = '" & lbltimer.Text & "'" _
+                                & ", AM_Status = 'OUT', Hours = TIMESTAMPDIFF(hour, DATE_FORMAT(DATE_ADD" _
+                                & "(TimeLogIn_AM, INTERVAL 30 MINUTE),'%Y-%m-%d %H:00:00'), DATE_FORMAT(DATE_ADD" _
+                                & "(TimeLogOut_AM, INTERVAL 30 MINUTE), '%Y-%m-%d %H:00:00'))" _
+                                & " WHERE PracticumID = '" & txtAM.Text & "' AND `Date` = '" & logdate & "'"
                             Dim QueryString As String = String.Concat(amout, ";", query2)
                             updateNoMsg(QueryString)
                             load_AMAttendance()
@@ -53,7 +57,7 @@ Public Class frmAttendance
                             TabPage1.Refresh()
                         Else
                             Dim amin As String = "INSERT INTO attendance (PracticumID, Date, TimeLogIn_AM, AM_Status) " _
-                            & " VALUES ('" & txtAM.Text & "', '" & logdate & "', '" & TimeofD & "', 'IN')"
+                            & " VALUES ('" & txtAM.Text & "', '" & logdate & "', '" & lbltimer.Text & "', 'IN')"
                             Dim QueryString1 As String = String.Concat(amin, ";", query2)
                             createNoMsg(QueryString1)
                             load_AMAttendance()
@@ -70,8 +74,8 @@ Public Class frmAttendance
     End Sub
     Public Sub load_PMAttendance()
         query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
-                & " AS 'Full Name', `Date`, TIME_FORMAT(`TimeLogIn_PM`, '%H:%i:%s %p') AS 'Time In - PM'" _
-                & ", TIME_FORMAT(`TimeLogOut_PM`, '%H:%i:%s %p') AS 'Time Out - PM'" _
+                & " AS 'Full Name', `Date`, TIME_FORMAT(`TimeLogIn_PM`, '%r') AS 'Time In - PM'" _
+                & ", TIME_FORMAT(`TimeLogOut_PM`, '%r') AS 'Time Out - PM'" _
                 & " FROM `attendance` WHERE `Date` = curdate()"
         reloadDgv(query, dgvPMAttendance)
     End Sub
@@ -90,7 +94,11 @@ Public Class frmAttendance
                     Else
                         reloadtxt("SELECT * FROM attendance WHERE PracticumID = '" & txtPM.Text & "' AND PM_Status = 'IN'")
                         If dt.Rows.Count > 0 Then
-                            Dim pmout As String = "UPDATE attendance SET TimeLogOut_PM = '" & TimeofD & "', PM_Status = 'OUT' WHERE PracticumID = '" & txtPM.Text & "' AND `Date` = '" & logdate & "'"
+                            Dim pmout As String = "UPDATE attendance SET TimeLogOut_PM = '" & lbltimer.Text & "'" _
+                                 & ", PM_Status = 'OUT', Hours = TIMESTAMPDIFF(hour, DATE_FORMAT(DATE_ADD" _
+                                 & "(TimeLogIn_PM, INTERVAL 30 MINUTE),'%Y-%m-%d %H:00:00'), DATE_FORMAT(DATE_ADD" _
+                                 & "(TimeLogOut_PM, INTERVAL 30 MINUTE), '%Y-%m-%d %H:00:00'))" _
+                                 & " WHERE PracticumID = '" & txtPM.Text & "' AND `Date` = '" & logdate & "'"
                             Dim QueryString2 As String = String.Concat(pmout, ";", query2)
                             updateNoMsg(QueryString2)
                             load_PMAttendance()
@@ -98,10 +106,12 @@ Public Class frmAttendance
                             txtPM.Text = Nothing
                             TabPage2.Refresh()
                         Else
-                            reloadtxt("SELECT * FROM attendance WHERE PracticumID = '" & txtPM.Text & "' AND DATE = '" & logdate _
-                    & "' AND AM_Status = 'OUT'")
+                            reloadtxt("SELECT * FROM attendance WHERE PracticumID = '" & txtPM.Text & "'" _
+                                & " AND DATE = '" & logdate & "' AND AM_Status = 'OUT'")
                             If dt.Rows.Count > 0 Then
-                                Dim pmin As String = "UPDATE attendance SET TimeLogIn_PM = '" & TimeofD & "', PM_Status = 'IN' WHERE PracticumID = '" & txtPM.Text & "' AND `Date` = '" & logdate & "'"
+                                Dim pmin As String = "UPDATE attendance SET TimeLogIn_PM = '" & lbltimer.Text _
+                                    & "', PM_Status = 'IN' WHERE PracticumID = '" & txtPM.Text & "'" _
+                                    & " AND `Date` = '" & logdate & "'"
                                 Dim QueryString4 As String = String.Concat(pmin, ";", query2)
                                 updateNoMsg(QueryString4)
                                 load_PMAttendance()
@@ -110,7 +120,7 @@ Public Class frmAttendance
                                 TabPage2.Refresh()
                             Else
                                 Dim pmins As String = "INSERT INTO attendance (PracticumID, Date, TimeLogIn_PM, PM_Status) " _
-                          & " VALUES ('" & txtPM.Text & "', '" & logdate & "', '" & TimeOfDay & "', 'IN')"
+                             & " VALUES ('" & txtPM.Text & "', '" & logdate & "', '" & lbltimer.Text & "', 'IN')"
                                 Dim QueryString5 As String = String.Concat(pmins, ";", query2)
                                 createNoMsg(QueryString5)
                                 load_PMAttendance()

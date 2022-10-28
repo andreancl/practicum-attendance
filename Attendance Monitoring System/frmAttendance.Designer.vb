@@ -70,6 +70,7 @@ Partial Class frmAttendance
         Me.txtPM = New System.Windows.Forms.TextBox()
         Me.lblTime = New System.Windows.Forms.Label()
         Me.lblDate = New System.Windows.Forms.Label()
+        Me.lbltimer = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.pbAM, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -612,6 +613,15 @@ Partial Class frmAttendance
         Me.lblDate.TabIndex = 186
         Me.lblDate.Text = "DATE"
         '
+        'lbltimer
+        '
+        Me.lbltimer.AutoSize = True
+        Me.lbltimer.Location = New System.Drawing.Point(669, 141)
+        Me.lbltimer.Name = "lbltimer"
+        Me.lbltimer.Size = New System.Drawing.Size(0, 13)
+        Me.lbltimer.TabIndex = 188
+        Me.lbltimer.Visible = False
+        '
         'frmAttendance
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -620,6 +630,7 @@ Partial Class frmAttendance
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.ClientSize = New System.Drawing.Size(1130, 585)
         Me.ControlBox = False
+        Me.Controls.Add(Me.lbltimer)
         Me.Controls.Add(Me.lblTime)
         Me.Controls.Add(Me.lblDate)
         Me.Controls.Add(Me.lblResRec)
@@ -680,4 +691,5 @@ Partial Class frmAttendance
     Friend WithEvents lblPM As System.Windows.Forms.Label
     Friend WithEvents pbAM As System.Windows.Forms.PictureBox
     Friend WithEvents pbPM As System.Windows.Forms.PictureBox
+    Friend WithEvents lbltimer As System.Windows.Forms.Label
 End Class
