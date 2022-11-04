@@ -35,6 +35,7 @@ Partial Class frmMain
         Me.btnPracticums = New System.Windows.Forms.Button()
         Me.btnDashboard = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.lblUser = New System.Windows.Forms.Label()
         Me.Panel3.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -197,12 +198,25 @@ Partial Class frmMain
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.Green
+        Me.Panel1.Controls.Add(Me.lblUser)
         Me.Panel1.Controls.Add(Me.GroupBox1)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(228, 749)
         Me.Panel1.TabIndex = 9
+        '
+        'lblUser
+        '
+        Me.lblUser.AutoSize = True
+        Me.lblUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.lblUser.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblUser.ForeColor = System.Drawing.Color.White
+        Me.lblUser.Location = New System.Drawing.Point(6, 90)
+        Me.lblUser.Name = "lblUser"
+        Me.lblUser.Size = New System.Drawing.Size(42, 21)
+        Me.lblUser.TabIndex = 2
+        Me.lblUser.Text = "User"
         '
         'frmMain
         '
@@ -221,6 +235,7 @@ Partial Class frmMain
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -236,4 +251,5 @@ Partial Class frmMain
     Friend WithEvents btnAttendance As System.Windows.Forms.Button
     Friend WithEvents btnRecords As System.Windows.Forms.Button
     Friend WithEvents btnSettings As System.Windows.Forms.Button
+    Friend WithEvents lblUser As System.Windows.Forms.Label
 End Class

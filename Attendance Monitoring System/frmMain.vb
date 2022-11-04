@@ -36,4 +36,5 @@
         closeChildForm()
         showForm(frmSettings)
     End Sub
+
 End Class

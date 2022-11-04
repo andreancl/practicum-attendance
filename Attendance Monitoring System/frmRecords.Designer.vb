@@ -23,12 +23,12 @@ Partial Class frmRecords
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmRecords))
-        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle22 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle23 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle24 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
         Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
         Me.LogPanel = New System.Windows.Forms.Panel()
@@ -79,6 +79,8 @@ Partial Class frmRecords
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.btnPrintRecord = New System.Windows.Forms.Button()
         Me.btnPrintProfile = New System.Windows.Forms.Button()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.lblTotalHours = New System.Windows.Forms.Label()
         Me.LogPanel.SuspendLayout()
         CType(Me.dgvPracticumRecord, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlPracticums.SuspendLayout()
@@ -204,31 +206,31 @@ Partial Class frmRecords
         Me.dgvPracticumRecord.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dgvPracticumRecord.BackgroundColor = System.Drawing.Color.Green
         Me.dgvPracticumRecord.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle19.BackColor = System.Drawing.Color.Green
-        DataGridViewCellStyle19.Font = New System.Drawing.Font("Calibri", 12.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(175, Byte), Integer), CType(CType(221, Byte), Integer), CType(CType(148, Byte), Integer))
-        DataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvPracticumRecord.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle19
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.Green
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Calibri", 12.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(175, Byte), Integer), CType(CType(221, Byte), Integer), CType(CType(148, Byte), Integer))
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvPracticumRecord.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvPracticumRecord.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvPracticumRecord.Cursor = System.Windows.Forms.Cursors.Default
-        DataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle20.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.Green
-        DataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvPracticumRecord.DefaultCellStyle = DataGridViewCellStyle20
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Green
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvPracticumRecord.DefaultCellStyle = DataGridViewCellStyle2
         Me.dgvPracticumRecord.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.dgvPracticumRecord.Location = New System.Drawing.Point(150, 111)
         Me.dgvPracticumRecord.Name = "dgvPracticumRecord"
         Me.dgvPracticumRecord.RowHeadersVisible = False
-        DataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(247, Byte), Integer))
-        Me.dgvPracticumRecord.RowsDefaultCellStyle = DataGridViewCellStyle21
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(247, Byte), Integer))
+        Me.dgvPracticumRecord.RowsDefaultCellStyle = DataGridViewCellStyle3
         Me.dgvPracticumRecord.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvPracticumRecord.Size = New System.Drawing.Size(957, 464)
         Me.dgvPracticumRecord.StandardTab = True
@@ -262,6 +264,8 @@ Partial Class frmRecords
         'pnlPracticums
         '
         Me.pnlPracticums.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnlPracticums.Controls.Add(Me.lblTotalHours)
+        Me.pnlPracticums.Controls.Add(Me.Label16)
         Me.pnlPracticums.Controls.Add(Me.lblEndDate)
         Me.pnlPracticums.Controls.Add(Me.lblStartDate)
         Me.pnlPracticums.Controls.Add(Me.lblSY)
@@ -418,31 +422,31 @@ Partial Class frmRecords
         Me.dgvPersonalRecord.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dgvPersonalRecord.BackgroundColor = System.Drawing.Color.Green
         Me.dgvPersonalRecord.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle22.BackColor = System.Drawing.Color.Green
-        DataGridViewCellStyle22.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(175, Byte), Integer), CType(CType(221, Byte), Integer), CType(CType(148, Byte), Integer))
-        DataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvPersonalRecord.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle22
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.Green
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(175, Byte), Integer), CType(CType(221, Byte), Integer), CType(CType(148, Byte), Integer))
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvPersonalRecord.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.dgvPersonalRecord.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvPersonalRecord.Cursor = System.Windows.Forms.Cursors.Default
-        DataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle23.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.Green
-        DataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvPersonalRecord.DefaultCellStyle = DataGridViewCellStyle23
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Green
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvPersonalRecord.DefaultCellStyle = DataGridViewCellStyle5
         Me.dgvPersonalRecord.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.dgvPersonalRecord.Location = New System.Drawing.Point(365, 11)
         Me.dgvPersonalRecord.Name = "dgvPersonalRecord"
         Me.dgvPersonalRecord.RowHeadersVisible = False
-        DataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(247, Byte), Integer))
-        Me.dgvPersonalRecord.RowsDefaultCellStyle = DataGridViewCellStyle24
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(247, Byte), Integer))
+        Me.dgvPersonalRecord.RowsDefaultCellStyle = DataGridViewCellStyle6
         Me.dgvPersonalRecord.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvPersonalRecord.Size = New System.Drawing.Size(565, 411)
         Me.dgvPersonalRecord.StandardTab = True
@@ -761,6 +765,31 @@ Partial Class frmRecords
         Me.btnPrintProfile.Text = "Print"
         Me.btnPrintProfile.UseVisualStyleBackColor = False
         '
+        'Label16
+        '
+        Me.Label16.BackColor = System.Drawing.Color.Transparent
+        Me.Label16.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.ForeColor = System.Drawing.Color.Black
+        Me.Label16.Location = New System.Drawing.Point(373, 428)
+        Me.Label16.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(101, 25)
+        Me.Label16.TabIndex = 288
+        Me.Label16.Text = "Total Hours:"
+        Me.Label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'lblTotalHours
+        '
+        Me.lblTotalHours.BackColor = System.Drawing.Color.Transparent
+        Me.lblTotalHours.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotalHours.ForeColor = System.Drawing.Color.Black
+        Me.lblTotalHours.Location = New System.Drawing.Point(469, 428)
+        Me.lblTotalHours.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
+        Me.lblTotalHours.Name = "lblTotalHours"
+        Me.lblTotalHours.Size = New System.Drawing.Size(224, 25)
+        Me.lblTotalHours.TabIndex = 289
+        Me.lblTotalHours.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
         'frmRecords
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -850,4 +879,6 @@ Partial Class frmRecords
     Friend WithEvents cmbFilter As System.Windows.Forms.ComboBox
     Friend WithEvents btnPrintRecord As System.Windows.Forms.Button
     Friend WithEvents btnPrintProfile As System.Windows.Forms.Button
+    Friend WithEvents lblTotalHours As System.Windows.Forms.Label
+    Friend WithEvents Label16 As System.Windows.Forms.Label
 End Class

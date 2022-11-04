@@ -37,9 +37,11 @@ Public Class frmRecords
                 & " AS 'Full Name', `Date`, TIME_FORMAT(`TimeLogIn_AM`, '%r') AS 'AM Time In'" _
                 & ", TIME_FORMAT(`TimeLogOut_AM`, '%r') AS 'AM Time Out'" _
                 & ", TIME_FORMAT(`TimeLogIn_PM`, '%r') AS 'PM Time In'" _
-                & ", TIME_FORMAT(`TimeLogOut_PM`, '%r') AS 'PM Time Out' FROM `attendance`"
+                & ", TIME_FORMAT(`TimeLogOut_PM`, '%r') AS 'PM Time Out'" _
+                & ", `TotalHours` AS 'Total Hours' FROM `attendance`"
             reloadDgv(query, dgvPracticumRecord)
         Catch ex As Exception
+            MessageBox.Show(ex.Message & vbCrLf & ex.StackTrace)
         End Try
     End Sub
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
@@ -48,10 +50,11 @@ Public Class frmRecords
                 & " AS 'Full Name', `Date`, TIME_FORMAT(`TimeLogIn_AM`, '%r') AS 'AM Time In'" _
                 & ", TIME_FORMAT(`TimeLogOut_AM`, '%r') AS 'AM Time Out'" _
                 & ", TIME_FORMAT(`TimeLogIn_PM`, '%r') AS 'PM Time In'" _
-                & ", TIME_FORMAT(`TimeLogOut_PM`, '%r') AS 'PM Time Out' FROM `attendance`" _
-                & " WHERE `Date` BETWEEN '" & dtpFROM.Text & "' AND '" & dtpTO.Text & "'"
+                & ", TIME_FORMAT(`TimeLogOut_PM`, '%r') AS 'PM Time Out',  `TotalHours` AS 'Total Hours'" _
+                & " FROM `attendance` WHERE `Date` BETWEEN '" & dtpFROM.Text & "' AND '" & dtpTO.Text & "'"
             reloadDgv(query, dgvPracticumRecord)
         Catch ex As Exception
+            MessageBox.Show(ex.Message & vbCrLf & ex.StackTrace)
         End Try
     End Sub
     Private Sub btnProfile_Click(sender As Object, e As EventArgs) Handles btnProfile.Click
@@ -83,6 +86,7 @@ Public Class frmRecords
                 lblSY.Text = dt.Rows(0).Item("SchoolYear")
                 lblStartDate.Text = dt.Rows(0).Item("StartDate")
                 lblEndDate.Text = dt.Rows(0).Item("EndDate")
+                lblTotalHours.Text = dt.Rows(0).Item("TotalHour")
                 Dim lb() As Byte = dt.Rows(0).Item("img")
                 Dim lstr As New System.IO.MemoryStream(lb)
                 pbProfile.Image = Image.FromStream(lstr)
@@ -97,6 +101,7 @@ Public Class frmRecords
                 lblSY.Text = Nothing
                 lblStartDate.Text = Nothing
                 lblEndDate.Text = Nothing
+                lblTotalHours.Text = Nothing
                 pbProfile.Image = Nothing
             End If
             query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
@@ -104,12 +109,18 @@ Public Class frmRecords
                & ", TIME_FORMAT(`TimeLogOut_AM`, '%r') AS 'AM Time Out'" _
                & ", TIME_FORMAT(`TimeLogIn_PM`, '%r') AS 'PM Time In'" _
                & ", TIME_FORMAT(`TimeLogOut_PM`, '%r') AS 'PM Time Out'" _
+               & ", `TotalHours` AS 'Total Hours'" _
                & " FROM `attendance` WHERE `PracticumID`='" & txtProfileSearch.Text & "'"
             reloadDgv(query, dgvPersonalRecord)
         Catch ex As Exception
+            MessageBox.Show(ex.Message & vbCrLf & ex.StackTrace)
         End Try
     End Sub
     Private Sub btnRecords_Click(sender As Object, e As EventArgs) Handles btnRecords.Click
+        dgvPracticumRecord.RowTemplate.Height = 25
+        dgvPracticumRecord.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells
+        dgvPracticumRecord.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        dgvPracticumRecord.AlternatingRowsDefaultCellStyle.BackColor = Color.White
         btnPrintProfile.Hide()
         pnlDateFilter.Hide()
         pnlProfileSearch.Hide()
@@ -119,52 +130,63 @@ Public Class frmRecords
         lblTitle.Text = "PRACTICUM LIST"
         Try
             query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
-                   & " AS 'Full Name', `Course`, `Venue`, `Assignment`, `TotalHours` AS 'Total Hours'," _
-                   & " `Batch`, `SchoolYear` AS 'S.Y', `StartDate` AS 'Start Date', `EndDate` AS 'End Date'" _
-                   & " FROM `practicum`"
+                & " AS 'Full Name', `Course`, `Venue`, `Assignment`, `TotalHour` AS 'Total Hours'," _
+                & " `Batch`,  `SchoolYear` AS 'S.Y', `StartDate` AS 'Start Date', " _
+                & " `EndDate` AS 'End Date' FROM `practicum`"
             reloadDgv(query, dgvPracticumRecord)
         Catch ex As Exception
+            MessageBox.Show(ex.Message & vbCrLf & ex.StackTrace)
         End Try
     End Sub
 
     Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
-        If cmbFilter.Text = "PRACTICUM ID" Then
-            query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
-               & " AS 'Full Name', `Course`, `Venue`, `Assignment`, `Batch`,  `SchoolYear` AS 'S.Y', " _
-               & " `StartDate` AS 'Start Date', `EndDate` AS 'End Date' FROM `practicum`" _
-               & " WHERE PracticumID LIKE '%" & txtSearch.Text & "%'"
-            reloadDgv(query, dgvPracticumRecord)
-        ElseIf cmbFilter.Text = "NAME" Then
-            query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
-                & " AS 'Full Name', `Course`, `Venue`, `Assignment`, `Batch`,  `SchoolYear` AS 'S.Y', " _
-                & " `StartDate` AS 'Start Date', `EndDate` AS 'End Date' FROM `practicum`" _
-                & " WHERE CONCAT(`LastName`,', ', `FirstName`) LIKE '%" & txtSearch.Text & "%'"
-            reloadDgv(query, dgvPracticumRecord)
-        ElseIf cmbFilter.Text = "COURSE" Then
-            query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
-              & " AS 'Full Name', `Course`, `Venue`, `Assignment`, `Batch`,  `SchoolYear` AS 'S.Y', " _
-              & " `StartDate` AS 'Start Date', `EndDate` AS 'End Date' FROM `practicum`" _
-              & " WHERE Course LIKE '%" & txtSearch.Text & "%'"
-            reloadDgv(query, dgvPracticumRecord)
-        ElseIf cmbFilter.Text = "VENUE" Then
-            query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
-              & " AS 'Full Name', `Course`, `Venue`, `Assignment`, `Batch`,  `SchoolYear` AS 'S.Y', " _
-              & " `StartDate` AS 'Start Date', `EndDate` AS 'End Date' FROM `practicum`" _
-              & " WHERE Venue LIKE '%" & txtSearch.Text & "%'"
-            reloadDgv(query, dgvPracticumRecord)
-        ElseIf cmbFilter.Text = "ASSIGNMENT" Then
-            query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
-              & " AS 'Full Name', `Course`, `Venue`, `Assignment`, `Batch`,  `SchoolYear` AS 'S.Y', " _
-              & " `StartDate` AS 'Start Date', `EndDate` AS 'End Date' FROM `practicum`" _
-              & " WHERE Assignment LIKE '%" & txtSearch.Text & "%'"
-            reloadDgv(query, dgvPracticumRecord)
-        ElseIf cmbFilter.Text = "BATCH" Then
-            query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
-              & " AS 'Full Name', `Course`, `Venue`, `Assignment`, `Batch`,  `SchoolYear` AS 'S.Y', " _
-              & " `StartDate` AS 'Start Date', `EndDate` AS 'End Date' FROM `practicum`" _
-              & " WHERE Batch LIKE '%" & txtSearch.Text & "%'"
-            reloadDgv(query, dgvPracticumRecord)
-        End If
+        Try
+            If cmbFilter.Text = "PRACTICUM ID" Then
+                query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
+                    & " AS 'Full Name', `Course`, `Venue`, `Assignment`, `TotalHour` AS 'Total Hours'," _
+                    & " `Batch`,  `SchoolYear` AS 'S.Y', `StartDate` AS 'Start Date', " _
+                    & " `EndDate` AS 'End Date' FROM `practicum`" _
+                    & " WHERE PracticumID LIKE '%" & txtSearch.Text & "%'"
+                reloadDgv(query, dgvPracticumRecord)
+            ElseIf cmbFilter.Text = "NAME" Then
+                query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
+                     & " AS 'Full Name', `Course`, `Venue`, `Assignment`, `TotalHour` AS 'Total Hours'," _
+                     & " `Batch`,  `SchoolYear` AS 'S.Y', `StartDate` AS 'Start Date', " _
+                     & " `EndDate` AS 'End Date' FROM `practicum`" _
+                     & " WHERE CONCAT(`LastName`,', ', `FirstName`) LIKE '%" & txtSearch.Text & "%'"
+                reloadDgv(query, dgvPracticumRecord)
+            ElseIf cmbFilter.Text = "COURSE" Then
+                query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
+                    & " AS 'Full Name', `Course`, `Venue`, `Assignment`, `TotalHour` AS 'Total Hours'," _
+                    & " `Batch`,  `SchoolYear` AS 'S.Y', `StartDate` AS 'Start Date', " _
+                    & " `EndDate` AS 'End Date' FROM `practicum`" _
+                    & " WHERE Course LIKE '%" & txtSearch.Text & "%'"
+                reloadDgv(query, dgvPracticumRecord)
+            ElseIf cmbFilter.Text = "VENUE" Then
+                query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
+                    & " AS 'Full Name', `Course`, `Venue`, `Assignment`, `TotalHour` AS 'Total Hours'," _
+                    & " `Batch`,  `SchoolYear` AS 'S.Y', `StartDate` AS 'Start Date', " _
+                    & " `EndDate` AS 'End Date' FROM `practicum`" _
+                    & " WHERE Venue LIKE '%" & txtSearch.Text & "%'"
+                reloadDgv(query, dgvPracticumRecord)
+            ElseIf cmbFilter.Text = "ASSIGNMENT" Then
+                query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
+                    & " AS 'Full Name', `Course`, `Venue`, `Assignment`, `TotalHour` AS 'Total Hours'," _
+                    & " `Batch`,  `SchoolYear` AS 'S.Y', `StartDate` AS 'Start Date', " _
+                    & " `EndDate` AS 'End Date' FROM `practicum`" _
+                    & " WHERE Assignment LIKE '%" & txtSearch.Text & "%'"
+                reloadDgv(query, dgvPracticumRecord)
+            ElseIf cmbFilter.Text = "BATCH" Then
+                query = "SELECT `PracticumID` AS 'Practicum ID', CONCAT(`LastName`,', ', `FirstName`)" _
+                    & " AS 'Full Name', `Course`, `Venue`, `Assignment`, `TotalHour` AS 'Total Hours'," _
+                    & " `Batch`,  `SchoolYear` AS 'S.Y', `StartDate` AS 'Start Date', " _
+                    & " `EndDate` AS 'End Date' FROM `practicum`" _
+                    & " WHERE Batch LIKE '%" & txtSearch.Text & "%'"
+                reloadDgv(query, dgvPracticumRecord)
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message & vbCrLf & ex.StackTrace)
+        End Try
     End Sub
     Private Sub PrintDocument1_PrintPage(sender As System.Object, e As PrintPageEventArgs) Handles PrintDocument1.PrintPage
         Try
@@ -256,6 +278,7 @@ Public Class frmRecords
                 End If
             Next
         Catch ex As Exception
+            MessageBox.Show(ex.Message & vbCrLf & ex.StackTrace)
         End Try
     End Sub
     Private Sub txtProfileSearch_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtProfileSearch.KeyPress
@@ -276,6 +299,7 @@ Public Class frmRecords
             PrintPreviewDialog1.Document = PrintDocument1
             PrintPreviewDialog1.ShowDialog()
         Catch ex As Exception
+            MessageBox.Show(ex.Message & vbCrLf & ex.StackTrace)
         End Try
     End Sub
 
@@ -291,6 +315,7 @@ Public Class frmRecords
             PrintPreviewDialog2.Document = PrintDocument2
             PrintPreviewDialog2.ShowDialog()
         Catch ex As Exception
+            MessageBox.Show(ex.Message & vbCrLf & ex.StackTrace)
         End Try
     End Sub
 
@@ -384,6 +409,7 @@ Public Class frmRecords
                 End If
             Next
         Catch ex As Exception
+            MessageBox.Show(ex.Message & vbCrLf & ex.StackTrace)
         End Try
     End Sub
 End Class

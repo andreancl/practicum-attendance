@@ -5,6 +5,7 @@ Public Class frmAttendance
     Public con As MySqlConnection = mysqldb()
     Dim logdate As String = String.Format("{0:yyyy-MM-dd}", Date.Now)
     Dim query2 As String = "UPDATE attendance att, practicum prac SET att.LastName = prac.LastName, att.FirstName = prac.FirstName WHERE att.PracticumID = prac.PracticumID"
+    Dim query3 As String = "UPDATE practicum SET TotalHour = (SELECT SUM(TotalHours) FROM attendance WHERE attendance.PracticumID = practicum.PracticumID)"
     Dim tlhrs As String = "UPDATE attendance SET TotalHours = COALESCE(AM_Hours, 0) + COALESCE(PM_Hours, 0)"
     Private Sub frmAttendance_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         load_AMAttendance()
@@ -50,16 +51,17 @@ Public Class frmAttendance
                                 & "(TimeLogIn_AM, INTERVAL 30 MINUTE),'%Y-%m-%d %H:00:00'), DATE_FORMAT(DATE_ADD" _
                                 & "(TimeLogOut_AM, INTERVAL 30 MINUTE), '%Y-%m-%d %H:00:00'))" _
                                 & " WHERE PracticumID = '" & txtAM.Text & "' AND `Date` = '" & logdate & "'"
-                            Dim QueryString As String = String.Concat(amout, ";", query2, ";", tlhrs)
+                            Dim QueryString As String = String.Concat(amout, ";", query2, ";", tlhrs, ";", query3)
                             updateNoMsg(QueryString)
                             load_AMAttendance()
                             PracInfo_AM()
                             txtAM.Text = Nothing
                             TabPage1.Refresh()
                         Else
-                            Dim amin As String = "INSERT INTO attendance (PracticumID, Date, TimeLogIn_AM, AM_Status) " _
-                            & " VALUES ('" & txtAM.Text & "', '" & logdate & "', '" & lbltimer.Text & "', 'IN')"
-                            Dim QueryString1 As String = String.Concat(amin, ";", query2)
+                            Dim amin As String = "INSERT INTO attendance (PracticumID, Date, TimeLogIn_AM, AM_Status" _
+                            & ", Username) VALUES ('" & txtAM.Text & "', '" & logdate & "', '" & lbltimer.Text _
+                            & "', 'IN', '" & frmMain.lblUser.Text & "')"
+                            Dim QueryString1 As String = String.Concat(amin, ";", query2, ";", query3)
                             createNoMsg(QueryString1)
                             load_AMAttendance()
                             PracInfo_AM()
@@ -71,6 +73,7 @@ Public Class frmAttendance
                 End If
             End If
         Catch ex As Exception
+            MessageBox.Show(ex.Message & vbCrLf & ex.StackTrace)
         End Try
     End Sub
     Public Sub load_PMAttendance()
@@ -100,7 +103,7 @@ Public Class frmAttendance
                                  & "(TimeLogIn_PM, INTERVAL 30 MINUTE),'%Y-%m-%d %H:00:00'), DATE_FORMAT(DATE_ADD" _
                                  & "(TimeLogOut_PM, INTERVAL 30 MINUTE), '%Y-%m-%d %H:00:00'))" _
                                  & "WHERE PracticumID = '" & txtPM.Text & "' AND `Date` = '" & logdate & "'"
-                            Dim QueryString2 As String = String.Concat(pmout, ";", query2, ";", tlhrs)
+                            Dim QueryString2 As String = String.Concat(pmout, ";", query2, ";", tlhrs, ";", query3)
                             updateNoMsg(QueryString2)
                             load_PMAttendance()
                             PracInfo_PM()
@@ -113,16 +116,17 @@ Public Class frmAttendance
                                 Dim pmin As String = "UPDATE attendance SET TimeLogIn_PM = '" & lbltimer.Text _
                                     & "', PM_Status = 'IN' WHERE PracticumID = '" & txtPM.Text & "'" _
                                     & " AND `Date` = '" & logdate & "'"
-                                Dim QueryString4 As String = String.Concat(pmin, ";", query2)
+                                Dim QueryString4 As String = String.Concat(pmin, ";", query2, ";", query3)
                                 updateNoMsg(QueryString4)
                                 load_PMAttendance()
                                 PracInfo_PM()
                                 txtPM.Text = Nothing
                                 TabPage2.Refresh()
                             Else
-                                Dim pmins As String = "INSERT INTO attendance (PracticumID, Date, TimeLogIn_PM, PM_Status) " _
-                             & " VALUES ('" & txtPM.Text & "', '" & logdate & "', '" & lbltimer.Text & "', 'IN')"
-                                Dim QueryString5 As String = String.Concat(pmins, ";", query2)
+                                Dim pmins As String = "INSERT INTO attendance (PracticumID, Date, TimeLogIn_PM" _
+                                    & ", PM_Status, Username) VALUES ('" & txtPM.Text & "', '" & logdate & "'" _
+                                    & ", '" & lbltimer.Text & "', 'IN', '" & frmMain.lblUser.Text & "')"
+                                Dim QueryString5 As String = String.Concat(pmins, ";", query2, ";", query3)
                                 createNoMsg(QueryString5)
                                 load_PMAttendance()
                                 PracInfo_PM()
@@ -135,6 +139,7 @@ Public Class frmAttendance
                 End If
             End If
         Catch ex As Exception
+            MessageBox.Show(ex.Message & vbCrLf & ex.StackTrace)
         End Try
     End Sub
     Public Sub PracInfo_AM()
@@ -160,6 +165,7 @@ Public Class frmAttendance
                 pbAM.Image = Nothing
             End If
         Catch ex As Exception
+            MessageBox.Show(ex.Message & vbCrLf & ex.StackTrace)
         End Try
     End Sub
     Public Sub PracInfo_PM()
@@ -185,6 +191,7 @@ Public Class frmAttendance
                 pbPM.Image = Nothing
             End If
         Catch ex As Exception
+            MessageBox.Show(ex.Message & vbCrLf & ex.StackTrace)
         End Try
     End Sub
     Private Sub txtAM_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtAM.KeyPress
@@ -226,6 +233,7 @@ Public Class frmAttendance
                 pbAM.Image = Nothing
             End If
         Catch ex As Exception
+            MessageBox.Show(ex.Message & vbCrLf & ex.StackTrace)
         End Try
     End Sub
     Private Sub lblPM_TextChanged(sender As Object, e As EventArgs) Handles lblPM.TextChanged
@@ -251,6 +259,7 @@ Public Class frmAttendance
                 pbPM.Image = Nothing
             End If
         Catch ex As Exception
+            MessageBox.Show(ex.Message & vbCrLf & ex.StackTrace)
         End Try
     End Sub
 End Class

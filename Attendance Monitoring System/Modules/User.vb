@@ -11,6 +11,7 @@ Module user
             If dr.HasRows() Then
                 dr.Read()
                 If dr("UserTypeId") = "1" Then
+                    frmMain.lblUser.Text = frmLogIn.txtUsername.Text
                     With frmMain
                         .btnDashboard.Visible = True
                         .btnPracticums.Visible = True
@@ -23,6 +24,7 @@ Module user
                     showForm(frmDashboard)
                     frmLogIn.Hide()
                 Else
+                    frmMain.lblUser.Text = frmLogIn.txtUsername.Text
                     With frmMain
                         .btnDashboard.Visible = True
                         .btnPracticums.Visible = False
